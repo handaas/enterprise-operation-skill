@@ -1,0 +1,4 @@
+interface:
+  display_name: "企业经营分析报告"
+  short_description: "基于 HandaaS 企业经营分析 MCP，生成产品标签 / 公司趋势标签 / 品牌概况 / 经营规模 / 企业排名 / 融资信息 / 税务资质 / 相似项目 / 舆情情感统计的专业 HTML / Markdown / JSON 报告。"
+  default_prompt: "使用 $enterprise-operation-report 生成「企业名称」的企业经营分析报告：自动补全企业全称，调用经营分析 MCP 工具，产出 HTML + Markdown + JSON 三件套。"
