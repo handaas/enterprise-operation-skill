@@ -7,7 +7,7 @@
 ## 通用约定
 
 - `keywordType` 枚举：`name`（企业名称）/ `nameId`（企业 id）/ `regNumber`（注册号）/ `socialCreditCode`（统一社会信用代码）。
-- 分页：`pageIndex` 从 1 开始；企业排名 / 相似项目 `pageSize` 单页最多 10。
+- 分页：`pageIndex` 从 1 开始；企业排名 / 相似项目 `pageSize` 单页最多 10。仅这两个明细接口支持分页，本 skill 按显式页数预算采集（CLI `--max-pages`，默认 1 页；首屏同时作报告数据与 total 发现，不重复请求）；其余维度接口不支持 pageIndex（单次调用），关键词模糊查询仅用于主体确认、不分页遍历。
 - 0/1 布尔字段（公司趋势）：`0` 表示“否”，`1` 表示“是”。
 
 ---

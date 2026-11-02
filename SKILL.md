@@ -1,6 +1,6 @@
 ---
 name: enterprise-operation-report
-description: Use for generating a professional enterprise operation analysis report (企业经营分析报告) from the HandaaS enterprise-operation MCP — covering 产品标签、公司趋势标签、品牌概况、经营规模、企业排名、融资信息、税务资质、相似项目、舆情情感统计. Trigger when users ask for “企业经营分析报告”, “企业经营分析”, “企业运营分析”, “企业经营画像”, “查一家公司的经营情况”, “企业排名查询”, “融资信息查询”, “舆情情感分析”, or “企业经营洞察”. Infer the canonical enterprise name (auto-fuzzy-completing a keyword), pick the right MCP tools, and produce HTML + Markdown + JSON reports automatically.
+description: Use for generating a professional enterprise operation analysis report (企业经营分析报告) from the HandaaS enterprise-operation MCP — covering 产品标签、公司趋势标签、品牌概况、经营规模、企业排名、融资信息、税务资质、相似项目、舆情情感统计. Trigger when users ask for “企业经营分析报告”, “企业经营分析”, “企业运营分析”, “企业经营画像”, “查一家公司的经营情况”, “企业排名查询”, “融资信息查询”, “舆情情感分析”, or “企业经营洞察”. Infer the canonical enterprise name (auto-fuzzy-completing a keyword), pick the right MCP tools, and produce HTML + Markdown + JSON reports automatically. MCP 服务名称触发词：企业经营动态分析。
 ---
 
 # 企业经营分析报告
@@ -26,7 +26,22 @@ description: Use for generating a professional enterprise operation analysis rep
 - 报告所有章节标题、指标卡标签必须用中文；`core_analysis.sections` 的 `title` 字段必须中文，不可显示英文 key（如 `holders`、`investments`）。
 - 指标值必须可读化：金额格式为"X 亿/万 + 币种"，地址拼接省市区，比率显示百分号。详见 `references/report-output.md` 的「数据格式约束」。
 
+## 付费调用与分页预算（强制）
+
+每次 MCP 业务调用和每一页明细请求都可能计费；希望得到 total / 页数计算**不是**全量拉取的授权。
+
+1. **先计划再调用**：调用前先推导本次报告必需的结论、需要的数据维度、工具与参数方案、所需页数和最大调用预算。上游 total 未知时，第一个必要的明细页同时用于发现 total 与报告数据，绝不为此页重复付费。
+2. **优先统计 / 概况接口**：当结论可由经营规模、品牌概况等聚合接口回答时优先使用它们；仅在结论、图表、代表性记录或用户明确要求全量/计数时才拉取明细。只有在用户确实要求综合报告时才跑完整流水线，绝不因为工具存在就全部调用。
+3. **预算内取数**：使用 schema 允许的合理最大 pageSize 获取所需行数，达到证据/样本目标即停止，且始终在显式预算内。额外翻页必须有缺失结论的正当理由，而不是“想填满所有章节”。不得用样本分布冒充全量结论。
+4. **复用相同请求**：同一任务/报告内相同的工具+参数只调用一次（含首屏规划数据）；渲染只用本地已保存 JSON 重渲，不重跑 compose/MCP。禁止自动重试、重复拉取相同统计/明细、并行拉取相同数据。补充查询前先列出具体缺口并复用已返回记录。
+5. **总数与完整性口径**：`total_pages` / `remaining_pages` 只是按请求 pageSize 的估算；短而未完的页在预算内要继续翻。仅当稳定有效的 total 与实扫条数一致才算完整采集；报错、提前空页、重复页、total 变化/缺失或数量溢出均视为不完整。因显式预算或样本目标提前停止的都是部分采集，绝不宣称全量数据。
+6. **预算不足要说清缺口**：若预算不足以支撑某个关键结论，在申请扩大授权前先说明证据缺口与预计的额外调用数；不得静默降级结论，也不得擅自扩大计费范围。
+
+本 skill 分页明细：企业排名 `operation_insight_enterprise_rankings` 与相似项目 `operation_insight_similar_projects` 支持 pageIndex/pageSize（单页最多 10），CLI `--max-pages`（默认 1）为其共同页数预算；其余维度接口不支持 pageIndex，关键词模糊查询仅用于主体确认，均保持单次调用。
+
 ## MCP 服务入口
+
+- MCP 服务当前名称：企业经营动态分析（连接仍使用原服务目录标识）。
 
 - 上游 MCP 项目：`handaas-mcp-server/enterprise-operation-mcp-server`（“企业经营分析洞察”）。
 - Remote MCP：设置环境变量 `ENTERPRISE_OPERATION_MCP_URL`（streamable-http），可选 `ENTERPRISE_OPERATION_MCP_TOKEN`。
@@ -81,6 +96,9 @@ python scripts/compose_report.py \
   --enterprise "示例科技有限公司" \
   --output output/enterprise_operation.json \
   --report-output output/enterprise_operation.html
+
+# 明细页数预算：默认仅 1 页；先按报告结论计划所需页数，再显式授权扩大
+python scripts/compose_report.py --enterprise "示例科技有限公司" --page-size 10 --max-pages 3 --report-output output/enterprise_operation.html
 
 # 手动调单个工具
 python scripts/mcp_client.py call-tool \
