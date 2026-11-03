@@ -1,0 +1,1183 @@
+{
+  "run_id": "live-replaced-20261027",
+  "skill": "enterprise-operation-skill",
+  "counts": {
+    "passed": 6
+  },
+  "scenarios": [
+    {
+      "scenario": {
+        "id": "01-growth-overview",
+        "title": "成长型科技企业经营画像",
+        "user_request": "分析华为技术有限公司的品牌、经营规模、融资、排名和舆情结构。",
+        "purpose": "形成经营概览并识别后续深挖维度。",
+        "args": [
+          "--enterprise",
+          "华为技术有限公司",
+          "--page-size",
+          "10"
+        ],
+        "expected_checks": [
+          "经营规模、品牌、融资和排名应分章呈现",
+          "趋势与舆情必须来自返回统计",
+          "分页列表不得超过 10 条",
+          "quality_report 与章节填充一致"
+        ],
+        "limitations": [
+          "仅反映本次 HandaaS 数据产品返回范围与生成时点，不等同于官方证明。",
+          "空结果必须保留为空，不能解释为该事项客观不存在。",
+          "经营规模标签不等同于审计财务数据。"
+        ]
+      },
+      "result": {
+        "schema_version": 1,
+        "skill": "enterprise-operation-skill",
+        "case_id": "01-growth-overview",
+        "title": "成长型科技企业经营画像",
+        "invocation_id": "1793069014557320000",
+        "provenance": {
+          "integrator_id": "683e574805537ace146cc05e",
+          "runner_sha256": "05777c2f2b0791cb5157aef691206606dade8df7af3b17212285b7ae74632a66",
+          "credential_policy_sha256": "bcabf08a1ca92f28357c0e57a8bae9bfa910eb1d4b204d8195ee3b7a77106eed",
+          "scenario_sha256": "46bbd3a38393d9dbcbfd71f9cff67d2466dfa40abf08d0551ee7e6d2c3b209b5",
+          "skill_source_hashes": {
+            "scripts/common.py": "6abc0d9924e42c344bd3376f2753440723ba63b85e09a4fd5446627f6a522a43",
+            "scripts/compose_report.py": "ac0bf3cc77d4bb4da7d45a7166a73e7844349ba59604630a6afaf99ff14c585c",
+            "scripts/mcp_client.py": "b881f4efd7992b69843365c3b2b756ef377ae0607fb5f66054aa527e4c428ca8",
+            "scripts/render_report.py": "6042cca2e90702b447e0a4bdc412798bcf776fd89757803bd7aeb404502f859b",
+            "scripts/validate_config.py": "4bb4001d452a004faeaf4b00bddbf94197b2c8cbc4338bb04d273a93c9a6c0c3"
+          },
+          "upstream_source_hashes": {
+            "enterprise-operation-mcp-server": "46af6307784e60a051c16fb45a890979a4c994ff26c50af6cec85b3117619a49"
+          },
+          "upstream_dependency_hashes": {
+            "enterprise-operation-mcp-server/server/mcp_server.py": "46af6307784e60a051c16fb45a890979a4c994ff26c50af6cec85b3117619a49"
+          }
+        },
+        "source_changed_during_run": false,
+        "started_at": "2026-10-27T10:43:34+08:00",
+        "elapsed_seconds": 8.311,
+        "returncode": 0,
+        "exception_type": null,
+        "command": "python3 enterprise-operation-skill/scripts/compose_report.py --enterprise '华为技术有限公司' --page-size 10 --output enterprise-operation-skill/output/live-replaced-20261027/01-growth-overview/report.json --report-output enterprise-operation-skill/output/live-replaced-20261027/01-growth-overview/report.html",
+        "transport": "local MCP servers via loopback streamable-http",
+        "cache_used": false,
+        "call_count": 9,
+        "successful_data_calls": 7,
+        "empty_calls": 2,
+        "failed_calls": 0,
+        "checks": {
+          "issues": [],
+          "warnings": [],
+          "coverage_pct": 82,
+          "subject": {
+            "enterprise": "华为技术有限公司",
+            "matchKeyword": "华为技术有限公司",
+            "keywordType": "name",
+            "match_raw": "华为技术有限公司",
+            "resolved": true,
+            "resolve_reason": "用户提供企业全称"
+          },
+          "title": "华为技术有限公司 企业经营分析报告",
+          "data_mode": null,
+          "metrics": [
+            {
+              "label": "人员规模",
+              "value": "10000人以上",
+              "hint": "算法识别的企业人员规模"
+            },
+            {
+              "label": "年营业额",
+              "value": "10亿以上",
+              "hint": "算法识别的企业年营业额区间"
+            },
+            {
+              "label": "上榜次数",
+              "value": "18",
+              "hint": "企业上榜榜单总数"
+            },
+            {
+              "label": "相似项目总量",
+              "value": "24",
+              "hint": "上游响应返回的相似项目 total"
+            },
+            {
+              "label": "上榜级别数",
+              "value": "2",
+              "hint": "不同榜单级别的数量"
+            },
+            {
+              "label": "榜单类型数",
+              "value": "3",
+              "hint": "不同榜单类型的数量"
+            },
+            {
+              "label": "当前页展示项目数",
+              "value": "10",
+              "hint": "本次响应当前页实际展示的相似项目记录数"
+            },
+            {
+              "label": "正面舆情率",
+              "value": "53.6%",
+              "hint": "正面舆情占总舆情比例"
+            },
+            {
+              "label": "品牌发源地",
+              "value": "深圳市、广东省深圳市、广东",
+              "hint": "品牌创立地点"
+            },
+            {
+              "label": "税务资质数",
+              "value": "3",
+              "hint": "持有的税务资质数量"
+            }
+          ],
+          "quality_report": {
+            "total_sections": 11,
+            "populated_sections": 9,
+            "empty_sections": 2,
+            "coverage_pct": 82
+          },
+          "unregistered_tools": [],
+          "checks": {
+            "json_html_markdown": true,
+            "explicit_live": true,
+            "tool_calls_recorded": 9,
+            "offline_scripts": true,
+            "independent_rerender": true,
+            "offline_browser": true
+          }
+        },
+        "status": "passed",
+        "source_hashes": {
+          "scripts/common.py": "6abc0d9924e42c344bd3376f2753440723ba63b85e09a4fd5446627f6a522a43",
+          "scripts/compose_report.py": "ac0bf3cc77d4bb4da7d45a7166a73e7844349ba59604630a6afaf99ff14c585c",
+          "scripts/mcp_client.py": "b881f4efd7992b69843365c3b2b756ef377ae0607fb5f66054aa527e4c428ca8",
+          "scripts/render_report.py": "6042cca2e90702b447e0a4bdc412798bcf776fd89757803bd7aeb404502f859b",
+          "scripts/validate_config.py": "4bb4001d452a004faeaf4b00bddbf94197b2c8cbc4338bb04d273a93c9a6c0c3"
+        },
+        "technical_status": "passed",
+        "audited_at": "2026-10-27T11:12:58+08:00",
+        "evidence_binding": {
+          "report.json": "8998e616840044a467d54f7c6d433cbae14a6dab8daa48b2c83478349bdab5d0",
+          "report.html": "a4f26f835da02dd6e966ecade566cb40a36de87e24c298c1a92078996b6b5b5a",
+          "report.md": "5f96ade5c195a242c258ec8320512a9ff72696beee3b770d62383889a9c2d667",
+          "calls.json": "c1b06476255a7098d34c93ce1f4a5a7ef29e437926a2570da15918bae2a0d70b",
+          "result.json": "918af5a9b98a87ed29808dabcd8fcf85afcda5e1c16c3153060ce14fa29aeff2",
+          "source_manifest_sha256": "014e0c39ccd221d4b037bfafc75dc705b73521da54c003be18fa8ca62d4dab92"
+        },
+        "business_review": {
+          "id": "01-growth-overview",
+          "verdict": "acceptable",
+          "summary": "本轮正式真实产物已逐项复核；结论限于上游公开数据、本次分页样本及报告声明口径。",
+          "checks": [
+            {
+              "expectation": "经营规模、品牌、融资和排名应分章呈现",
+              "status": "pass",
+              "evidence": "经营规模、品牌、排名、税务、相似项目、舆情分别为独立section；融资工具empty且未伪造融资记录。摘要只列9个实际非空section，不再声称覆盖空的产品标签/融资。 本轮实际产物：technical_status=passed，successful_data_calls=7，subject.enterprise=华为技术有限公司，match_raw=华为技术有限公司，resolved=True；calls=[operation_insight_product_tags:empty,rows=None,total=None; operation_insight_company_trends:data,rows=None,total=None; operation_insight_brand_profile:data,rows=None,total=None; operation_insight_business_scale:data,rows=None,total=None; operation_insight_enterprise_rankings:data,rows=10,total=18; operation_insight_financing_info:empty,rows=None,total=None; operation_insight_tax_qualifications:data,rows=None,total=None; operation_insight_similar_projects:data,rows=10,total=24; operation_insight_news_sentiment_stats:data,rows=None,total=None]；metrics=[人员规模=10000人以上; 年营业额=10亿以上; 上榜次数=18; 相似项目总量=24; 上榜级别数=2; 榜单类型数=3; 当前页展示项目数=10; 正面舆情率=53.6%; 品牌发源地=深圳市、广东省深圳市、广东; 税务资质数=3]；sections=[product_tags=0, company_trends=1, recent_qualifications=1, brand_profile=2, business_scale=2, enterprise_rankings=10, financing_info=0, tax_qualifications=3, similar_projects=10, news_sentiment=4, news_sentiment_trend=12]；quality_report={\"total_sections\":11,\"populated_sections\":9,\"empty_sections\":2,\"coverage_pct\":82}。"
+            },
+            {
+              "expectation": "趋势与舆情必须来自返回统计",
+              "status": "pass",
+              "evidence": "company_trends来自operation_insight_company_trends；news_sentiment及12月趋势来自operation_insight_news_sentiment_stats，正面舆情率53.6%。 本轮实际产物：technical_status=passed，successful_data_calls=7，subject.enterprise=华为技术有限公司，match_raw=华为技术有限公司，resolved=True；calls=[operation_insight_product_tags:empty,rows=None,total=None; operation_insight_company_trends:data,rows=None,total=None; operation_insight_brand_profile:data,rows=None,total=None; operation_insight_business_scale:data,rows=None,total=None; operation_insight_enterprise_rankings:data,rows=10,total=18; operation_insight_financing_info:empty,rows=None,total=None; operation_insight_tax_qualifications:data,rows=None,total=None; operation_insight_similar_projects:data,rows=10,total=24; operation_insight_news_sentiment_stats:data,rows=None,total=None]；metrics=[人员规模=10000人以上; 年营业额=10亿以上; 上榜次数=18; 相似项目总量=24; 上榜级别数=2; 榜单类型数=3; 当前页展示项目数=10; 正面舆情率=53.6%; 品牌发源地=深圳市、广东省深圳市、广东; 税务资质数=3]；sections=[product_tags=0, company_trends=1, recent_qualifications=1, brand_profile=2, business_scale=2, enterprise_rankings=10, financing_info=0, tax_qualifications=3, similar_projects=10, news_sentiment=4, news_sentiment_trend=12]；quality_report={\"total_sections\":11,\"populated_sections\":9,\"empty_sections\":2,\"coverage_pct\":82}。"
+            },
+            {
+              "expectation": "分页列表不得超过 10 条",
+              "status": "pass",
+              "evidence": "enterprise_rankings与similar_projects当前页均10条，pageSize=10；相似项目total24与当前页10分列。 本轮实际产物：technical_status=passed，successful_data_calls=7，subject.enterprise=华为技术有限公司，match_raw=华为技术有限公司，resolved=True；calls=[operation_insight_product_tags:empty,rows=None,total=None; operation_insight_company_trends:data,rows=None,total=None; operation_insight_brand_profile:data,rows=None,total=None; operation_insight_business_scale:data,rows=None,total=None; operation_insight_enterprise_rankings:data,rows=10,total=18; operation_insight_financing_info:empty,rows=None,total=None; operation_insight_tax_qualifications:data,rows=None,total=None; operation_insight_similar_projects:data,rows=10,total=24; operation_insight_news_sentiment_stats:data,rows=None,total=None]；metrics=[人员规模=10000人以上; 年营业额=10亿以上; 上榜次数=18; 相似项目总量=24; 上榜级别数=2; 榜单类型数=3; 当前页展示项目数=10; 正面舆情率=53.6%; 品牌发源地=深圳市、广东省深圳市、广东; 税务资质数=3]；sections=[product_tags=0, company_trends=1, recent_qualifications=1, brand_profile=2, business_scale=2, enterprise_rankings=10, financing_info=0, tax_qualifications=3, similar_projects=10, news_sentiment=4, news_sentiment_trend=12]；quality_report={\"total_sections\":11,\"populated_sections\":9,\"empty_sections\":2,\"coverage_pct\":82}。"
+            },
+            {
+              "expectation": "quality_report 与章节填充一致",
+              "status": "pass",
+              "evidence": "11节中9节填充、2节为空、coverage82%，与product_tags/financing_info为空一致。 本轮实际产物：technical_status=passed，successful_data_calls=7，subject.enterprise=华为技术有限公司，match_raw=华为技术有限公司，resolved=True；calls=[operation_insight_product_tags:empty,rows=None,total=None; operation_insight_company_trends:data,rows=None,total=None; operation_insight_brand_profile:data,rows=None,total=None; operation_insight_business_scale:data,rows=None,total=None; operation_insight_enterprise_rankings:data,rows=10,total=18; operation_insight_financing_info:empty,rows=None,total=None; operation_insight_tax_qualifications:data,rows=None,total=None; operation_insight_similar_projects:data,rows=10,total=24; operation_insight_news_sentiment_stats:data,rows=None,total=None]；metrics=[人员规模=10000人以上; 年营业额=10亿以上; 上榜次数=18; 相似项目总量=24; 上榜级别数=2; 榜单类型数=3; 当前页展示项目数=10; 正面舆情率=53.6%; 品牌发源地=深圳市、广东省深圳市、广东; 税务资质数=3]；sections=[product_tags=0, company_trends=1, recent_qualifications=1, brand_profile=2, business_scale=2, enterprise_rankings=10, financing_info=0, tax_qualifications=3, similar_projects=10, news_sentiment=4, news_sentiment_trend=12]；quality_report={\"total_sections\":11,\"populated_sections\":9,\"empty_sections\":2,\"coverage_pct\":82}。"
+            }
+          ],
+          "issues": [],
+          "evidence_binding": {
+            "report.json": "8998e616840044a467d54f7c6d433cbae14a6dab8daa48b2c83478349bdab5d0",
+            "report.html": "a4f26f835da02dd6e966ecade566cb40a36de87e24c298c1a92078996b6b5b5a",
+            "report.md": "5f96ade5c195a242c258ec8320512a9ff72696beee3b770d62383889a9c2d667",
+            "calls.json": "c1b06476255a7098d34c93ce1f4a5a7ef29e437926a2570da15918bae2a0d70b",
+            "result.json": "918af5a9b98a87ed29808dabcd8fcf85afcda5e1c16c3153060ce14fa29aeff2",
+            "source_manifest_sha256": "014e0c39ccd221d4b037bfafc75dc705b73521da54c003be18fa8ca62d4dab92"
+          }
+        }
+      }
+    },
+    {
+      "scenario": {
+        "id": "02-ev-operation",
+        "title": "新能源汽车企业经营跟踪",
+        "user_request": "生成比亚迪股份有限公司经营分析报告，关注排名、融资和趋势标签。",
+        "purpose": "跟踪行业龙头的外部经营信号。",
+        "args": [
+          "--enterprise",
+          "比亚迪股份有限公司",
+          "--page-size",
+          "8"
+        ],
+        "expected_checks": [
+          "排名需保留口径字段",
+          "融资记录日期和轮次不应混淆",
+          "趋势标签不得扩写为确定性预测"
+        ],
+        "limitations": [
+          "仅反映本次 HandaaS 数据产品返回范围与生成时点，不等同于官方证明。",
+          "空结果必须保留为空，不能解释为该事项客观不存在。",
+          "不能从标签直接推导未来销量或盈利。"
+        ]
+      },
+      "result": {
+        "schema_version": 1,
+        "skill": "enterprise-operation-skill",
+        "case_id": "02-ev-operation",
+        "title": "新能源汽车企业经营跟踪",
+        "invocation_id": "1793069014607386000",
+        "provenance": {
+          "integrator_id": "683e574805537ace146cc05e",
+          "runner_sha256": "05777c2f2b0791cb5157aef691206606dade8df7af3b17212285b7ae74632a66",
+          "credential_policy_sha256": "bcabf08a1ca92f28357c0e57a8bae9bfa910eb1d4b204d8195ee3b7a77106eed",
+          "scenario_sha256": "1bc4488e953235c0100ffc16aa4c47558dd4c9f4d5ea25932cf6825228f0db44",
+          "skill_source_hashes": {
+            "scripts/common.py": "6abc0d9924e42c344bd3376f2753440723ba63b85e09a4fd5446627f6a522a43",
+            "scripts/compose_report.py": "ac0bf3cc77d4bb4da7d45a7166a73e7844349ba59604630a6afaf99ff14c585c",
+            "scripts/mcp_client.py": "b881f4efd7992b69843365c3b2b756ef377ae0607fb5f66054aa527e4c428ca8",
+            "scripts/render_report.py": "6042cca2e90702b447e0a4bdc412798bcf776fd89757803bd7aeb404502f859b",
+            "scripts/validate_config.py": "4bb4001d452a004faeaf4b00bddbf94197b2c8cbc4338bb04d273a93c9a6c0c3"
+          },
+          "upstream_source_hashes": {
+            "enterprise-operation-mcp-server": "46af6307784e60a051c16fb45a890979a4c994ff26c50af6cec85b3117619a49"
+          },
+          "upstream_dependency_hashes": {
+            "enterprise-operation-mcp-server/server/mcp_server.py": "46af6307784e60a051c16fb45a890979a4c994ff26c50af6cec85b3117619a49"
+          }
+        },
+        "source_changed_during_run": false,
+        "started_at": "2026-10-27T10:43:34+08:00",
+        "elapsed_seconds": 8.256,
+        "returncode": 0,
+        "exception_type": null,
+        "command": "python3 enterprise-operation-skill/scripts/compose_report.py --enterprise '比亚迪股份有限公司' --page-size 8 --output enterprise-operation-skill/output/live-replaced-20261027/02-ev-operation/report.json --report-output enterprise-operation-skill/output/live-replaced-20261027/02-ev-operation/report.html",
+        "transport": "local MCP servers via loopback streamable-http",
+        "cache_used": false,
+        "call_count": 9,
+        "successful_data_calls": 8,
+        "empty_calls": 1,
+        "failed_calls": 0,
+        "checks": {
+          "issues": [],
+          "warnings": [],
+          "coverage_pct": 82,
+          "subject": {
+            "enterprise": "比亚迪股份有限公司",
+            "matchKeyword": "比亚迪股份有限公司",
+            "keywordType": "name",
+            "match_raw": "比亚迪股份有限公司",
+            "resolved": true,
+            "resolve_reason": "用户提供企业全称"
+          },
+          "title": "比亚迪股份有限公司 企业经营分析报告",
+          "data_mode": null,
+          "metrics": [
+            {
+              "label": "人员规模",
+              "value": "10000人以上",
+              "hint": "算法识别的企业人员规模"
+            },
+            {
+              "label": "年营业额",
+              "value": "10亿以上",
+              "hint": "算法识别的企业年营业额区间"
+            },
+            {
+              "label": "上榜次数",
+              "value": "76",
+              "hint": "企业上榜榜单总数"
+            },
+            {
+              "label": "融资次数",
+              "value": "7",
+              "hint": "历史融资次数"
+            },
+            {
+              "label": "相似项目总量",
+              "value": "86",
+              "hint": "上游响应返回的相似项目 total"
+            },
+            {
+              "label": "上榜级别数",
+              "value": "3",
+              "hint": "不同榜单级别的数量"
+            },
+            {
+              "label": "榜单类型数",
+              "value": "5",
+              "hint": "不同榜单类型的数量"
+            },
+            {
+              "label": "融资轮次",
+              "value": "定向增发 → 定向增发 → 战略投资 → 战略投资 → IPO → IPO → A轮",
+              "hint": "历史融资轮次轨迹"
+            },
+            {
+              "label": "当前页展示项目数",
+              "value": "8",
+              "hint": "本次响应当前页实际展示的相似项目记录数"
+            },
+            {
+              "label": "正面舆情率",
+              "value": "30.0%",
+              "hint": "正面舆情占总舆情比例"
+            },
+            {
+              "label": "品牌发源地",
+              "value": "广东省深圳市、深圳市、泸州市",
+              "hint": "品牌创立地点"
+            },
+            {
+              "label": "税务资质数",
+              "value": "3",
+              "hint": "持有的税务资质数量"
+            }
+          ],
+          "quality_report": {
+            "total_sections": 11,
+            "populated_sections": 9,
+            "empty_sections": 2,
+            "coverage_pct": 82
+          },
+          "unregistered_tools": [],
+          "checks": {
+            "json_html_markdown": true,
+            "explicit_live": true,
+            "tool_calls_recorded": 9,
+            "offline_scripts": true,
+            "independent_rerender": true,
+            "offline_browser": true
+          }
+        },
+        "status": "passed",
+        "source_hashes": {
+          "scripts/common.py": "6abc0d9924e42c344bd3376f2753440723ba63b85e09a4fd5446627f6a522a43",
+          "scripts/compose_report.py": "ac0bf3cc77d4bb4da7d45a7166a73e7844349ba59604630a6afaf99ff14c585c",
+          "scripts/mcp_client.py": "b881f4efd7992b69843365c3b2b756ef377ae0607fb5f66054aa527e4c428ca8",
+          "scripts/render_report.py": "6042cca2e90702b447e0a4bdc412798bcf776fd89757803bd7aeb404502f859b",
+          "scripts/validate_config.py": "4bb4001d452a004faeaf4b00bddbf94197b2c8cbc4338bb04d273a93c9a6c0c3"
+        },
+        "technical_status": "passed",
+        "audited_at": "2026-10-27T11:12:58+08:00",
+        "evidence_binding": {
+          "report.json": "a52e62a21ff74ea38b2909173e02c618796b70eb353fec3164781870c2a87191",
+          "report.html": "c9b702748636a53d9f6721ada147bde1f4e45f776433a025bc09ca92a18bac6c",
+          "report.md": "2d44d30512fae90cceae2bdb8addb60c5c1f8cbf1518364bb3628c954b077fab",
+          "calls.json": "4331a5d335d32ed4b0957d51268f7a1b1c087418e327c9352e90d675228ab543",
+          "result.json": "9e07cab2580f6d88521a5d248acc41c8188193fddadc6e66496f89b2eed28d33",
+          "source_manifest_sha256": "014e0c39ccd221d4b037bfafc75dc705b73521da54c003be18fa8ca62d4dab92"
+        },
+        "business_review": {
+          "id": "02-ev-operation",
+          "verdict": "acceptable",
+          "summary": "本轮正式真实产物已逐项复核；结论限于上游公开数据、本次分页样本及报告声明口径。",
+          "checks": [
+            {
+              "expectation": "排名需保留口径字段",
+              "status": "pass",
+              "evidence": "enterprise_rankings当前页8条，记录保留榜单名称、类型、发布年份、级别、发布单位及排名。 本轮实际产物：technical_status=passed，successful_data_calls=8，subject.enterprise=比亚迪股份有限公司，match_raw=比亚迪股份有限公司，resolved=True；calls=[operation_insight_product_tags:empty,rows=None,total=None; operation_insight_company_trends:data,rows=None,total=None; operation_insight_brand_profile:data,rows=None,total=None; operation_insight_business_scale:data,rows=None,total=None; operation_insight_enterprise_rankings:data,rows=8,total=76; operation_insight_financing_info:data,rows=None,total=None; operation_insight_tax_qualifications:data,rows=None,total=None; operation_insight_similar_projects:data,rows=8,total=86; operation_insight_news_sentiment_stats:data,rows=None,total=None]；metrics=[人员规模=10000人以上; 年营业额=10亿以上; 上榜次数=76; 融资次数=7; 相似项目总量=86; 上榜级别数=3; 榜单类型数=5; 融资轮次=定向增发 → 定向增发 → 战略投资 → 战略投资 → IPO → IPO → A轮; 当前页展示项目数=8; 正面舆情率=30.0%; 品牌发源地=广东省深圳市、深圳市、泸州市; 税务资质数=3]；sections=[product_tags=0, company_trends=1, recent_qualifications=0, brand_profile=4, business_scale=2, enterprise_rankings=8, financing_info=7, tax_qualifications=3, similar_projects=8, news_sentiment=4, news_sentiment_trend=12]；quality_report={\"total_sections\":11,\"populated_sections\":9,\"empty_sections\":2,\"coverage_pct\":82}。"
+            },
+            {
+              "expectation": "融资记录日期和轮次不应混淆",
+              "status": "pass",
+              "evidence": "financing_info共7条；融资时间、轮次、金额为独立字段，摘要/指标保留7次轮次轨迹。 本轮实际产物：technical_status=passed，successful_data_calls=8，subject.enterprise=比亚迪股份有限公司，match_raw=比亚迪股份有限公司，resolved=True；calls=[operation_insight_product_tags:empty,rows=None,total=None; operation_insight_company_trends:data,rows=None,total=None; operation_insight_brand_profile:data,rows=None,total=None; operation_insight_business_scale:data,rows=None,total=None; operation_insight_enterprise_rankings:data,rows=8,total=76; operation_insight_financing_info:data,rows=None,total=None; operation_insight_tax_qualifications:data,rows=None,total=None; operation_insight_similar_projects:data,rows=8,total=86; operation_insight_news_sentiment_stats:data,rows=None,total=None]；metrics=[人员规模=10000人以上; 年营业额=10亿以上; 上榜次数=76; 融资次数=7; 相似项目总量=86; 上榜级别数=3; 榜单类型数=5; 融资轮次=定向增发 → 定向增发 → 战略投资 → 战略投资 → IPO → IPO → A轮; 当前页展示项目数=8; 正面舆情率=30.0%; 品牌发源地=广东省深圳市、深圳市、泸州市; 税务资质数=3]；sections=[product_tags=0, company_trends=1, recent_qualifications=0, brand_profile=4, business_scale=2, enterprise_rankings=8, financing_info=7, tax_qualifications=3, similar_projects=8, news_sentiment=4, news_sentiment_trend=12]；quality_report={\"total_sections\":11,\"populated_sections\":9,\"empty_sections\":2,\"coverage_pct\":82}。"
+            },
+            {
+              "expectation": "趋势标签不得扩写为确定性预测",
+              "status": "pass",
+              "evidence": "近期动向明确仅为数据源标签，不能作为经营预测或领先信号。 本轮实际产物：technical_status=passed，successful_data_calls=8，subject.enterprise=比亚迪股份有限公司，match_raw=比亚迪股份有限公司，resolved=True；calls=[operation_insight_product_tags:empty,rows=None,total=None; operation_insight_company_trends:data,rows=None,total=None; operation_insight_brand_profile:data,rows=None,total=None; operation_insight_business_scale:data,rows=None,total=None; operation_insight_enterprise_rankings:data,rows=8,total=76; operation_insight_financing_info:data,rows=None,total=None; operation_insight_tax_qualifications:data,rows=None,total=None; operation_insight_similar_projects:data,rows=8,total=86; operation_insight_news_sentiment_stats:data,rows=None,total=None]；metrics=[人员规模=10000人以上; 年营业额=10亿以上; 上榜次数=76; 融资次数=7; 相似项目总量=86; 上榜级别数=3; 榜单类型数=5; 融资轮次=定向增发 → 定向增发 → 战略投资 → 战略投资 → IPO → IPO → A轮; 当前页展示项目数=8; 正面舆情率=30.0%; 品牌发源地=广东省深圳市、深圳市、泸州市; 税务资质数=3]；sections=[product_tags=0, company_trends=1, recent_qualifications=0, brand_profile=4, business_scale=2, enterprise_rankings=8, financing_info=7, tax_qualifications=3, similar_projects=8, news_sentiment=4, news_sentiment_trend=12]；quality_report={\"total_sections\":11,\"populated_sections\":9,\"empty_sections\":2,\"coverage_pct\":82}。"
+            }
+          ],
+          "issues": [],
+          "evidence_binding": {
+            "report.json": "a52e62a21ff74ea38b2909173e02c618796b70eb353fec3164781870c2a87191",
+            "report.html": "c9b702748636a53d9f6721ada147bde1f4e45f776433a025bc09ca92a18bac6c",
+            "report.md": "2d44d30512fae90cceae2bdb8addb60c5c1f8cbf1518364bb3628c954b077fab",
+            "calls.json": "4331a5d335d32ed4b0957d51268f7a1b1c087418e327c9352e90d675228ab543",
+            "result.json": "9e07cab2580f6d88521a5d248acc41c8188193fddadc6e66496f89b2eed28d33",
+            "source_manifest_sha256": "014e0c39ccd221d4b037bfafc75dc705b73521da54c003be18fa8ca62d4dab92"
+          }
+        }
+      }
+    },
+    {
+      "scenario": {
+        "id": "03-consumer-brand",
+        "title": "消费品牌经营评估",
+        "user_request": "查看贵州茅台酒股份有限公司的品牌、经营规模和企业排名。",
+        "purpose": "支持渠道合作和品牌评估。",
+        "args": [
+          "--enterprise",
+          "贵州茅台酒股份有限公司",
+          "--page-size",
+          "8"
+        ],
+        "expected_checks": [
+          "品牌和产品标签需去除空值",
+          "排名应带可识别的榜单或口径信息",
+          "摘要应反映真实返回维度而非固定套话"
+        ],
+        "limitations": [
+          "仅反映本次 HandaaS 数据产品返回范围与生成时点，不等同于官方证明。",
+          "空结果必须保留为空，不能解释为该事项客观不存在。",
+          "品牌热度不等同于市场份额。"
+        ]
+      },
+      "result": {
+        "schema_version": 1,
+        "skill": "enterprise-operation-skill",
+        "case_id": "03-consumer-brand",
+        "title": "消费品牌经营评估",
+        "invocation_id": "1793069017757343000",
+        "provenance": {
+          "integrator_id": "683e574805537ace146cc05e",
+          "runner_sha256": "05777c2f2b0791cb5157aef691206606dade8df7af3b17212285b7ae74632a66",
+          "credential_policy_sha256": "bcabf08a1ca92f28357c0e57a8bae9bfa910eb1d4b204d8195ee3b7a77106eed",
+          "scenario_sha256": "7ab3b47650012667494a938ece12c29abb37582ce24e666d70bfe0486c4bde5c",
+          "skill_source_hashes": {
+            "scripts/common.py": "6abc0d9924e42c344bd3376f2753440723ba63b85e09a4fd5446627f6a522a43",
+            "scripts/compose_report.py": "ac0bf3cc77d4bb4da7d45a7166a73e7844349ba59604630a6afaf99ff14c585c",
+            "scripts/mcp_client.py": "b881f4efd7992b69843365c3b2b756ef377ae0607fb5f66054aa527e4c428ca8",
+            "scripts/render_report.py": "6042cca2e90702b447e0a4bdc412798bcf776fd89757803bd7aeb404502f859b",
+            "scripts/validate_config.py": "4bb4001d452a004faeaf4b00bddbf94197b2c8cbc4338bb04d273a93c9a6c0c3"
+          },
+          "upstream_source_hashes": {
+            "enterprise-operation-mcp-server": "46af6307784e60a051c16fb45a890979a4c994ff26c50af6cec85b3117619a49"
+          },
+          "upstream_dependency_hashes": {
+            "enterprise-operation-mcp-server/server/mcp_server.py": "46af6307784e60a051c16fb45a890979a4c994ff26c50af6cec85b3117619a49"
+          }
+        },
+        "source_changed_during_run": false,
+        "started_at": "2026-10-27T10:43:37+08:00",
+        "elapsed_seconds": 9.799,
+        "returncode": 0,
+        "exception_type": null,
+        "command": "python3 enterprise-operation-skill/scripts/compose_report.py --enterprise '贵州茅台酒股份有限公司' --page-size 8 --output enterprise-operation-skill/output/live-replaced-20261027/03-consumer-brand/report.json --report-output enterprise-operation-skill/output/live-replaced-20261027/03-consumer-brand/report.html",
+        "transport": "local MCP servers via loopback streamable-http",
+        "cache_used": false,
+        "call_count": 9,
+        "successful_data_calls": 8,
+        "empty_calls": 1,
+        "failed_calls": 0,
+        "checks": {
+          "issues": [],
+          "warnings": [],
+          "coverage_pct": 82,
+          "subject": {
+            "enterprise": "贵州茅台酒股份有限公司",
+            "matchKeyword": "贵州茅台酒股份有限公司",
+            "keywordType": "name",
+            "match_raw": "贵州茅台酒股份有限公司",
+            "resolved": true,
+            "resolve_reason": "用户提供企业全称"
+          },
+          "title": "贵州茅台酒股份有限公司 企业经营分析报告",
+          "data_mode": null,
+          "metrics": [
+            {
+              "label": "人员规模",
+              "value": "10000人以上",
+              "hint": "算法识别的企业人员规模"
+            },
+            {
+              "label": "年营业额",
+              "value": "10亿以上",
+              "hint": "算法识别的企业年营业额区间"
+            },
+            {
+              "label": "上榜次数",
+              "value": "25",
+              "hint": "企业上榜榜单总数"
+            },
+            {
+              "label": "融资次数",
+              "value": "4",
+              "hint": "历史融资次数"
+            },
+            {
+              "label": "相似项目总量",
+              "value": "55",
+              "hint": "上游响应返回的相似项目 total"
+            },
+            {
+              "label": "上榜级别数",
+              "value": "2",
+              "hint": "不同榜单级别的数量"
+            },
+            {
+              "label": "榜单类型数",
+              "value": "2",
+              "hint": "不同榜单类型的数量"
+            },
+            {
+              "label": "融资轮次",
+              "value": "上市后 → 战略投资 → 上市后 → 上市",
+              "hint": "历史融资轮次轨迹"
+            },
+            {
+              "label": "当前页展示项目数",
+              "value": "8",
+              "hint": "本次响应当前页实际展示的相似项目记录数"
+            },
+            {
+              "label": "正面舆情率",
+              "value": "18.1%",
+              "hint": "正面舆情占总舆情比例"
+            },
+            {
+              "label": "品牌发源地",
+              "value": "仁怀市茅台镇、遵义市",
+              "hint": "品牌创立地点"
+            },
+            {
+              "label": "税务资质数",
+              "value": "1",
+              "hint": "持有的税务资质数量"
+            }
+          ],
+          "quality_report": {
+            "total_sections": 11,
+            "populated_sections": 9,
+            "empty_sections": 2,
+            "coverage_pct": 82
+          },
+          "unregistered_tools": [],
+          "checks": {
+            "json_html_markdown": true,
+            "explicit_live": true,
+            "tool_calls_recorded": 9,
+            "offline_scripts": true,
+            "independent_rerender": true,
+            "offline_browser": true
+          }
+        },
+        "status": "passed",
+        "source_hashes": {
+          "scripts/common.py": "6abc0d9924e42c344bd3376f2753440723ba63b85e09a4fd5446627f6a522a43",
+          "scripts/compose_report.py": "ac0bf3cc77d4bb4da7d45a7166a73e7844349ba59604630a6afaf99ff14c585c",
+          "scripts/mcp_client.py": "b881f4efd7992b69843365c3b2b756ef377ae0607fb5f66054aa527e4c428ca8",
+          "scripts/render_report.py": "6042cca2e90702b447e0a4bdc412798bcf776fd89757803bd7aeb404502f859b",
+          "scripts/validate_config.py": "4bb4001d452a004faeaf4b00bddbf94197b2c8cbc4338bb04d273a93c9a6c0c3"
+        },
+        "technical_status": "passed",
+        "audited_at": "2026-10-27T11:12:58+08:00",
+        "evidence_binding": {
+          "report.json": "b955c8796c1b04abd5d7db9382e8e9d9d8ec68b9323480b0d5fa320f10b45961",
+          "report.html": "d4d879f6b98f48a4d03ac64fab68d3be7485a0d440b6f194f773b693d107a34e",
+          "report.md": "6ac5cb43a8eaeb47c74394cd455be882b3c862d0e2b4fddc9d43868bcedfd648",
+          "calls.json": "0ad69ab9acffc13763533c941119f41696fddeee83c67174c9aa2869aaf160af",
+          "result.json": "0320adf619a7bebd7c370d8a0b7cc194e3d1ba660ddc9ce3a8f7a2edf1c68199",
+          "source_manifest_sha256": "014e0c39ccd221d4b037bfafc75dc705b73521da54c003be18fa8ca62d4dab92"
+        },
+        "business_review": {
+          "id": "03-consumer-brand",
+          "verdict": "acceptable",
+          "summary": "本轮正式真实产物已逐项复核；结论限于上游公开数据、本次分页样本及报告声明口径。",
+          "checks": [
+            {
+              "expectation": "品牌和产品标签需去除空值",
+              "status": "pass",
+              "evidence": "product_tags为空并保持空；brand_profile仅保留实际品牌字段，无空值条目。 本轮实际产物：technical_status=passed，successful_data_calls=8，subject.enterprise=贵州茅台酒股份有限公司，match_raw=贵州茅台酒股份有限公司，resolved=True；calls=[operation_insight_product_tags:empty,rows=None,total=None; operation_insight_company_trends:data,rows=None,total=None; operation_insight_brand_profile:data,rows=None,total=None; operation_insight_business_scale:data,rows=None,total=None; operation_insight_enterprise_rankings:data,rows=8,total=25; operation_insight_financing_info:data,rows=None,total=None; operation_insight_tax_qualifications:data,rows=None,total=None; operation_insight_similar_projects:data,rows=8,total=55; operation_insight_news_sentiment_stats:data,rows=None,total=None]；metrics=[人员规模=10000人以上; 年营业额=10亿以上; 上榜次数=25; 融资次数=4; 相似项目总量=55; 上榜级别数=2; 榜单类型数=2; 融资轮次=上市后 → 战略投资 → 上市后 → 上市; 当前页展示项目数=8; 正面舆情率=18.1%; 品牌发源地=仁怀市茅台镇、遵义市; 税务资质数=1]；sections=[product_tags=0, company_trends=1, recent_qualifications=0, brand_profile=4, business_scale=2, enterprise_rankings=8, financing_info=4, tax_qualifications=1, similar_projects=8, news_sentiment=4, news_sentiment_trend=12]；quality_report={\"total_sections\":11,\"populated_sections\":9,\"empty_sections\":2,\"coverage_pct\":82}。"
+            },
+            {
+              "expectation": "排名应带可识别的榜单或口径信息",
+              "status": "pass",
+              "evidence": "enterprise_rankings当前页8条、total25，保留榜单名/类型/年份/级别/发布单位。 本轮实际产物：technical_status=passed，successful_data_calls=8，subject.enterprise=贵州茅台酒股份有限公司，match_raw=贵州茅台酒股份有限公司，resolved=True；calls=[operation_insight_product_tags:empty,rows=None,total=None; operation_insight_company_trends:data,rows=None,total=None; operation_insight_brand_profile:data,rows=None,total=None; operation_insight_business_scale:data,rows=None,total=None; operation_insight_enterprise_rankings:data,rows=8,total=25; operation_insight_financing_info:data,rows=None,total=None; operation_insight_tax_qualifications:data,rows=None,total=None; operation_insight_similar_projects:data,rows=8,total=55; operation_insight_news_sentiment_stats:data,rows=None,total=None]；metrics=[人员规模=10000人以上; 年营业额=10亿以上; 上榜次数=25; 融资次数=4; 相似项目总量=55; 上榜级别数=2; 榜单类型数=2; 融资轮次=上市后 → 战略投资 → 上市后 → 上市; 当前页展示项目数=8; 正面舆情率=18.1%; 品牌发源地=仁怀市茅台镇、遵义市; 税务资质数=1]；sections=[product_tags=0, company_trends=1, recent_qualifications=0, brand_profile=4, business_scale=2, enterprise_rankings=8, financing_info=4, tax_qualifications=1, similar_projects=8, news_sentiment=4, news_sentiment_trend=12]；quality_report={\"total_sections\":11,\"populated_sections\":9,\"empty_sections\":2,\"coverage_pct\":82}。"
+            },
+            {
+              "expectation": "摘要应反映真实返回维度而非固定套话",
+              "status": "pass",
+              "evidence": "摘要动态列出9个实际非空section，没有再列空的产品标签与近期新获资质，并注明未覆盖章节不推断。 本轮实际产物：technical_status=passed，successful_data_calls=8，subject.enterprise=贵州茅台酒股份有限公司，match_raw=贵州茅台酒股份有限公司，resolved=True；calls=[operation_insight_product_tags:empty,rows=None,total=None; operation_insight_company_trends:data,rows=None,total=None; operation_insight_brand_profile:data,rows=None,total=None; operation_insight_business_scale:data,rows=None,total=None; operation_insight_enterprise_rankings:data,rows=8,total=25; operation_insight_financing_info:data,rows=None,total=None; operation_insight_tax_qualifications:data,rows=None,total=None; operation_insight_similar_projects:data,rows=8,total=55; operation_insight_news_sentiment_stats:data,rows=None,total=None]；metrics=[人员规模=10000人以上; 年营业额=10亿以上; 上榜次数=25; 融资次数=4; 相似项目总量=55; 上榜级别数=2; 榜单类型数=2; 融资轮次=上市后 → 战略投资 → 上市后 → 上市; 当前页展示项目数=8; 正面舆情率=18.1%; 品牌发源地=仁怀市茅台镇、遵义市; 税务资质数=1]；sections=[product_tags=0, company_trends=1, recent_qualifications=0, brand_profile=4, business_scale=2, enterprise_rankings=8, financing_info=4, tax_qualifications=1, similar_projects=8, news_sentiment=4, news_sentiment_trend=12]；quality_report={\"total_sections\":11,\"populated_sections\":9,\"empty_sections\":2,\"coverage_pct\":82}。"
+            }
+          ],
+          "issues": [],
+          "evidence_binding": {
+            "report.json": "b955c8796c1b04abd5d7db9382e8e9d9d8ec68b9323480b0d5fa320f10b45961",
+            "report.html": "d4d879f6b98f48a4d03ac64fab68d3be7485a0d440b6f194f773b693d107a34e",
+            "report.md": "6ac5cb43a8eaeb47c74394cd455be882b3c862d0e2b4fddc9d43868bcedfd648",
+            "calls.json": "0ad69ab9acffc13763533c941119f41696fddeee83c67174c9aa2869aaf160af",
+            "result.json": "0320adf619a7bebd7c370d8a0b7cc194e3d1ba660ddc9ce3a8f7a2edf1c68199",
+            "source_manifest_sha256": "014e0c39ccd221d4b037bfafc75dc705b73521da54c003be18fa8ca62d4dab92"
+          }
+        }
+      }
+    },
+    {
+      "scenario": {
+        "id": "04-platform-operation",
+        "title": "平台企业经营画像",
+        "user_request": "分析北京京东世纪贸易有限公司的品牌、融资、相似项目和舆情情感。",
+        "purpose": "识别平台企业经营与竞品线索。",
+        "args": [
+          "--enterprise",
+          "北京京东世纪贸易有限公司",
+          "--page-size",
+          "10"
+        ],
+        "expected_checks": [
+          "相似项目应作为线索而非关联企业事实",
+          "舆情情感的四类计数不能互相替代",
+          "融资与税务资质章节必须按源数据独立展示"
+        ],
+        "limitations": [
+          "仅反映本次 HandaaS 数据产品返回范围与生成时点，不等同于官方证明。",
+          "空结果必须保留为空，不能解释为该事项客观不存在。",
+          "相似项目由数据产品算法给出，不构成竞争关系认定。"
+        ]
+      },
+      "result": {
+        "schema_version": 1,
+        "skill": "enterprise-operation-skill",
+        "case_id": "04-platform-operation",
+        "title": "平台企业经营画像",
+        "invocation_id": "1793069017770387000",
+        "provenance": {
+          "integrator_id": "683e574805537ace146cc05e",
+          "runner_sha256": "05777c2f2b0791cb5157aef691206606dade8df7af3b17212285b7ae74632a66",
+          "credential_policy_sha256": "bcabf08a1ca92f28357c0e57a8bae9bfa910eb1d4b204d8195ee3b7a77106eed",
+          "scenario_sha256": "8bfa483069fc7216ab28295f4f81da12bde401f9638f8f986bda3ca9fe394db2",
+          "skill_source_hashes": {
+            "scripts/common.py": "6abc0d9924e42c344bd3376f2753440723ba63b85e09a4fd5446627f6a522a43",
+            "scripts/compose_report.py": "ac0bf3cc77d4bb4da7d45a7166a73e7844349ba59604630a6afaf99ff14c585c",
+            "scripts/mcp_client.py": "b881f4efd7992b69843365c3b2b756ef377ae0607fb5f66054aa527e4c428ca8",
+            "scripts/render_report.py": "6042cca2e90702b447e0a4bdc412798bcf776fd89757803bd7aeb404502f859b",
+            "scripts/validate_config.py": "4bb4001d452a004faeaf4b00bddbf94197b2c8cbc4338bb04d273a93c9a6c0c3"
+          },
+          "upstream_source_hashes": {
+            "enterprise-operation-mcp-server": "46af6307784e60a051c16fb45a890979a4c994ff26c50af6cec85b3117619a49"
+          },
+          "upstream_dependency_hashes": {
+            "enterprise-operation-mcp-server/server/mcp_server.py": "46af6307784e60a051c16fb45a890979a4c994ff26c50af6cec85b3117619a49"
+          }
+        },
+        "source_changed_during_run": false,
+        "started_at": "2026-10-27T10:43:37+08:00",
+        "elapsed_seconds": 9.166,
+        "returncode": 0,
+        "exception_type": null,
+        "command": "python3 enterprise-operation-skill/scripts/compose_report.py --enterprise '北京京东世纪贸易有限公司' --page-size 10 --output enterprise-operation-skill/output/live-replaced-20261027/04-platform-operation/report.json --report-output enterprise-operation-skill/output/live-replaced-20261027/04-platform-operation/report.html",
+        "transport": "local MCP servers via loopback streamable-http",
+        "cache_used": false,
+        "call_count": 9,
+        "successful_data_calls": 8,
+        "empty_calls": 1,
+        "failed_calls": 0,
+        "checks": {
+          "issues": [],
+          "warnings": [],
+          "coverage_pct": 82,
+          "subject": {
+            "enterprise": "北京京东世纪贸易有限公司",
+            "matchKeyword": "北京京东世纪贸易有限公司",
+            "keywordType": "name",
+            "match_raw": "北京京东世纪贸易有限公司",
+            "resolved": true,
+            "resolve_reason": "用户提供企业全称"
+          },
+          "title": "北京京东世纪贸易有限公司 企业经营分析报告",
+          "data_mode": null,
+          "metrics": [
+            {
+              "label": "人员规模",
+              "value": "10000人以上",
+              "hint": "算法识别的企业人员规模"
+            },
+            {
+              "label": "年营业额",
+              "value": "10亿以上",
+              "hint": "算法识别的企业年营业额区间"
+            },
+            {
+              "label": "上榜次数",
+              "value": "13",
+              "hint": "企业上榜榜单总数"
+            },
+            {
+              "label": "融资次数",
+              "value": "3",
+              "hint": "历史融资次数"
+            },
+            {
+              "label": "相似项目总量",
+              "value": "242",
+              "hint": "上游响应返回的相似项目 total"
+            },
+            {
+              "label": "上榜级别数",
+              "value": "2",
+              "hint": "不同榜单级别的数量"
+            },
+            {
+              "label": "榜单类型数",
+              "value": "3",
+              "hint": "不同榜单类型的数量"
+            },
+            {
+              "label": "融资轮次",
+              "value": "战略投资 → 战略投资 → A轮",
+              "hint": "历史融资轮次轨迹"
+            },
+            {
+              "label": "当前页展示项目数",
+              "value": "10",
+              "hint": "本次响应当前页实际展示的相似项目记录数"
+            },
+            {
+              "label": "正面舆情率",
+              "value": "29.6%",
+              "hint": "正面舆情占总舆情比例"
+            },
+            {
+              "label": "品牌发源地",
+              "value": "北京",
+              "hint": "品牌创立地点"
+            },
+            {
+              "label": "税务资质数",
+              "value": "2",
+              "hint": "持有的税务资质数量"
+            }
+          ],
+          "quality_report": {
+            "total_sections": 11,
+            "populated_sections": 9,
+            "empty_sections": 2,
+            "coverage_pct": 82
+          },
+          "unregistered_tools": [],
+          "checks": {
+            "json_html_markdown": true,
+            "explicit_live": true,
+            "tool_calls_recorded": 9,
+            "offline_scripts": true,
+            "independent_rerender": true,
+            "offline_browser": true
+          }
+        },
+        "status": "passed",
+        "source_hashes": {
+          "scripts/common.py": "6abc0d9924e42c344bd3376f2753440723ba63b85e09a4fd5446627f6a522a43",
+          "scripts/compose_report.py": "ac0bf3cc77d4bb4da7d45a7166a73e7844349ba59604630a6afaf99ff14c585c",
+          "scripts/mcp_client.py": "b881f4efd7992b69843365c3b2b756ef377ae0607fb5f66054aa527e4c428ca8",
+          "scripts/render_report.py": "6042cca2e90702b447e0a4bdc412798bcf776fd89757803bd7aeb404502f859b",
+          "scripts/validate_config.py": "4bb4001d452a004faeaf4b00bddbf94197b2c8cbc4338bb04d273a93c9a6c0c3"
+        },
+        "technical_status": "passed",
+        "audited_at": "2026-10-27T11:12:58+08:00",
+        "evidence_binding": {
+          "report.json": "e6c6b769e07669c3ed3c16d5ea0901015e6336843362397e83ceff9201a30c99",
+          "report.html": "c5f23be4a76a23b0335cd64125c661377650c261456c11243533931a5fcb3be8",
+          "report.md": "4203caae80c1833be8a370184c4247c4d3adcd3e88b3fcb41f79ecae3d705f39",
+          "calls.json": "20693af738db1928e54fee7df2585ad884e6a75edae29fb34a2c15bb41d4222d",
+          "result.json": "7c6d46f91caa9030c75c88d30083c8579c941fffeff6977da471648e3f2b5ab3",
+          "source_manifest_sha256": "014e0c39ccd221d4b037bfafc75dc705b73521da54c003be18fa8ca62d4dab92"
+        },
+        "business_review": {
+          "id": "04-platform-operation",
+          "verdict": "acceptable",
+          "summary": "本轮正式真实产物已逐项复核；结论限于上游公开数据、本次分页样本及报告声明口径。",
+          "checks": [
+            {
+              "expectation": "相似项目应作为线索而非关联企业事实",
+              "status": "pass",
+              "evidence": "similar_projects明确“共242个、展示当前页10条”，作为相似项目记录，未写成关联企业或股权关系。 本轮实际产物：technical_status=passed，successful_data_calls=8，subject.enterprise=北京京东世纪贸易有限公司，match_raw=北京京东世纪贸易有限公司，resolved=True；calls=[operation_insight_product_tags:empty,rows=None,total=None; operation_insight_company_trends:data,rows=None,total=None; operation_insight_brand_profile:data,rows=None,total=None; operation_insight_business_scale:data,rows=None,total=None; operation_insight_enterprise_rankings:data,rows=10,total=13; operation_insight_financing_info:data,rows=None,total=None; operation_insight_tax_qualifications:data,rows=None,total=None; operation_insight_similar_projects:data,rows=10,total=242; operation_insight_news_sentiment_stats:data,rows=None,total=None]；metrics=[人员规模=10000人以上; 年营业额=10亿以上; 上榜次数=13; 融资次数=3; 相似项目总量=242; 上榜级别数=2; 榜单类型数=3; 融资轮次=战略投资 → 战略投资 → A轮; 当前页展示项目数=10; 正面舆情率=29.6%; 品牌发源地=北京; 税务资质数=2]；sections=[product_tags=0, company_trends=1, recent_qualifications=0, brand_profile=2, business_scale=2, enterprise_rankings=10, financing_info=3, tax_qualifications=2, similar_projects=10, news_sentiment=4, news_sentiment_trend=12]；quality_report={\"total_sections\":11,\"populated_sections\":9,\"empty_sections\":2,\"coverage_pct\":82}。"
+            },
+            {
+              "expectation": "舆情情感的四类计数不能互相替代",
+              "status": "pass",
+              "evidence": "news_sentiment分列积极1298、消极371、中立2695及未知等返回计数，未互相替代。 本轮实际产物：technical_status=passed，successful_data_calls=8，subject.enterprise=北京京东世纪贸易有限公司，match_raw=北京京东世纪贸易有限公司，resolved=True；calls=[operation_insight_product_tags:empty,rows=None,total=None; operation_insight_company_trends:data,rows=None,total=None; operation_insight_brand_profile:data,rows=None,total=None; operation_insight_business_scale:data,rows=None,total=None; operation_insight_enterprise_rankings:data,rows=10,total=13; operation_insight_financing_info:data,rows=None,total=None; operation_insight_tax_qualifications:data,rows=None,total=None; operation_insight_similar_projects:data,rows=10,total=242; operation_insight_news_sentiment_stats:data,rows=None,total=None]；metrics=[人员规模=10000人以上; 年营业额=10亿以上; 上榜次数=13; 融资次数=3; 相似项目总量=242; 上榜级别数=2; 榜单类型数=3; 融资轮次=战略投资 → 战略投资 → A轮; 当前页展示项目数=10; 正面舆情率=29.6%; 品牌发源地=北京; 税务资质数=2]；sections=[product_tags=0, company_trends=1, recent_qualifications=0, brand_profile=2, business_scale=2, enterprise_rankings=10, financing_info=3, tax_qualifications=2, similar_projects=10, news_sentiment=4, news_sentiment_trend=12]；quality_report={\"total_sections\":11,\"populated_sections\":9,\"empty_sections\":2,\"coverage_pct\":82}。"
+            },
+            {
+              "expectation": "融资与税务资质章节必须按源数据独立展示",
+              "status": "pass",
+              "evidence": "financing_info=3、tax_qualifications=2，来自独立工具并分章展示。 本轮实际产物：technical_status=passed，successful_data_calls=8，subject.enterprise=北京京东世纪贸易有限公司，match_raw=北京京东世纪贸易有限公司，resolved=True；calls=[operation_insight_product_tags:empty,rows=None,total=None; operation_insight_company_trends:data,rows=None,total=None; operation_insight_brand_profile:data,rows=None,total=None; operation_insight_business_scale:data,rows=None,total=None; operation_insight_enterprise_rankings:data,rows=10,total=13; operation_insight_financing_info:data,rows=None,total=None; operation_insight_tax_qualifications:data,rows=None,total=None; operation_insight_similar_projects:data,rows=10,total=242; operation_insight_news_sentiment_stats:data,rows=None,total=None]；metrics=[人员规模=10000人以上; 年营业额=10亿以上; 上榜次数=13; 融资次数=3; 相似项目总量=242; 上榜级别数=2; 榜单类型数=3; 融资轮次=战略投资 → 战略投资 → A轮; 当前页展示项目数=10; 正面舆情率=29.6%; 品牌发源地=北京; 税务资质数=2]；sections=[product_tags=0, company_trends=1, recent_qualifications=0, brand_profile=2, business_scale=2, enterprise_rankings=10, financing_info=3, tax_qualifications=2, similar_projects=10, news_sentiment=4, news_sentiment_trend=12]；quality_report={\"total_sections\":11,\"populated_sections\":9,\"empty_sections\":2,\"coverage_pct\":82}。"
+            }
+          ],
+          "issues": [],
+          "evidence_binding": {
+            "report.json": "e6c6b769e07669c3ed3c16d5ea0901015e6336843362397e83ceff9201a30c99",
+            "report.html": "c5f23be4a76a23b0335cd64125c661377650c261456c11243533931a5fcb3be8",
+            "report.md": "4203caae80c1833be8a370184c4247c4d3adcd3e88b3fcb41f79ecae3d705f39",
+            "calls.json": "20693af738db1928e54fee7df2585ad884e6a75edae29fb34a2c15bb41d4222d",
+            "result.json": "7c6d46f91caa9030c75c88d30083c8579c941fffeff6977da471648e3f2b5ab3",
+            "source_manifest_sha256": "014e0c39ccd221d4b037bfafc75dc705b73521da54c003be18fa8ca62d4dab92"
+          }
+        }
+      }
+    },
+    {
+      "scenario": {
+        "id": "05-construction-operation",
+        "title": "工程企业经营能力初筛",
+        "user_request": "评估中国建筑第八工程局有限公司的经营规模、排名、税务资质和舆情。",
+        "purpose": "为工程合作前的经营能力审阅提供资料。",
+        "args": [
+          "--enterprise",
+          "中国建筑第八工程局有限公司",
+          "--page-size",
+          "10"
+        ],
+        "expected_checks": [
+          "规模与排名指标应避免重复计数",
+          "税务资质为空时不得推断为无资质",
+          "舆情统计应明确数据覆盖口径"
+        ],
+        "limitations": [
+          "仅反映本次 HandaaS 数据产品返回范围与生成时点，不等同于官方证明。",
+          "空结果必须保留为空，不能解释为该事项客观不存在。",
+          "不能替代项目履约记录、资质原件和财务审计。"
+        ]
+      },
+      "result": {
+        "schema_version": 1,
+        "skill": "enterprise-operation-skill",
+        "case_id": "05-construction-operation",
+        "title": "工程企业经营能力初筛",
+        "invocation_id": "1793069023024411000",
+        "provenance": {
+          "integrator_id": "683e574805537ace146cc05e",
+          "runner_sha256": "05777c2f2b0791cb5157aef691206606dade8df7af3b17212285b7ae74632a66",
+          "credential_policy_sha256": "bcabf08a1ca92f28357c0e57a8bae9bfa910eb1d4b204d8195ee3b7a77106eed",
+          "scenario_sha256": "0c62e24514993c02bf43ca4ea40f667ac66c220e5fbf09855cf6740a469c3e64",
+          "skill_source_hashes": {
+            "scripts/common.py": "6abc0d9924e42c344bd3376f2753440723ba63b85e09a4fd5446627f6a522a43",
+            "scripts/compose_report.py": "ac0bf3cc77d4bb4da7d45a7166a73e7844349ba59604630a6afaf99ff14c585c",
+            "scripts/mcp_client.py": "b881f4efd7992b69843365c3b2b756ef377ae0607fb5f66054aa527e4c428ca8",
+            "scripts/render_report.py": "6042cca2e90702b447e0a4bdc412798bcf776fd89757803bd7aeb404502f859b",
+            "scripts/validate_config.py": "4bb4001d452a004faeaf4b00bddbf94197b2c8cbc4338bb04d273a93c9a6c0c3"
+          },
+          "upstream_source_hashes": {
+            "enterprise-operation-mcp-server": "46af6307784e60a051c16fb45a890979a4c994ff26c50af6cec85b3117619a49"
+          },
+          "upstream_dependency_hashes": {
+            "enterprise-operation-mcp-server/server/mcp_server.py": "46af6307784e60a051c16fb45a890979a4c994ff26c50af6cec85b3117619a49"
+          }
+        },
+        "source_changed_during_run": false,
+        "started_at": "2026-10-27T10:43:43+08:00",
+        "elapsed_seconds": 7.215,
+        "returncode": 0,
+        "exception_type": null,
+        "command": "python3 enterprise-operation-skill/scripts/compose_report.py --enterprise '中国建筑第八工程局有限公司' --page-size 10 --output enterprise-operation-skill/output/live-replaced-20261027/05-construction-operation/report.json --report-output enterprise-operation-skill/output/live-replaced-20261027/05-construction-operation/report.html",
+        "transport": "local MCP servers via loopback streamable-http",
+        "cache_used": false,
+        "call_count": 9,
+        "successful_data_calls": 6,
+        "empty_calls": 3,
+        "failed_calls": 0,
+        "checks": {
+          "issues": [],
+          "warnings": [],
+          "coverage_pct": 73,
+          "subject": {
+            "enterprise": "中国建筑第八工程局有限公司",
+            "matchKeyword": "中国建筑第八工程局有限公司",
+            "keywordType": "name",
+            "match_raw": "中国建筑第八工程局有限公司",
+            "resolved": true,
+            "resolve_reason": "用户提供企业全称"
+          },
+          "title": "中国建筑第八工程局有限公司 企业经营分析报告",
+          "data_mode": null,
+          "metrics": [
+            {
+              "label": "人员规模",
+              "value": "30000人以上",
+              "hint": "算法识别的企业人员规模"
+            },
+            {
+              "label": "年营业额",
+              "value": "10亿以上",
+              "hint": "算法识别的企业年营业额区间"
+            },
+            {
+              "label": "融资次数",
+              "value": "1",
+              "hint": "历史融资次数"
+            },
+            {
+              "label": "相似项目总量",
+              "value": "118",
+              "hint": "上游响应返回的相似项目 total"
+            },
+            {
+              "label": "融资轮次",
+              "value": "战略投资",
+              "hint": "历史融资轮次轨迹"
+            },
+            {
+              "label": "当前页展示项目数",
+              "value": "10",
+              "hint": "本次响应当前页实际展示的相似项目记录数"
+            },
+            {
+              "label": "正面舆情率",
+              "value": "48.2%",
+              "hint": "正面舆情占总舆情比例"
+            },
+            {
+              "label": "税务资质数",
+              "value": "2",
+              "hint": "持有的税务资质数量"
+            }
+          ],
+          "quality_report": {
+            "total_sections": 11,
+            "populated_sections": 8,
+            "empty_sections": 3,
+            "coverage_pct": 73
+          },
+          "unregistered_tools": [],
+          "checks": {
+            "json_html_markdown": true,
+            "explicit_live": true,
+            "tool_calls_recorded": 9,
+            "offline_scripts": true,
+            "independent_rerender": true,
+            "offline_browser": true
+          }
+        },
+        "status": "passed",
+        "source_hashes": {
+          "scripts/common.py": "6abc0d9924e42c344bd3376f2753440723ba63b85e09a4fd5446627f6a522a43",
+          "scripts/compose_report.py": "ac0bf3cc77d4bb4da7d45a7166a73e7844349ba59604630a6afaf99ff14c585c",
+          "scripts/mcp_client.py": "b881f4efd7992b69843365c3b2b756ef377ae0607fb5f66054aa527e4c428ca8",
+          "scripts/render_report.py": "6042cca2e90702b447e0a4bdc412798bcf776fd89757803bd7aeb404502f859b",
+          "scripts/validate_config.py": "4bb4001d452a004faeaf4b00bddbf94197b2c8cbc4338bb04d273a93c9a6c0c3"
+        },
+        "technical_status": "passed",
+        "audited_at": "2026-10-27T11:12:58+08:00",
+        "evidence_binding": {
+          "report.json": "ef09ee11eb51ca96c0c802a5f7fbc1a5bbc03f02f475fe0225c52347d0737098",
+          "report.html": "e5171a820eabad632fd45f2f2736457f4b656d79525361db3ac09fafe7fc9f75",
+          "report.md": "d2370b9074cfc842a49b8c9f29af4bf1ac363ab463da9c413e2d93910347ba6f",
+          "calls.json": "a3a8e381145528ae2362f027a804eb4a5c5655f14cbdc3099f4c01d426797c04",
+          "result.json": "72c9792523bc162d9b1b40ed7bb902f7135c0ff36b5fc48f14625593f60e181b",
+          "source_manifest_sha256": "014e0c39ccd221d4b037bfafc75dc705b73521da54c003be18fa8ca62d4dab92"
+        },
+        "business_review": {
+          "id": "05-construction-operation",
+          "verdict": "acceptable",
+          "summary": "本轮正式真实产物已逐项复核；结论限于上游公开数据、本次分页样本及报告声明口径。",
+          "checks": [
+            {
+              "expectation": "规模与排名指标应避免重复计数",
+              "status": "pass",
+              "evidence": "经营规模只列人员30000人以上/营业额10亿以上；排名工具empty，未以其他指标补排名或重复计数。 本轮实际产物：technical_status=passed，successful_data_calls=6，subject.enterprise=中国建筑第八工程局有限公司，match_raw=中国建筑第八工程局有限公司，resolved=True；calls=[operation_insight_product_tags:empty,rows=None,total=None; operation_insight_company_trends:data,rows=None,total=None; operation_insight_brand_profile:empty,rows=None,total=None; operation_insight_business_scale:data,rows=None,total=None; operation_insight_enterprise_rankings:empty,rows=None,total=None; operation_insight_financing_info:data,rows=None,total=None; operation_insight_tax_qualifications:data,rows=None,total=None; operation_insight_similar_projects:data,rows=10,total=118; operation_insight_news_sentiment_stats:data,rows=None,total=None]；metrics=[人员规模=30000人以上; 年营业额=10亿以上; 融资次数=1; 相似项目总量=118; 融资轮次=战略投资; 当前页展示项目数=10; 正面舆情率=48.2%; 税务资质数=2]；sections=[product_tags=0, company_trends=1, recent_qualifications=1, brand_profile=0, business_scale=2, enterprise_rankings=0, financing_info=1, tax_qualifications=2, similar_projects=10, news_sentiment=4, news_sentiment_trend=12]；quality_report={\"total_sections\":11,\"populated_sections\":8,\"empty_sections\":3,\"coverage_pct\":73}。"
+            },
+            {
+              "expectation": "税务资质为空时不得推断为无资质",
+              "status": "pass",
+              "evidence": "tax_qualifications真实返回2条，按源数据展示；未出现“空即无资质”的推断。 本轮实际产物：technical_status=passed，successful_data_calls=6，subject.enterprise=中国建筑第八工程局有限公司，match_raw=中国建筑第八工程局有限公司，resolved=True；calls=[operation_insight_product_tags:empty,rows=None,total=None; operation_insight_company_trends:data,rows=None,total=None; operation_insight_brand_profile:empty,rows=None,total=None; operation_insight_business_scale:data,rows=None,total=None; operation_insight_enterprise_rankings:empty,rows=None,total=None; operation_insight_financing_info:data,rows=None,total=None; operation_insight_tax_qualifications:data,rows=None,total=None; operation_insight_similar_projects:data,rows=10,total=118; operation_insight_news_sentiment_stats:data,rows=None,total=None]；metrics=[人员规模=30000人以上; 年营业额=10亿以上; 融资次数=1; 相似项目总量=118; 融资轮次=战略投资; 当前页展示项目数=10; 正面舆情率=48.2%; 税务资质数=2]；sections=[product_tags=0, company_trends=1, recent_qualifications=1, brand_profile=0, business_scale=2, enterprise_rankings=0, financing_info=1, tax_qualifications=2, similar_projects=10, news_sentiment=4, news_sentiment_trend=12]；quality_report={\"total_sections\":11,\"populated_sections\":8,\"empty_sections\":3,\"coverage_pct\":73}。"
+            },
+            {
+              "expectation": "舆情统计应明确数据覆盖口径",
+              "status": "pass",
+              "evidence": "舆情统计与12月趋势独立呈现，情感解读限定为算法标签和当前数据源口径。 本轮实际产物：technical_status=passed，successful_data_calls=6，subject.enterprise=中国建筑第八工程局有限公司，match_raw=中国建筑第八工程局有限公司，resolved=True；calls=[operation_insight_product_tags:empty,rows=None,total=None; operation_insight_company_trends:data,rows=None,total=None; operation_insight_brand_profile:empty,rows=None,total=None; operation_insight_business_scale:data,rows=None,total=None; operation_insight_enterprise_rankings:empty,rows=None,total=None; operation_insight_financing_info:data,rows=None,total=None; operation_insight_tax_qualifications:data,rows=None,total=None; operation_insight_similar_projects:data,rows=10,total=118; operation_insight_news_sentiment_stats:data,rows=None,total=None]；metrics=[人员规模=30000人以上; 年营业额=10亿以上; 融资次数=1; 相似项目总量=118; 融资轮次=战略投资; 当前页展示项目数=10; 正面舆情率=48.2%; 税务资质数=2]；sections=[product_tags=0, company_trends=1, recent_qualifications=1, brand_profile=0, business_scale=2, enterprise_rankings=0, financing_info=1, tax_qualifications=2, similar_projects=10, news_sentiment=4, news_sentiment_trend=12]；quality_report={\"total_sections\":11,\"populated_sections\":8,\"empty_sections\":3,\"coverage_pct\":73}。"
+            }
+          ],
+          "issues": [],
+          "evidence_binding": {
+            "report.json": "ef09ee11eb51ca96c0c802a5f7fbc1a5bbc03f02f475fe0225c52347d0737098",
+            "report.html": "e5171a820eabad632fd45f2f2736457f4b656d79525361db3ac09fafe7fc9f75",
+            "report.md": "d2370b9074cfc842a49b8c9f29af4bf1ac363ab463da9c413e2d93910347ba6f",
+            "calls.json": "a3a8e381145528ae2362f027a804eb4a5c5655f14cbdc3099f4c01d426797c04",
+            "result.json": "72c9792523bc162d9b1b40ed7bb902f7135c0ff36b5fc48f14625593f60e181b",
+            "source_manifest_sha256": "014e0c39ccd221d4b037bfafc75dc705b73521da54c003be18fa8ca62d4dab92"
+          }
+        }
+      }
+    },
+    {
+      "scenario": {
+        "id": "07-small-page",
+        "title": "小分页交付验证",
+        "user_request": "生成腾讯科技（深圳）有限公司经营报告，列表类章节仅取前 5 条用于管理层快报。",
+        "purpose": "验证小分页时报告仍能清楚说明截断口径。",
+        "args": [
+          "--enterprise",
+          "腾讯科技（深圳）有限公司",
+          "--page-size",
+          "5"
+        ],
+        "expected_checks": [
+          "列表类章节最多展示 5 条或按工具实际返回",
+          "总量与当前展示条数不得混淆",
+          "HTML 与 Markdown 的记录数量应一致"
+        ],
+        "limitations": [
+          "仅反映本次 HandaaS 数据产品返回范围与生成时点，不等同于官方证明。",
+          "空结果必须保留为空，不能解释为该事项客观不存在。",
+          "前 5 条不是全量清单，不能据此判断全部融资或排名情况。"
+        ]
+      },
+      "result": {
+        "schema_version": 1,
+        "skill": "enterprise-operation-skill",
+        "case_id": "07-small-page",
+        "title": "小分页交付验证",
+        "invocation_id": "1793069024831675000",
+        "provenance": {
+          "integrator_id": "683e574805537ace146cc05e",
+          "runner_sha256": "05777c2f2b0791cb5157aef691206606dade8df7af3b17212285b7ae74632a66",
+          "credential_policy_sha256": "bcabf08a1ca92f28357c0e57a8bae9bfa910eb1d4b204d8195ee3b7a77106eed",
+          "scenario_sha256": "c92c1d992f59663f95c532c7572328c22261474bb3e5cf31acb41c36992387d1",
+          "skill_source_hashes": {
+            "scripts/common.py": "6abc0d9924e42c344bd3376f2753440723ba63b85e09a4fd5446627f6a522a43",
+            "scripts/compose_report.py": "ac0bf3cc77d4bb4da7d45a7166a73e7844349ba59604630a6afaf99ff14c585c",
+            "scripts/mcp_client.py": "b881f4efd7992b69843365c3b2b756ef377ae0607fb5f66054aa527e4c428ca8",
+            "scripts/render_report.py": "6042cca2e90702b447e0a4bdc412798bcf776fd89757803bd7aeb404502f859b",
+            "scripts/validate_config.py": "4bb4001d452a004faeaf4b00bddbf94197b2c8cbc4338bb04d273a93c9a6c0c3"
+          },
+          "upstream_source_hashes": {
+            "enterprise-operation-mcp-server": "46af6307784e60a051c16fb45a890979a4c994ff26c50af6cec85b3117619a49"
+          },
+          "upstream_dependency_hashes": {
+            "enterprise-operation-mcp-server/server/mcp_server.py": "46af6307784e60a051c16fb45a890979a4c994ff26c50af6cec85b3117619a49"
+          }
+        },
+        "source_changed_during_run": false,
+        "started_at": "2026-10-27T10:43:44+08:00",
+        "elapsed_seconds": 5.926,
+        "returncode": 0,
+        "exception_type": null,
+        "command": "python3 enterprise-operation-skill/scripts/compose_report.py --enterprise '腾讯科技（深圳）有限公司' --page-size 5 --output enterprise-operation-skill/output/live-replaced-20261027/07-small-page/report.json --report-output enterprise-operation-skill/output/live-replaced-20261027/07-small-page/report.html",
+        "transport": "local MCP servers via loopback streamable-http",
+        "cache_used": false,
+        "call_count": 9,
+        "successful_data_calls": 6,
+        "empty_calls": 3,
+        "failed_calls": 0,
+        "checks": {
+          "issues": [],
+          "warnings": [],
+          "coverage_pct": 64,
+          "subject": {
+            "enterprise": "腾讯科技（深圳）有限公司",
+            "matchKeyword": "腾讯科技（深圳）有限公司",
+            "keywordType": "name",
+            "match_raw": "腾讯科技（深圳）有限公司",
+            "resolved": true,
+            "resolve_reason": "用户提供企业全称"
+          },
+          "title": "腾讯科技（深圳）有限公司 企业经营分析报告",
+          "data_mode": null,
+          "metrics": [
+            {
+              "label": "人员规模",
+              "value": "10000人以上",
+              "hint": "算法识别的企业人员规模"
+            },
+            {
+              "label": "年营业额",
+              "value": "10亿以上",
+              "hint": "算法识别的企业年营业额区间"
+            },
+            {
+              "label": "融资次数",
+              "value": "5",
+              "hint": "历史融资次数"
+            },
+            {
+              "label": "相似项目总量",
+              "value": "26",
+              "hint": "上游响应返回的相似项目 total"
+            },
+            {
+              "label": "融资轮次",
+              "value": "战略投资 → 上市后 → 上市 → B轮 → A轮",
+              "hint": "历史融资轮次轨迹"
+            },
+            {
+              "label": "当前页展示项目数",
+              "value": "5",
+              "hint": "本次响应当前页实际展示的相似项目记录数"
+            },
+            {
+              "label": "正面舆情率",
+              "value": "32.4%",
+              "hint": "正面舆情占总舆情比例"
+            },
+            {
+              "label": "税务资质数",
+              "value": "2",
+              "hint": "持有的税务资质数量"
+            }
+          ],
+          "quality_report": {
+            "total_sections": 11,
+            "populated_sections": 7,
+            "empty_sections": 4,
+            "coverage_pct": 64
+          },
+          "unregistered_tools": [],
+          "checks": {
+            "json_html_markdown": true,
+            "explicit_live": true,
+            "tool_calls_recorded": 9,
+            "offline_scripts": true,
+            "independent_rerender": true,
+            "offline_browser": true
+          }
+        },
+        "status": "passed",
+        "source_hashes": {
+          "scripts/common.py": "6abc0d9924e42c344bd3376f2753440723ba63b85e09a4fd5446627f6a522a43",
+          "scripts/compose_report.py": "ac0bf3cc77d4bb4da7d45a7166a73e7844349ba59604630a6afaf99ff14c585c",
+          "scripts/mcp_client.py": "b881f4efd7992b69843365c3b2b756ef377ae0607fb5f66054aa527e4c428ca8",
+          "scripts/render_report.py": "6042cca2e90702b447e0a4bdc412798bcf776fd89757803bd7aeb404502f859b",
+          "scripts/validate_config.py": "4bb4001d452a004faeaf4b00bddbf94197b2c8cbc4338bb04d273a93c9a6c0c3"
+        },
+        "technical_status": "passed",
+        "audited_at": "2026-10-27T11:12:58+08:00",
+        "evidence_binding": {
+          "report.json": "12c7fc3d325ec6c92a360d2938cfc644783b73725ffd0a05d5a47396a21230b0",
+          "report.html": "c438aa2953f3c80153db3f91d74ae555b0c9c2590b6f18a6d5ee06060fe50d52",
+          "report.md": "c75a11ef6b8fe4f55caecf7c791d963b3f88318fcff31d1f09f8ac5a4195a5b3",
+          "calls.json": "c05d183bf9fb284126e4009198ce94865f115babe652b7b0069f4a6f5f6695de",
+          "result.json": "5c447fe02d8542fd1b762ec02b0e0dfa6cb497942a584efcebb869e770281429",
+          "source_manifest_sha256": "014e0c39ccd221d4b037bfafc75dc705b73521da54c003be18fa8ca62d4dab92"
+        },
+        "business_review": {
+          "id": "07-small-page",
+          "verdict": "acceptable",
+          "summary": "本轮正式真实产物已逐项复核；结论限于上游公开数据、本次分页样本及报告声明口径。",
+          "checks": [
+            {
+              "expectation": "列表类章节最多展示 5 条或按工具实际返回",
+              "status": "pass",
+              "evidence": "分页工具均pageSize=5；similar_projects=5，其他列表也未超过5条或实际返回数。 本轮实际产物：technical_status=passed，successful_data_calls=6，subject.enterprise=腾讯科技（深圳）有限公司，match_raw=腾讯科技（深圳）有限公司，resolved=True；calls=[operation_insight_product_tags:empty,rows=None,total=None; operation_insight_company_trends:data,rows=None,total=None; operation_insight_brand_profile:empty,rows=None,total=None; operation_insight_business_scale:data,rows=None,total=None; operation_insight_enterprise_rankings:empty,rows=None,total=None; operation_insight_financing_info:data,rows=None,total=None; operation_insight_tax_qualifications:data,rows=None,total=None; operation_insight_similar_projects:data,rows=5,total=26; operation_insight_news_sentiment_stats:data,rows=None,total=None]；metrics=[人员规模=10000人以上; 年营业额=10亿以上; 融资次数=5; 相似项目总量=26; 融资轮次=战略投资 → 上市后 → 上市 → B轮 → A轮; 当前页展示项目数=5; 正面舆情率=32.4%; 税务资质数=2]；sections=[product_tags=0, company_trends=1, recent_qualifications=0, brand_profile=0, business_scale=2, enterprise_rankings=0, financing_info=5, tax_qualifications=2, similar_projects=5, news_sentiment=4, news_sentiment_trend=12]；quality_report={\"total_sections\":11,\"populated_sections\":7,\"empty_sections\":4,\"coverage_pct\":64}。"
+            },
+            {
+              "expectation": "总量与当前展示条数不得混淆",
+              "status": "pass",
+              "evidence": "相似项目total26与当前页展示5分别列为两个指标和section note。 本轮实际产物：technical_status=passed，successful_data_calls=6，subject.enterprise=腾讯科技（深圳）有限公司，match_raw=腾讯科技（深圳）有限公司，resolved=True；calls=[operation_insight_product_tags:empty,rows=None,total=None; operation_insight_company_trends:data,rows=None,total=None; operation_insight_brand_profile:empty,rows=None,total=None; operation_insight_business_scale:data,rows=None,total=None; operation_insight_enterprise_rankings:empty,rows=None,total=None; operation_insight_financing_info:data,rows=None,total=None; operation_insight_tax_qualifications:data,rows=None,total=None; operation_insight_similar_projects:data,rows=5,total=26; operation_insight_news_sentiment_stats:data,rows=None,total=None]；metrics=[人员规模=10000人以上; 年营业额=10亿以上; 融资次数=5; 相似项目总量=26; 融资轮次=战略投资 → 上市后 → 上市 → B轮 → A轮; 当前页展示项目数=5; 正面舆情率=32.4%; 税务资质数=2]；sections=[product_tags=0, company_trends=1, recent_qualifications=0, brand_profile=0, business_scale=2, enterprise_rankings=0, financing_info=5, tax_qualifications=2, similar_projects=5, news_sentiment=4, news_sentiment_trend=12]；quality_report={\"total_sections\":11,\"populated_sections\":7,\"empty_sections\":4,\"coverage_pct\":64}。"
+            },
+            {
+              "expectation": "HTML 与 Markdown 的记录数量应一致",
+              "status": "pass",
+              "evidence": "independent_rerender=true；HTML/Markdown由同一report对象生成，列表记录数一致。 本轮实际产物：technical_status=passed，successful_data_calls=6，subject.enterprise=腾讯科技（深圳）有限公司，match_raw=腾讯科技（深圳）有限公司，resolved=True；calls=[operation_insight_product_tags:empty,rows=None,total=None; operation_insight_company_trends:data,rows=None,total=None; operation_insight_brand_profile:empty,rows=None,total=None; operation_insight_business_scale:data,rows=None,total=None; operation_insight_enterprise_rankings:empty,rows=None,total=None; operation_insight_financing_info:data,rows=None,total=None; operation_insight_tax_qualifications:data,rows=None,total=None; operation_insight_similar_projects:data,rows=5,total=26; operation_insight_news_sentiment_stats:data,rows=None,total=None]；metrics=[人员规模=10000人以上; 年营业额=10亿以上; 融资次数=5; 相似项目总量=26; 融资轮次=战略投资 → 上市后 → 上市 → B轮 → A轮; 当前页展示项目数=5; 正面舆情率=32.4%; 税务资质数=2]；sections=[product_tags=0, company_trends=1, recent_qualifications=0, brand_profile=0, business_scale=2, enterprise_rankings=0, financing_info=5, tax_qualifications=2, similar_projects=5, news_sentiment=4, news_sentiment_trend=12]；quality_report={\"total_sections\":11,\"populated_sections\":7,\"empty_sections\":4,\"coverage_pct\":64}。"
+            }
+          ],
+          "issues": [],
+          "evidence_binding": {
+            "report.json": "12c7fc3d325ec6c92a360d2938cfc644783b73725ffd0a05d5a47396a21230b0",
+            "report.html": "c438aa2953f3c80153db3f91d74ae555b0c9c2590b6f18a6d5ee06060fe50d52",
+            "report.md": "c75a11ef6b8fe4f55caecf7c791d963b3f88318fcff31d1f09f8ac5a4195a5b3",
+            "calls.json": "c05d183bf9fb284126e4009198ce94865f115babe652b7b0069f4a6f5f6695de",
+            "result.json": "5c447fe02d8542fd1b762ec02b0e0dfa6cb497942a584efcebb869e770281429",
+            "source_manifest_sha256": "014e0c39ccd221d4b037bfafc75dc705b73521da54c003be18fa8ca62d4dab92"
+          }
+        }
+      }
+    }
+  ]
+}

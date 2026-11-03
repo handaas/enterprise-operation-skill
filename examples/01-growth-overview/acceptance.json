@@ -1,0 +1,174 @@
+{
+  "schema_version": 1,
+  "skill": "enterprise-operation-skill",
+  "case_id": "01-growth-overview",
+  "title": "成长型科技企业经营画像",
+  "invocation_id": "1793069014557320000",
+  "provenance": {
+    "integrator_id": "683e574805537ace146cc05e",
+    "runner_sha256": "05777c2f2b0791cb5157aef691206606dade8df7af3b17212285b7ae74632a66",
+    "credential_policy_sha256": "bcabf08a1ca92f28357c0e57a8bae9bfa910eb1d4b204d8195ee3b7a77106eed",
+    "scenario_sha256": "46bbd3a38393d9dbcbfd71f9cff67d2466dfa40abf08d0551ee7e6d2c3b209b5",
+    "skill_source_hashes": {
+      "scripts/common.py": "6abc0d9924e42c344bd3376f2753440723ba63b85e09a4fd5446627f6a522a43",
+      "scripts/compose_report.py": "ac0bf3cc77d4bb4da7d45a7166a73e7844349ba59604630a6afaf99ff14c585c",
+      "scripts/mcp_client.py": "b881f4efd7992b69843365c3b2b756ef377ae0607fb5f66054aa527e4c428ca8",
+      "scripts/render_report.py": "6042cca2e90702b447e0a4bdc412798bcf776fd89757803bd7aeb404502f859b",
+      "scripts/validate_config.py": "4bb4001d452a004faeaf4b00bddbf94197b2c8cbc4338bb04d273a93c9a6c0c3"
+    },
+    "upstream_source_hashes": {
+      "enterprise-operation-mcp-server": "46af6307784e60a051c16fb45a890979a4c994ff26c50af6cec85b3117619a49"
+    },
+    "upstream_dependency_hashes": {
+      "enterprise-operation-mcp-server/server/mcp_server.py": "46af6307784e60a051c16fb45a890979a4c994ff26c50af6cec85b3117619a49"
+    }
+  },
+  "source_changed_during_run": false,
+  "started_at": "2026-10-27T10:43:34+08:00",
+  "elapsed_seconds": 8.311,
+  "returncode": 0,
+  "exception_type": null,
+  "command": "python3 enterprise-operation-skill/scripts/compose_report.py --enterprise '华为技术有限公司' --page-size 10 --output enterprise-operation-skill/output/live-replaced-20261027/01-growth-overview/report.json --report-output enterprise-operation-skill/output/live-replaced-20261027/01-growth-overview/report.html",
+  "transport": "local MCP servers via loopback streamable-http",
+  "cache_used": false,
+  "call_count": 9,
+  "successful_data_calls": 7,
+  "empty_calls": 2,
+  "failed_calls": 0,
+  "checks": {
+    "issues": [],
+    "warnings": [],
+    "coverage_pct": 82,
+    "subject": {
+      "enterprise": "华为技术有限公司",
+      "matchKeyword": "华为技术有限公司",
+      "keywordType": "name",
+      "match_raw": "华为技术有限公司",
+      "resolved": true,
+      "resolve_reason": "用户提供企业全称"
+    },
+    "title": "华为技术有限公司 企业经营分析报告",
+    "data_mode": null,
+    "metrics": [
+      {
+        "label": "人员规模",
+        "value": "10000人以上",
+        "hint": "算法识别的企业人员规模"
+      },
+      {
+        "label": "年营业额",
+        "value": "10亿以上",
+        "hint": "算法识别的企业年营业额区间"
+      },
+      {
+        "label": "上榜次数",
+        "value": "18",
+        "hint": "企业上榜榜单总数"
+      },
+      {
+        "label": "相似项目总量",
+        "value": "24",
+        "hint": "上游响应返回的相似项目 total"
+      },
+      {
+        "label": "上榜级别数",
+        "value": "2",
+        "hint": "不同榜单级别的数量"
+      },
+      {
+        "label": "榜单类型数",
+        "value": "3",
+        "hint": "不同榜单类型的数量"
+      },
+      {
+        "label": "当前页展示项目数",
+        "value": "10",
+        "hint": "本次响应当前页实际展示的相似项目记录数"
+      },
+      {
+        "label": "正面舆情率",
+        "value": "53.6%",
+        "hint": "正面舆情占总舆情比例"
+      },
+      {
+        "label": "品牌发源地",
+        "value": "深圳市、广东省深圳市、广东",
+        "hint": "品牌创立地点"
+      },
+      {
+        "label": "税务资质数",
+        "value": "3",
+        "hint": "持有的税务资质数量"
+      }
+    ],
+    "quality_report": {
+      "total_sections": 11,
+      "populated_sections": 9,
+      "empty_sections": 2,
+      "coverage_pct": 82
+    },
+    "unregistered_tools": [],
+    "checks": {
+      "json_html_markdown": true,
+      "explicit_live": true,
+      "tool_calls_recorded": 9,
+      "offline_scripts": true,
+      "independent_rerender": true,
+      "offline_browser": true
+    }
+  },
+  "status": "passed",
+  "source_hashes": {
+    "scripts/common.py": "6abc0d9924e42c344bd3376f2753440723ba63b85e09a4fd5446627f6a522a43",
+    "scripts/compose_report.py": "ac0bf3cc77d4bb4da7d45a7166a73e7844349ba59604630a6afaf99ff14c585c",
+    "scripts/mcp_client.py": "b881f4efd7992b69843365c3b2b756ef377ae0607fb5f66054aa527e4c428ca8",
+    "scripts/render_report.py": "6042cca2e90702b447e0a4bdc412798bcf776fd89757803bd7aeb404502f859b",
+    "scripts/validate_config.py": "4bb4001d452a004faeaf4b00bddbf94197b2c8cbc4338bb04d273a93c9a6c0c3"
+  },
+  "technical_status": "passed",
+  "audited_at": "2026-10-27T11:12:58+08:00",
+  "evidence_binding": {
+    "report.json": "8998e616840044a467d54f7c6d433cbae14a6dab8daa48b2c83478349bdab5d0",
+    "report.html": "a4f26f835da02dd6e966ecade566cb40a36de87e24c298c1a92078996b6b5b5a",
+    "report.md": "5f96ade5c195a242c258ec8320512a9ff72696beee3b770d62383889a9c2d667",
+    "calls.json": "c1b06476255a7098d34c93ce1f4a5a7ef29e437926a2570da15918bae2a0d70b",
+    "result.json": "918af5a9b98a87ed29808dabcd8fcf85afcda5e1c16c3153060ce14fa29aeff2",
+    "source_manifest_sha256": "014e0c39ccd221d4b037bfafc75dc705b73521da54c003be18fa8ca62d4dab92"
+  },
+  "business_review": {
+    "id": "01-growth-overview",
+    "verdict": "acceptable",
+    "summary": "本轮正式真实产物已逐项复核；结论限于上游公开数据、本次分页样本及报告声明口径。",
+    "checks": [
+      {
+        "expectation": "经营规模、品牌、融资和排名应分章呈现",
+        "status": "pass",
+        "evidence": "经营规模、品牌、排名、税务、相似项目、舆情分别为独立section；融资工具empty且未伪造融资记录。摘要只列9个实际非空section，不再声称覆盖空的产品标签/融资。 本轮实际产物：technical_status=passed，successful_data_calls=7，subject.enterprise=华为技术有限公司，match_raw=华为技术有限公司，resolved=True；calls=[operation_insight_product_tags:empty,rows=None,total=None; operation_insight_company_trends:data,rows=None,total=None; operation_insight_brand_profile:data,rows=None,total=None; operation_insight_business_scale:data,rows=None,total=None; operation_insight_enterprise_rankings:data,rows=10,total=18; operation_insight_financing_info:empty,rows=None,total=None; operation_insight_tax_qualifications:data,rows=None,total=None; operation_insight_similar_projects:data,rows=10,total=24; operation_insight_news_sentiment_stats:data,rows=None,total=None]；metrics=[人员规模=10000人以上; 年营业额=10亿以上; 上榜次数=18; 相似项目总量=24; 上榜级别数=2; 榜单类型数=3; 当前页展示项目数=10; 正面舆情率=53.6%; 品牌发源地=深圳市、广东省深圳市、广东; 税务资质数=3]；sections=[product_tags=0, company_trends=1, recent_qualifications=1, brand_profile=2, business_scale=2, enterprise_rankings=10, financing_info=0, tax_qualifications=3, similar_projects=10, news_sentiment=4, news_sentiment_trend=12]；quality_report={\"total_sections\":11,\"populated_sections\":9,\"empty_sections\":2,\"coverage_pct\":82}。"
+      },
+      {
+        "expectation": "趋势与舆情必须来自返回统计",
+        "status": "pass",
+        "evidence": "company_trends来自operation_insight_company_trends；news_sentiment及12月趋势来自operation_insight_news_sentiment_stats，正面舆情率53.6%。 本轮实际产物：technical_status=passed，successful_data_calls=7，subject.enterprise=华为技术有限公司，match_raw=华为技术有限公司，resolved=True；calls=[operation_insight_product_tags:empty,rows=None,total=None; operation_insight_company_trends:data,rows=None,total=None; operation_insight_brand_profile:data,rows=None,total=None; operation_insight_business_scale:data,rows=None,total=None; operation_insight_enterprise_rankings:data,rows=10,total=18; operation_insight_financing_info:empty,rows=None,total=None; operation_insight_tax_qualifications:data,rows=None,total=None; operation_insight_similar_projects:data,rows=10,total=24; operation_insight_news_sentiment_stats:data,rows=None,total=None]；metrics=[人员规模=10000人以上; 年营业额=10亿以上; 上榜次数=18; 相似项目总量=24; 上榜级别数=2; 榜单类型数=3; 当前页展示项目数=10; 正面舆情率=53.6%; 品牌发源地=深圳市、广东省深圳市、广东; 税务资质数=3]；sections=[product_tags=0, company_trends=1, recent_qualifications=1, brand_profile=2, business_scale=2, enterprise_rankings=10, financing_info=0, tax_qualifications=3, similar_projects=10, news_sentiment=4, news_sentiment_trend=12]；quality_report={\"total_sections\":11,\"populated_sections\":9,\"empty_sections\":2,\"coverage_pct\":82}。"
+      },
+      {
+        "expectation": "分页列表不得超过 10 条",
+        "status": "pass",
+        "evidence": "enterprise_rankings与similar_projects当前页均10条，pageSize=10；相似项目total24与当前页10分列。 本轮实际产物：technical_status=passed，successful_data_calls=7，subject.enterprise=华为技术有限公司，match_raw=华为技术有限公司，resolved=True；calls=[operation_insight_product_tags:empty,rows=None,total=None; operation_insight_company_trends:data,rows=None,total=None; operation_insight_brand_profile:data,rows=None,total=None; operation_insight_business_scale:data,rows=None,total=None; operation_insight_enterprise_rankings:data,rows=10,total=18; operation_insight_financing_info:empty,rows=None,total=None; operation_insight_tax_qualifications:data,rows=None,total=None; operation_insight_similar_projects:data,rows=10,total=24; operation_insight_news_sentiment_stats:data,rows=None,total=None]；metrics=[人员规模=10000人以上; 年营业额=10亿以上; 上榜次数=18; 相似项目总量=24; 上榜级别数=2; 榜单类型数=3; 当前页展示项目数=10; 正面舆情率=53.6%; 品牌发源地=深圳市、广东省深圳市、广东; 税务资质数=3]；sections=[product_tags=0, company_trends=1, recent_qualifications=1, brand_profile=2, business_scale=2, enterprise_rankings=10, financing_info=0, tax_qualifications=3, similar_projects=10, news_sentiment=4, news_sentiment_trend=12]；quality_report={\"total_sections\":11,\"populated_sections\":9,\"empty_sections\":2,\"coverage_pct\":82}。"
+      },
+      {
+        "expectation": "quality_report 与章节填充一致",
+        "status": "pass",
+        "evidence": "11节中9节填充、2节为空、coverage82%，与product_tags/financing_info为空一致。 本轮实际产物：technical_status=passed，successful_data_calls=7，subject.enterprise=华为技术有限公司，match_raw=华为技术有限公司，resolved=True；calls=[operation_insight_product_tags:empty,rows=None,total=None; operation_insight_company_trends:data,rows=None,total=None; operation_insight_brand_profile:data,rows=None,total=None; operation_insight_business_scale:data,rows=None,total=None; operation_insight_enterprise_rankings:data,rows=10,total=18; operation_insight_financing_info:empty,rows=None,total=None; operation_insight_tax_qualifications:data,rows=None,total=None; operation_insight_similar_projects:data,rows=10,total=24; operation_insight_news_sentiment_stats:data,rows=None,total=None]；metrics=[人员规模=10000人以上; 年营业额=10亿以上; 上榜次数=18; 相似项目总量=24; 上榜级别数=2; 榜单类型数=3; 当前页展示项目数=10; 正面舆情率=53.6%; 品牌发源地=深圳市、广东省深圳市、广东; 税务资质数=3]；sections=[product_tags=0, company_trends=1, recent_qualifications=1, brand_profile=2, business_scale=2, enterprise_rankings=10, financing_info=0, tax_qualifications=3, similar_projects=10, news_sentiment=4, news_sentiment_trend=12]；quality_report={\"total_sections\":11,\"populated_sections\":9,\"empty_sections\":2,\"coverage_pct\":82}。"
+      }
+    ],
+    "issues": [],
+    "evidence_binding": {
+      "report.json": "8998e616840044a467d54f7c6d433cbae14a6dab8daa48b2c83478349bdab5d0",
+      "report.html": "a4f26f835da02dd6e966ecade566cb40a36de87e24c298c1a92078996b6b5b5a",
+      "report.md": "5f96ade5c195a242c258ec8320512a9ff72696beee3b770d62383889a9c2d667",
+      "calls.json": "c1b06476255a7098d34c93ce1f4a5a7ef29e437926a2570da15918bae2a0d70b",
+      "result.json": "918af5a9b98a87ed29808dabcd8fcf85afcda5e1c16c3153060ce14fa29aeff2",
+      "source_manifest_sha256": "014e0c39ccd221d4b037bfafc75dc705b73521da54c003be18fa8ca62d4dab92"
+    }
+  }
+}

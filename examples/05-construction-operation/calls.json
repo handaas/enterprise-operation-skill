@@ -1,0 +1,280 @@
+[
+  {
+    "tool": "operation_insight_product_tags",
+    "domain": null,
+    "arguments": {
+      "matchKeyword": "中国建筑第八工程局有限公司",
+      "keywordType": "name"
+    },
+    "invocation_id": "1793069023024411000",
+    "elapsed_seconds": 1.322,
+    "status": "empty",
+    "error_category": null,
+    "result_type": "dict",
+    "top_level_fields": [
+      "text"
+    ],
+    "row_count": null,
+    "reported_total": null,
+    "numeric_evidence": [],
+    "response_sha256": "b2da0c4c26e517e5a1eae0af2a20ca47c52ef51906cf1c3dfa2fe10a67cc714c"
+  },
+  {
+    "tool": "operation_insight_company_trends",
+    "domain": null,
+    "arguments": {
+      "matchKeyword": "中国建筑第八工程局有限公司",
+      "keywordType": "name"
+    },
+    "invocation_id": "1793069023024411000",
+    "elapsed_seconds": 0.801,
+    "status": "data",
+    "error_category": null,
+    "result_type": "dict",
+    "top_level_fields": [
+      "isFoundSubsidiaryIn3Month",
+      "isDiffAreaWinBidIn3Month",
+      "isDiffAreaWinBidIn6Month",
+      "isDiffAreaWinBidIn12Month",
+      "qualificationIn6MonthList",
+      "qualificationIn12MonthList"
+    ],
+    "row_count": null,
+    "reported_total": null,
+    "numeric_evidence": [
+      {
+        "path": "isFoundSubsidiaryIn3Month",
+        "value": 1
+      },
+      {
+        "path": "isDiffAreaWinBidIn3Month",
+        "value": 1
+      },
+      {
+        "path": "isDiffAreaWinBidIn6Month",
+        "value": 1
+      },
+      {
+        "path": "isDiffAreaWinBidIn12Month",
+        "value": 1
+      }
+    ],
+    "response_sha256": "b4e75d32383d6361b5a60607cb817b713611f35425184048d485f9e8f4981285"
+  },
+  {
+    "tool": "operation_insight_brand_profile",
+    "domain": null,
+    "arguments": {
+      "matchKeyword": "中国建筑第八工程局有限公司",
+      "keywordType": "name"
+    },
+    "invocation_id": "1793069023024411000",
+    "elapsed_seconds": 1.67,
+    "status": "empty",
+    "error_category": null,
+    "result_type": "dict",
+    "top_level_fields": [
+      "text"
+    ],
+    "row_count": null,
+    "reported_total": null,
+    "numeric_evidence": [],
+    "response_sha256": "b2da0c4c26e517e5a1eae0af2a20ca47c52ef51906cf1c3dfa2fe10a67cc714c"
+  },
+  {
+    "tool": "operation_insight_business_scale",
+    "domain": null,
+    "arguments": {
+      "matchKeyword": "中国建筑第八工程局有限公司",
+      "keywordType": "name"
+    },
+    "invocation_id": "1793069023024411000",
+    "elapsed_seconds": 0.621,
+    "status": "data",
+    "error_category": null,
+    "result_type": "dict",
+    "top_level_fields": [
+      "annualTurnover",
+      "enterpriseScale"
+    ],
+    "row_count": null,
+    "reported_total": null,
+    "numeric_evidence": [],
+    "response_sha256": "ee63aae554109f53ed99f207dd8367fd387a4babf40430774dfee3d9d67e3ab5"
+  },
+  {
+    "tool": "operation_insight_enterprise_rankings",
+    "domain": null,
+    "arguments": {
+      "matchKeyword": "中国建筑第八工程局有限公司",
+      "keywordType": "name",
+      "pageIndex": 1,
+      "pageSize": 10
+    },
+    "invocation_id": "1793069023024411000",
+    "elapsed_seconds": 0.583,
+    "status": "empty",
+    "error_category": null,
+    "result_type": "dict",
+    "top_level_fields": [
+      "text"
+    ],
+    "row_count": null,
+    "reported_total": null,
+    "numeric_evidence": [],
+    "response_sha256": "b2da0c4c26e517e5a1eae0af2a20ca47c52ef51906cf1c3dfa2fe10a67cc714c"
+  },
+  {
+    "tool": "operation_insight_financing_info",
+    "domain": null,
+    "arguments": {
+      "matchKeyword": "中国建筑第八工程局有限公司",
+      "keywordType": "name"
+    },
+    "invocation_id": "1793069023024411000",
+    "elapsed_seconds": 0.385,
+    "status": "data",
+    "error_category": null,
+    "result_type": "dict",
+    "top_level_fields": [
+      "fpFinancingCount",
+      "fpFinancingList"
+    ],
+    "row_count": null,
+    "reported_total": null,
+    "numeric_evidence": [
+      {
+        "path": "fpFinancingCount",
+        "value": 1
+      }
+    ],
+    "response_sha256": "61fe0257ee346dd08bdc2defb3c1eefc68617c33eba4bae301fa224127a2eaf3"
+  },
+  {
+    "tool": "operation_insight_tax_qualifications",
+    "domain": null,
+    "arguments": {
+      "matchKeyword": "中国建筑第八工程局有限公司",
+      "keywordType": "name"
+    },
+    "invocation_id": "1793069023024411000",
+    "elapsed_seconds": 0.411,
+    "status": "data",
+    "error_category": null,
+    "result_type": "dict",
+    "top_level_fields": [
+      "tpQualificationList"
+    ],
+    "row_count": null,
+    "reported_total": null,
+    "numeric_evidence": [],
+    "response_sha256": "12fcaf4ea6343246d227ac29a7141be9f297b3df1589c03cba33809fad4a156e"
+  },
+  {
+    "tool": "operation_insight_similar_projects",
+    "domain": null,
+    "arguments": {
+      "matchKeyword": "中国建筑第八工程局有限公司",
+      "keywordType": "name",
+      "pageIndex": 1,
+      "pageSize": 10
+    },
+    "invocation_id": "1793069023024411000",
+    "elapsed_seconds": 0.771,
+    "status": "data",
+    "error_category": null,
+    "result_type": "dict",
+    "top_level_fields": [
+      "resultList",
+      "total"
+    ],
+    "row_count": 10,
+    "reported_total": 118,
+    "numeric_evidence": [
+      {
+        "path": "total",
+        "value": 118
+      }
+    ],
+    "response_sha256": "4dee67266f2e3c679d8c729640ad47bf35918e0a0cdd660e7b18ad0caa80d9f7"
+  },
+  {
+    "tool": "operation_insight_news_sentiment_stats",
+    "domain": null,
+    "arguments": {
+      "matchKeyword": "中国建筑第八工程局有限公司",
+      "keywordType": "name"
+    },
+    "invocation_id": "1793069023024411000",
+    "elapsed_seconds": 0.53,
+    "status": "data",
+    "error_category": null,
+    "result_type": "dict",
+    "top_level_fields": [
+      "newsSentimentStats",
+      "newsSentimentTrend",
+      "sentimentLabelList"
+    ],
+    "row_count": null,
+    "reported_total": null,
+    "numeric_evidence": [
+      {
+        "path": "newsSentimentStats.negative",
+        "value": 244
+      },
+      {
+        "path": "newsSentimentStats.neutral",
+        "value": 960
+      },
+      {
+        "path": "newsSentimentStats.positive",
+        "value": 1124
+      },
+      {
+        "path": "newsSentimentStats.unknown",
+        "value": 3
+      },
+      {
+        "path": "newsSentimentTrend[0].stats.negative",
+        "value": 1
+      },
+      {
+        "path": "newsSentimentTrend[0].stats.positive",
+        "value": 0
+      },
+      {
+        "path": "newsSentimentTrend[1].stats.negative",
+        "value": 0
+      },
+      {
+        "path": "newsSentimentTrend[1].stats.positive",
+        "value": 4
+      },
+      {
+        "path": "newsSentimentTrend[2].stats.negative",
+        "value": 0
+      },
+      {
+        "path": "newsSentimentTrend[2].stats.positive",
+        "value": 1
+      },
+      {
+        "path": "newsSentimentTrend[3].stats.negative",
+        "value": 1
+      },
+      {
+        "path": "newsSentimentTrend[3].stats.positive",
+        "value": 5
+      },
+      {
+        "path": "newsSentimentTrend[4].stats.negative",
+        "value": 0
+      },
+      {
+        "path": "newsSentimentTrend[4].stats.positive",
+        "value": 1
+      }
+    ],
+    "response_sha256": "f55abf2c9afbdd8c50f1747101ea4cadab0cba607eb7f4a7e1fd46ed711d35a1"
+  }
+]

@@ -1,0 +1,39 @@
+{
+  "metric_overflows": [],
+  "document_title": "中国建筑第八工程局有限公司 企业经营分析报告",
+  "title_matches": true,
+  "charts": 2,
+  "rendered_charts": 2,
+  "zero_size_charts": 0,
+  "chart_details": [
+    {
+      "width": 984,
+      "height": 300,
+      "instance": true,
+      "renderer": true,
+      "graphics": 25
+    },
+    {
+      "width": 984,
+      "height": 300,
+      "instance": true,
+      "renderer": true,
+      "graphics": 99
+    }
+  ],
+  "page_width": 1905,
+  "viewport_width": 1920,
+  "empty_headers": 0,
+  "script_errors": [],
+  "external_resources": 0,
+  "external_asset_references": 0,
+  "ok": true,
+  "report_html_sha256": "e5171a820eabad632fd45f2f2736457f4b656d79525361db3ac09fafe7fc9f75",
+  "report_json_sha256": "ef09ee11eb51ca96c0c802a5f7fbc1a5bbc03f02f475fe0225c52347d0737098",
+  "skill": "enterprise-operation-skill",
+  "id": "05-construction-operation",
+  "browser": "Ego Lite",
+  "space_id": 4,
+  "offline": true,
+  "checked_at": "2026-10-27T03:02:44.315Z"
+}

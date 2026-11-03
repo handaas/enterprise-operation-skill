@@ -1,0 +1,113 @@
+{
+  "run_id": "live-replaced-20261027",
+  "cases": [
+    {
+      "skill": "enterprise-operation-skill",
+      "id": "01-growth-overview",
+      "status": "passed",
+      "positive_business_pass": true,
+      "files_sha256": {
+        "report.json": "8998e616840044a467d54f7c6d433cbae14a6dab8daa48b2c83478349bdab5d0",
+        "report.html": "a4f26f835da02dd6e966ecade566cb40a36de87e24c298c1a92078996b6b5b5a",
+        "report.md": "5f96ade5c195a242c258ec8320512a9ff72696beee3b770d62383889a9c2d667",
+        "calls.json": "c1b06476255a7098d34c93ce1f4a5a7ef29e437926a2570da15918bae2a0d70b",
+        "result.json": "918af5a9b98a87ed29808dabcd8fcf85afcda5e1c16c3153060ce14fa29aeff2",
+        "audit.json": "b9c4ff11cc7d44ac4e24d039723ff8d5fd3cfe9093b8321bd662694ef7aed0bb",
+        "acceptance.json": "89438017d336ca090ed2d22f0c7a302b051d055b8cb18336e8141066bcc29fde",
+        "business-review.json": "433ed73ca578540e2c7248bef1da41555a4eaa7817d99f4df12dbe79bac1a8bd",
+        "browser-check.json": "cdeb30fc3e2566a758d46695b3c24508dfdc217cae95c850c6f20559fc80b964"
+      },
+      "audit_record": "../../test-records/live-replaced-20261027/01-growth-overview.md"
+    },
+    {
+      "skill": "enterprise-operation-skill",
+      "id": "02-ev-operation",
+      "status": "passed",
+      "positive_business_pass": true,
+      "files_sha256": {
+        "report.json": "a52e62a21ff74ea38b2909173e02c618796b70eb353fec3164781870c2a87191",
+        "report.html": "c9b702748636a53d9f6721ada147bde1f4e45f776433a025bc09ca92a18bac6c",
+        "report.md": "2d44d30512fae90cceae2bdb8addb60c5c1f8cbf1518364bb3628c954b077fab",
+        "calls.json": "4331a5d335d32ed4b0957d51268f7a1b1c087418e327c9352e90d675228ab543",
+        "result.json": "9e07cab2580f6d88521a5d248acc41c8188193fddadc6e66496f89b2eed28d33",
+        "audit.json": "ab9baa4efd6cad59bbde415fa17732d2cc06cbff722c06f5cdb47109e5b50443",
+        "acceptance.json": "bda66e8f09227defc9d124c4a95c07eb7f554854b10f7523985942af33ad8ee9",
+        "business-review.json": "c49957a803782a35bdff6ff2683fe4502f3c3bab0bc6be4bc966fff2e825f77f",
+        "browser-check.json": "1c634885d405f95c6dd36d308b99d9732e19899713b2a8aa4008284d9e6aa21c"
+      },
+      "audit_record": "../../test-records/live-replaced-20261027/02-ev-operation.md"
+    },
+    {
+      "skill": "enterprise-operation-skill",
+      "id": "03-consumer-brand",
+      "status": "passed",
+      "positive_business_pass": true,
+      "files_sha256": {
+        "report.json": "b955c8796c1b04abd5d7db9382e8e9d9d8ec68b9323480b0d5fa320f10b45961",
+        "report.html": "d4d879f6b98f48a4d03ac64fab68d3be7485a0d440b6f194f773b693d107a34e",
+        "report.md": "6ac5cb43a8eaeb47c74394cd455be882b3c862d0e2b4fddc9d43868bcedfd648",
+        "calls.json": "0ad69ab9acffc13763533c941119f41696fddeee83c67174c9aa2869aaf160af",
+        "result.json": "0320adf619a7bebd7c370d8a0b7cc194e3d1ba660ddc9ce3a8f7a2edf1c68199",
+        "audit.json": "a34318bc23e80e5c45730d72d64511db0c638ed1cf69f58ae096507b962c8137",
+        "acceptance.json": "da0bd5c5c834e1438d98831ec38b79ba132b7103713e0fc7d312ecefb791fa6e",
+        "business-review.json": "39c66d9013f4d46bb3cf455f8d25fe796ff356ae2471f487c599e10e77aaa5ec",
+        "browser-check.json": "6edd65a0ed76573ec903de5b4210c9059b2220a6449fe5201b9a395c4c25107f"
+      },
+      "audit_record": "../../test-records/live-replaced-20261027/03-consumer-brand.md"
+    },
+    {
+      "skill": "enterprise-operation-skill",
+      "id": "04-platform-operation",
+      "status": "passed",
+      "positive_business_pass": true,
+      "files_sha256": {
+        "report.json": "e6c6b769e07669c3ed3c16d5ea0901015e6336843362397e83ceff9201a30c99",
+        "report.html": "c5f23be4a76a23b0335cd64125c661377650c261456c11243533931a5fcb3be8",
+        "report.md": "4203caae80c1833be8a370184c4247c4d3adcd3e88b3fcb41f79ecae3d705f39",
+        "calls.json": "20693af738db1928e54fee7df2585ad884e6a75edae29fb34a2c15bb41d4222d",
+        "result.json": "7c6d46f91caa9030c75c88d30083c8579c941fffeff6977da471648e3f2b5ab3",
+        "audit.json": "4e33ebd4c8de686a2886227bafffb01a3b00c068e1f61284b256256bfbc28659",
+        "acceptance.json": "1688fd084dafe9ba7571c393b69011183c2d6ee93f2fbf68c99c24513dcf6740",
+        "business-review.json": "5da481fcf016314e9945c8c7833d0af649e119f6dd00d6ab898b93dd23f476c0",
+        "browser-check.json": "8ad7abe7949272f7e9884c3e428d942977b21da2b30e6e73319530c31d356e20"
+      },
+      "audit_record": "../../test-records/live-replaced-20261027/04-platform-operation.md"
+    },
+    {
+      "skill": "enterprise-operation-skill",
+      "id": "05-construction-operation",
+      "status": "passed",
+      "positive_business_pass": true,
+      "files_sha256": {
+        "report.json": "ef09ee11eb51ca96c0c802a5f7fbc1a5bbc03f02f475fe0225c52347d0737098",
+        "report.html": "e5171a820eabad632fd45f2f2736457f4b656d79525361db3ac09fafe7fc9f75",
+        "report.md": "d2370b9074cfc842a49b8c9f29af4bf1ac363ab463da9c413e2d93910347ba6f",
+        "calls.json": "a3a8e381145528ae2362f027a804eb4a5c5655f14cbdc3099f4c01d426797c04",
+        "result.json": "72c9792523bc162d9b1b40ed7bb902f7135c0ff36b5fc48f14625593f60e181b",
+        "audit.json": "b0b83c3358c76e6d15263876f7a4cded3f1f45601007227d0fb88102b134c144",
+        "acceptance.json": "b64e455167e64b34aad5a7e9d4e3b69be13b0eea27d0404f25d24bd15cf22813",
+        "business-review.json": "7c67915663763e3d2f9f3890b81e27cbed50cd8bbd7453ab71a3ddadb4a37166",
+        "browser-check.json": "9f037ad35e15cef29e478989cf1d35a8e723f32ead6a6f48c4c8aba50d542de5"
+      },
+      "audit_record": "../../test-records/live-replaced-20261027/05-construction-operation.md"
+    },
+    {
+      "skill": "enterprise-operation-skill",
+      "id": "07-small-page",
+      "status": "passed",
+      "positive_business_pass": true,
+      "files_sha256": {
+        "report.json": "12c7fc3d325ec6c92a360d2938cfc644783b73725ffd0a05d5a47396a21230b0",
+        "report.html": "c438aa2953f3c80153db3f91d74ae555b0c9c2590b6f18a6d5ee06060fe50d52",
+        "report.md": "c75a11ef6b8fe4f55caecf7c791d963b3f88318fcff31d1f09f8ac5a4195a5b3",
+        "calls.json": "c05d183bf9fb284126e4009198ce94865f115babe652b7b0069f4a6f5f6695de",
+        "result.json": "5c447fe02d8542fd1b762ec02b0e0dfa6cb497942a584efcebb869e770281429",
+        "audit.json": "9843e4a4c68f486a47b48925ebf000d3f5e3ae22b28c6d5ed7f2ea8865bdca9a",
+        "acceptance.json": "8926bef438e6515efe13854641df460dc8e1e9f3e01b6e53d1ab13dcc7a7455b",
+        "business-review.json": "9df4538e4641f32bfb99b816f9a8bd85ea82b877811b9ffcdb36b2779abc2948",
+        "browser-check.json": "0c88d51a4e692b32187a181b19f85b474c55aebb89a0990441286877324a2f59"
+      },
+      "audit_record": "../../test-records/live-replaced-20261027/07-small-page.md"
+    }
+  ]
+}

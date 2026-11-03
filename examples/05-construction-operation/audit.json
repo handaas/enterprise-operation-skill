@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "skill": "enterprise-operation-skill",
+  "case_id": "05-construction-operation",
+  "title": "工程企业经营能力初筛",
+  "invocation_id": "1793069023024411000",
+  "provenance": {
+    "integrator_id": "683e574805537ace146cc05e",
+    "runner_sha256": "05777c2f2b0791cb5157aef691206606dade8df7af3b17212285b7ae74632a66",
+    "credential_policy_sha256": "bcabf08a1ca92f28357c0e57a8bae9bfa910eb1d4b204d8195ee3b7a77106eed",
+    "scenario_sha256": "0c62e24514993c02bf43ca4ea40f667ac66c220e5fbf09855cf6740a469c3e64",
+    "skill_source_hashes": {
+      "scripts/common.py": "6abc0d9924e42c344bd3376f2753440723ba63b85e09a4fd5446627f6a522a43",
+      "scripts/compose_report.py": "ac0bf3cc77d4bb4da7d45a7166a73e7844349ba59604630a6afaf99ff14c585c",
+      "scripts/mcp_client.py": "b881f4efd7992b69843365c3b2b756ef377ae0607fb5f66054aa527e4c428ca8",
+      "scripts/render_report.py": "6042cca2e90702b447e0a4bdc412798bcf776fd89757803bd7aeb404502f859b",
+      "scripts/validate_config.py": "4bb4001d452a004faeaf4b00bddbf94197b2c8cbc4338bb04d273a93c9a6c0c3"
+    },
+    "upstream_source_hashes": {
+      "enterprise-operation-mcp-server": "46af6307784e60a051c16fb45a890979a4c994ff26c50af6cec85b3117619a49"
+    },
+    "upstream_dependency_hashes": {
+      "enterprise-operation-mcp-server/server/mcp_server.py": "46af6307784e60a051c16fb45a890979a4c994ff26c50af6cec85b3117619a49"
+    }
+  },
+  "source_changed_during_run": false,
+  "started_at": "2026-10-27T10:43:43+08:00",
+  "elapsed_seconds": 7.215,
+  "returncode": 0,
+  "exception_type": null,
+  "command": "python3 enterprise-operation-skill/scripts/compose_report.py --enterprise '中国建筑第八工程局有限公司' --page-size 10 --output enterprise-operation-skill/output/live-replaced-20261027/05-construction-operation/report.json --report-output enterprise-operation-skill/output/live-replaced-20261027/05-construction-operation/report.html",
+  "transport": "local MCP servers via loopback streamable-http",
+  "cache_used": false,
+  "call_count": 9,
+  "successful_data_calls": 6,
+  "empty_calls": 3,
+  "failed_calls": 0,
+  "checks": {
+    "issues": [],
+    "warnings": [],
+    "coverage_pct": 73,
+    "subject": {
+      "enterprise": "中国建筑第八工程局有限公司",
+      "matchKeyword": "中国建筑第八工程局有限公司",
+      "keywordType": "name",
+      "match_raw": "中国建筑第八工程局有限公司",
+      "resolved": true,
+      "resolve_reason": "用户提供企业全称"
+    },
+    "title": "中国建筑第八工程局有限公司 企业经营分析报告",
+    "data_mode": null,
+    "metrics": [
+      {
+        "label": "人员规模",
+        "value": "30000人以上",
+        "hint": "算法识别的企业人员规模"
+      },
+      {
+        "label": "年营业额",
+        "value": "10亿以上",
+        "hint": "算法识别的企业年营业额区间"
+      },
+      {
+        "label": "融资次数",
+        "value": "1",
+        "hint": "历史融资次数"
+      },
+      {
+        "label": "相似项目总量",
+        "value": "118",
+        "hint": "上游响应返回的相似项目 total"
+      },
+      {
+        "label": "融资轮次",
+        "value": "战略投资",
+        "hint": "历史融资轮次轨迹"
+      },
+      {
+        "label": "当前页展示项目数",
+        "value": "10",
+        "hint": "本次响应当前页实际展示的相似项目记录数"
+      },
+      {
+        "label": "正面舆情率",
+        "value": "48.2%",
+        "hint": "正面舆情占总舆情比例"
+      },
+      {
+        "label": "税务资质数",
+        "value": "2",
+        "hint": "持有的税务资质数量"
+      }
+    ],
+    "quality_report": {
+      "total_sections": 11,
+      "populated_sections": 8,
+      "empty_sections": 3,
+      "coverage_pct": 73
+    },
+    "unregistered_tools": [],
+    "checks": {
+      "json_html_markdown": true,
+      "explicit_live": true,
+      "tool_calls_recorded": 9,
+      "offline_scripts": true,
+      "independent_rerender": true,
+      "offline_browser": true
+    }
+  },
+  "status": "passed",
+  "source_hashes": {
+    "scripts/common.py": "6abc0d9924e42c344bd3376f2753440723ba63b85e09a4fd5446627f6a522a43",
+    "scripts/compose_report.py": "ac0bf3cc77d4bb4da7d45a7166a73e7844349ba59604630a6afaf99ff14c585c",
+    "scripts/mcp_client.py": "b881f4efd7992b69843365c3b2b756ef377ae0607fb5f66054aa527e4c428ca8",
+    "scripts/render_report.py": "6042cca2e90702b447e0a4bdc412798bcf776fd89757803bd7aeb404502f859b",
+    "scripts/validate_config.py": "4bb4001d452a004faeaf4b00bddbf94197b2c8cbc4338bb04d273a93c9a6c0c3"
+  },
+  "technical_status": "passed",
+  "audited_at": "2026-10-27T11:12:58+08:00",
+  "evidence_binding": {
+    "report.json": "ef09ee11eb51ca96c0c802a5f7fbc1a5bbc03f02f475fe0225c52347d0737098",
+    "report.html": "e5171a820eabad632fd45f2f2736457f4b656d79525361db3ac09fafe7fc9f75",
+    "report.md": "d2370b9074cfc842a49b8c9f29af4bf1ac363ab463da9c413e2d93910347ba6f",
+    "calls.json": "a3a8e381145528ae2362f027a804eb4a5c5655f14cbdc3099f4c01d426797c04",
+    "result.json": "72c9792523bc162d9b1b40ed7bb902f7135c0ff36b5fc48f14625593f60e181b",
+    "source_manifest_sha256": "014e0c39ccd221d4b037bfafc75dc705b73521da54c003be18fa8ca62d4dab92"
+  }
+}

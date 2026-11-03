@@ -1,0 +1,332 @@
+[
+  {
+    "tool": "operation_insight_product_tags",
+    "domain": null,
+    "arguments": {
+      "matchKeyword": "比亚迪股份有限公司",
+      "keywordType": "name"
+    },
+    "invocation_id": "1793069014607386000",
+    "elapsed_seconds": 1.663,
+    "status": "empty",
+    "error_category": null,
+    "result_type": "dict",
+    "top_level_fields": [
+      "text"
+    ],
+    "row_count": null,
+    "reported_total": null,
+    "numeric_evidence": [],
+    "response_sha256": "b2da0c4c26e517e5a1eae0af2a20ca47c52ef51906cf1c3dfa2fe10a67cc714c"
+  },
+  {
+    "tool": "operation_insight_company_trends",
+    "domain": null,
+    "arguments": {
+      "matchKeyword": "比亚迪股份有限公司",
+      "keywordType": "name"
+    },
+    "invocation_id": "1793069014607386000",
+    "elapsed_seconds": 0.42,
+    "status": "data",
+    "error_category": null,
+    "result_type": "dict",
+    "top_level_fields": [
+      "isStaffExpandIn3Month",
+      "isStaffExpandIn6Month",
+      "isExpandNewCityIn3Month",
+      "isExpandNewCityIn6Month",
+      "isExpandNewCityIn12Month"
+    ],
+    "row_count": null,
+    "reported_total": null,
+    "numeric_evidence": [
+      {
+        "path": "isStaffExpandIn3Month",
+        "value": 1
+      },
+      {
+        "path": "isStaffExpandIn6Month",
+        "value": 1
+      },
+      {
+        "path": "isExpandNewCityIn3Month",
+        "value": 1
+      },
+      {
+        "path": "isExpandNewCityIn6Month",
+        "value": 1
+      },
+      {
+        "path": "isExpandNewCityIn12Month",
+        "value": 1
+      }
+    ],
+    "response_sha256": "abad3aa5854c0f2ae5a7ac66b539bbe0c1c24d66de7612992771b95f9d98b8af"
+  },
+  {
+    "tool": "operation_insight_brand_profile",
+    "domain": null,
+    "arguments": {
+      "matchKeyword": "比亚迪股份有限公司",
+      "keywordType": "name"
+    },
+    "invocation_id": "1793069014607386000",
+    "elapsed_seconds": 0.571,
+    "status": "data",
+    "error_category": null,
+    "result_type": "dict",
+    "top_level_fields": [
+      "brandCradleList",
+      "brandCreateTime",
+      "brandIndustryList",
+      "brandProductList"
+    ],
+    "row_count": null,
+    "reported_total": null,
+    "numeric_evidence": [],
+    "response_sha256": "06b2afc621bac41f562c1567c8ed1fdf43211dff60d06816ee3c456297b71e47"
+  },
+  {
+    "tool": "operation_insight_business_scale",
+    "domain": null,
+    "arguments": {
+      "matchKeyword": "比亚迪股份有限公司",
+      "keywordType": "name"
+    },
+    "invocation_id": "1793069014607386000",
+    "elapsed_seconds": 0.415,
+    "status": "data",
+    "error_category": null,
+    "result_type": "dict",
+    "top_level_fields": [
+      "annualTurnover",
+      "enterpriseScale"
+    ],
+    "row_count": null,
+    "reported_total": null,
+    "numeric_evidence": [],
+    "response_sha256": "7c05a4d3bcd474b7963faa2bcced12f8a2be0b1d908d323dfe3d894da56b4354"
+  },
+  {
+    "tool": "operation_insight_enterprise_rankings",
+    "domain": null,
+    "arguments": {
+      "matchKeyword": "比亚迪股份有限公司",
+      "keywordType": "name",
+      "pageIndex": 1,
+      "pageSize": 8
+    },
+    "invocation_id": "1793069014607386000",
+    "elapsed_seconds": 0.42,
+    "status": "data",
+    "error_category": null,
+    "result_type": "dict",
+    "top_level_fields": [
+      "resultList",
+      "total"
+    ],
+    "row_count": 8,
+    "reported_total": 76,
+    "numeric_evidence": [
+      {
+        "path": "resultList[0].rankingListYear",
+        "value": 2024
+      },
+      {
+        "path": "resultList[0].rank",
+        "value": 143
+      },
+      {
+        "path": "resultList[1].rankingListYear",
+        "value": 2024
+      },
+      {
+        "path": "resultList[1].rank",
+        "value": 40
+      },
+      {
+        "path": "resultList[2].rankingListYear",
+        "value": 2023
+      },
+      {
+        "path": "resultList[2].rank",
+        "value": 212
+      },
+      {
+        "path": "resultList[3].rankingListYear",
+        "value": 2023
+      },
+      {
+        "path": "resultList[3].rank",
+        "value": 65
+      },
+      {
+        "path": "resultList[4].rankingListYear",
+        "value": 2023
+      },
+      {
+        "path": "resultList[4].rank",
+        "value": 66
+      },
+      {
+        "path": "total",
+        "value": 76
+      }
+    ],
+    "response_sha256": "03b6a60fd4936ec9b6dd87518f7b2e586cf63144e36bad9bf7be28f6bd8b497d"
+  },
+  {
+    "tool": "operation_insight_financing_info",
+    "domain": null,
+    "arguments": {
+      "matchKeyword": "比亚迪股份有限公司",
+      "keywordType": "name"
+    },
+    "invocation_id": "1793069014607386000",
+    "elapsed_seconds": 0.797,
+    "status": "data",
+    "error_category": null,
+    "result_type": "dict",
+    "top_level_fields": [
+      "fpFinancingCount",
+      "fpFinancingList"
+    ],
+    "row_count": null,
+    "reported_total": null,
+    "numeric_evidence": [
+      {
+        "path": "fpFinancingCount",
+        "value": 7
+      }
+    ],
+    "response_sha256": "59adc4d5a5397eb270ec6126785a4e5a865c7b2c71307adaa341a079ad27958e"
+  },
+  {
+    "tool": "operation_insight_tax_qualifications",
+    "domain": null,
+    "arguments": {
+      "matchKeyword": "比亚迪股份有限公司",
+      "keywordType": "name"
+    },
+    "invocation_id": "1793069014607386000",
+    "elapsed_seconds": 1.067,
+    "status": "data",
+    "error_category": null,
+    "result_type": "dict",
+    "top_level_fields": [
+      "tpQualificationList"
+    ],
+    "row_count": null,
+    "reported_total": null,
+    "numeric_evidence": [],
+    "response_sha256": "48a29151b32e34542bb9a0041883106b3f9acca05f159f03b6766a6aee0aa6b7"
+  },
+  {
+    "tool": "operation_insight_similar_projects",
+    "domain": null,
+    "arguments": {
+      "matchKeyword": "比亚迪股份有限公司",
+      "keywordType": "name",
+      "pageIndex": 1,
+      "pageSize": 8
+    },
+    "invocation_id": "1793069014607386000",
+    "elapsed_seconds": 1.554,
+    "status": "data",
+    "error_category": null,
+    "result_type": "dict",
+    "top_level_fields": [
+      "resultList",
+      "total"
+    ],
+    "row_count": 8,
+    "reported_total": 86,
+    "numeric_evidence": [
+      {
+        "path": "total",
+        "value": 86
+      }
+    ],
+    "response_sha256": "f11f69fbbe29d1a43dd2be53af3e450aa029cac61f2075da669ce3c2a933f186"
+  },
+  {
+    "tool": "operation_insight_news_sentiment_stats",
+    "domain": null,
+    "arguments": {
+      "matchKeyword": "比亚迪股份有限公司",
+      "keywordType": "name"
+    },
+    "invocation_id": "1793069014607386000",
+    "elapsed_seconds": 1.231,
+    "status": "data",
+    "error_category": null,
+    "result_type": "dict",
+    "top_level_fields": [
+      "newsSentimentStats",
+      "newsSentimentTrend",
+      "sentimentLabelList"
+    ],
+    "row_count": null,
+    "reported_total": null,
+    "numeric_evidence": [
+      {
+        "path": "newsSentimentStats.negative",
+        "value": 156
+      },
+      {
+        "path": "newsSentimentStats.neutral",
+        "value": 3402
+      },
+      {
+        "path": "newsSentimentStats.positive",
+        "value": 1540
+      },
+      {
+        "path": "newsSentimentStats.unknown",
+        "value": 33
+      },
+      {
+        "path": "newsSentimentTrend[0].stats.negative",
+        "value": 0
+      },
+      {
+        "path": "newsSentimentTrend[0].stats.positive",
+        "value": 5
+      },
+      {
+        "path": "newsSentimentTrend[1].stats.negative",
+        "value": 0
+      },
+      {
+        "path": "newsSentimentTrend[1].stats.positive",
+        "value": 2
+      },
+      {
+        "path": "newsSentimentTrend[2].stats.negative",
+        "value": 0
+      },
+      {
+        "path": "newsSentimentTrend[2].stats.positive",
+        "value": 2
+      },
+      {
+        "path": "newsSentimentTrend[3].stats.negative",
+        "value": 0
+      },
+      {
+        "path": "newsSentimentTrend[3].stats.positive",
+        "value": 3
+      },
+      {
+        "path": "newsSentimentTrend[4].stats.negative",
+        "value": 0
+      },
+      {
+        "path": "newsSentimentTrend[4].stats.positive",
+        "value": 1
+      }
+    ],
+    "response_sha256": "6311c0b97987fb97536bdcd5dadc807cc45782bb455fda4032b10087aca88648"
+  }
+]

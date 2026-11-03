@@ -1,0 +1,341 @@
+[
+  {
+    "tool": "operation_insight_product_tags",
+    "domain": null,
+    "arguments": {
+      "matchKeyword": "北京京东世纪贸易有限公司",
+      "keywordType": "name"
+    },
+    "invocation_id": "1793069017770387000",
+    "elapsed_seconds": 1.113,
+    "status": "empty",
+    "error_category": null,
+    "result_type": "dict",
+    "top_level_fields": [
+      "text"
+    ],
+    "row_count": null,
+    "reported_total": null,
+    "numeric_evidence": [],
+    "response_sha256": "b2da0c4c26e517e5a1eae0af2a20ca47c52ef51906cf1c3dfa2fe10a67cc714c"
+  },
+  {
+    "tool": "operation_insight_company_trends",
+    "domain": null,
+    "arguments": {
+      "matchKeyword": "北京京东世纪贸易有限公司",
+      "keywordType": "name"
+    },
+    "invocation_id": "1793069017770387000",
+    "elapsed_seconds": 1.071,
+    "status": "data",
+    "error_category": null,
+    "result_type": "dict",
+    "top_level_fields": [
+      "isStaffExpandIn12Month",
+      "isFoundSubsidiaryIn3Month",
+      "isExpandNewCityIn3Month",
+      "isExpandNewCityIn6Month",
+      "isExpandNewCityIn12Month",
+      "isDiffAreaWinBidIn3Month",
+      "isDiffAreaWinBidIn6Month",
+      "isDiffAreaWinBidIn12Month"
+    ],
+    "row_count": null,
+    "reported_total": null,
+    "numeric_evidence": [
+      {
+        "path": "isStaffExpandIn12Month",
+        "value": 1
+      },
+      {
+        "path": "isFoundSubsidiaryIn3Month",
+        "value": 1
+      },
+      {
+        "path": "isExpandNewCityIn3Month",
+        "value": 1
+      },
+      {
+        "path": "isExpandNewCityIn6Month",
+        "value": 1
+      },
+      {
+        "path": "isExpandNewCityIn12Month",
+        "value": 1
+      },
+      {
+        "path": "isDiffAreaWinBidIn3Month",
+        "value": 1
+      },
+      {
+        "path": "isDiffAreaWinBidIn6Month",
+        "value": 1
+      },
+      {
+        "path": "isDiffAreaWinBidIn12Month",
+        "value": 1
+      }
+    ],
+    "response_sha256": "aaa61dd4d29977f0e8435cf17084465bbe3a3ab6a880c4ca5100414fb1193096"
+  },
+  {
+    "tool": "operation_insight_brand_profile",
+    "domain": null,
+    "arguments": {
+      "matchKeyword": "北京京东世纪贸易有限公司",
+      "keywordType": "name"
+    },
+    "invocation_id": "1793069017770387000",
+    "elapsed_seconds": 1.559,
+    "status": "data",
+    "error_category": null,
+    "result_type": "dict",
+    "top_level_fields": [
+      "brandCradleList",
+      "brandCreateTime"
+    ],
+    "row_count": null,
+    "reported_total": null,
+    "numeric_evidence": [],
+    "response_sha256": "f39e127ac85182f9f6380274362bc8df9fa486962dff0719ac4b91277a27073a"
+  },
+  {
+    "tool": "operation_insight_business_scale",
+    "domain": null,
+    "arguments": {
+      "matchKeyword": "北京京东世纪贸易有限公司",
+      "keywordType": "name"
+    },
+    "invocation_id": "1793069017770387000",
+    "elapsed_seconds": 0.925,
+    "status": "data",
+    "error_category": null,
+    "result_type": "dict",
+    "top_level_fields": [
+      "annualTurnover",
+      "enterpriseScale"
+    ],
+    "row_count": null,
+    "reported_total": null,
+    "numeric_evidence": [],
+    "response_sha256": "7c05a4d3bcd474b7963faa2bcced12f8a2be0b1d908d323dfe3d894da56b4354"
+  },
+  {
+    "tool": "operation_insight_enterprise_rankings",
+    "domain": null,
+    "arguments": {
+      "matchKeyword": "北京京东世纪贸易有限公司",
+      "keywordType": "name",
+      "pageIndex": 1,
+      "pageSize": 10
+    },
+    "invocation_id": "1793069017770387000",
+    "elapsed_seconds": 0.745,
+    "status": "data",
+    "error_category": null,
+    "result_type": "dict",
+    "top_level_fields": [
+      "resultList",
+      "total"
+    ],
+    "row_count": 10,
+    "reported_total": 13,
+    "numeric_evidence": [
+      {
+        "path": "resultList[0].rankingListYear",
+        "value": 2023
+      },
+      {
+        "path": "resultList[0].rank",
+        "value": 1
+      },
+      {
+        "path": "resultList[1].rankingListYear",
+        "value": 2022
+      },
+      {
+        "path": "resultList[1].rank",
+        "value": 1
+      },
+      {
+        "path": "resultList[2].rankingListYear",
+        "value": 2021
+      },
+      {
+        "path": "resultList[2].rank",
+        "value": 2
+      },
+      {
+        "path": "resultList[3].rankingListYear",
+        "value": 2020
+      },
+      {
+        "path": "resultList[4].rankingListYear",
+        "value": 2019
+      },
+      {
+        "path": "resultList[4].rank",
+        "value": 35
+      },
+      {
+        "path": "total",
+        "value": 13
+      }
+    ],
+    "response_sha256": "9f38b04f8963bab99b6ebda768ed9d3e1627df416244e38fc63fa3c7de23e204"
+  },
+  {
+    "tool": "operation_insight_financing_info",
+    "domain": null,
+    "arguments": {
+      "matchKeyword": "北京京东世纪贸易有限公司",
+      "keywordType": "name"
+    },
+    "invocation_id": "1793069017770387000",
+    "elapsed_seconds": 0.556,
+    "status": "data",
+    "error_category": null,
+    "result_type": "dict",
+    "top_level_fields": [
+      "fpFinancingCount",
+      "fpFinancingList"
+    ],
+    "row_count": null,
+    "reported_total": null,
+    "numeric_evidence": [
+      {
+        "path": "fpFinancingCount",
+        "value": 3
+      }
+    ],
+    "response_sha256": "ad2b9adfe88e96f4234e3bd2cd66906b74832f959a8bc92e4a5986e51db75150"
+  },
+  {
+    "tool": "operation_insight_tax_qualifications",
+    "domain": null,
+    "arguments": {
+      "matchKeyword": "北京京东世纪贸易有限公司",
+      "keywordType": "name"
+    },
+    "invocation_id": "1793069017770387000",
+    "elapsed_seconds": 1.113,
+    "status": "data",
+    "error_category": null,
+    "result_type": "dict",
+    "top_level_fields": [
+      "tpQualificationList"
+    ],
+    "row_count": null,
+    "reported_total": null,
+    "numeric_evidence": [],
+    "response_sha256": "ca7ec29d974f631b75b6340378e66589372129dc89aa6deb68d37c10ec144134"
+  },
+  {
+    "tool": "operation_insight_similar_projects",
+    "domain": null,
+    "arguments": {
+      "matchKeyword": "北京京东世纪贸易有限公司",
+      "keywordType": "name",
+      "pageIndex": 1,
+      "pageSize": 10
+    },
+    "invocation_id": "1793069017770387000",
+    "elapsed_seconds": 1.015,
+    "status": "data",
+    "error_category": null,
+    "result_type": "dict",
+    "top_level_fields": [
+      "resultList",
+      "total"
+    ],
+    "row_count": 10,
+    "reported_total": 242,
+    "numeric_evidence": [
+      {
+        "path": "total",
+        "value": 242
+      }
+    ],
+    "response_sha256": "61a11561b5f3e6d80f713c0fc427cb5ed54e67eecb94623bf43d674ff79161d1"
+  },
+  {
+    "tool": "operation_insight_news_sentiment_stats",
+    "domain": null,
+    "arguments": {
+      "matchKeyword": "北京京东世纪贸易有限公司",
+      "keywordType": "name"
+    },
+    "invocation_id": "1793069017770387000",
+    "elapsed_seconds": 0.96,
+    "status": "data",
+    "error_category": null,
+    "result_type": "dict",
+    "top_level_fields": [
+      "newsSentimentStats",
+      "newsSentimentTrend",
+      "sentimentLabelList"
+    ],
+    "row_count": null,
+    "reported_total": null,
+    "numeric_evidence": [
+      {
+        "path": "newsSentimentStats.negative",
+        "value": 371
+      },
+      {
+        "path": "newsSentimentStats.neutral",
+        "value": 2695
+      },
+      {
+        "path": "newsSentimentStats.positive",
+        "value": 1298
+      },
+      {
+        "path": "newsSentimentStats.unknown",
+        "value": 21
+      },
+      {
+        "path": "newsSentimentTrend[0].stats.negative",
+        "value": 1
+      },
+      {
+        "path": "newsSentimentTrend[0].stats.positive",
+        "value": 3
+      },
+      {
+        "path": "newsSentimentTrend[1].stats.negative",
+        "value": 1
+      },
+      {
+        "path": "newsSentimentTrend[1].stats.positive",
+        "value": 3
+      },
+      {
+        "path": "newsSentimentTrend[2].stats.negative",
+        "value": 1
+      },
+      {
+        "path": "newsSentimentTrend[2].stats.positive",
+        "value": 5
+      },
+      {
+        "path": "newsSentimentTrend[3].stats.negative",
+        "value": 2
+      },
+      {
+        "path": "newsSentimentTrend[3].stats.positive",
+        "value": 0
+      },
+      {
+        "path": "newsSentimentTrend[4].stats.negative",
+        "value": 0
+      },
+      {
+        "path": "newsSentimentTrend[4].stats.positive",
+        "value": 4
+      }
+    ],
+    "response_sha256": "589b22b20e901f4411cbc5a00d2902e2845eb63aa5a3fcd6fd62aa0dbe53481d"
+  }
+]

@@ -1,0 +1,179 @@
+{
+  "schema_version": 1,
+  "skill": "enterprise-operation-skill",
+  "case_id": "03-consumer-brand",
+  "title": "消费品牌经营评估",
+  "invocation_id": "1793069017757343000",
+  "provenance": {
+    "integrator_id": "683e574805537ace146cc05e",
+    "runner_sha256": "05777c2f2b0791cb5157aef691206606dade8df7af3b17212285b7ae74632a66",
+    "credential_policy_sha256": "bcabf08a1ca92f28357c0e57a8bae9bfa910eb1d4b204d8195ee3b7a77106eed",
+    "scenario_sha256": "7ab3b47650012667494a938ece12c29abb37582ce24e666d70bfe0486c4bde5c",
+    "skill_source_hashes": {
+      "scripts/common.py": "6abc0d9924e42c344bd3376f2753440723ba63b85e09a4fd5446627f6a522a43",
+      "scripts/compose_report.py": "ac0bf3cc77d4bb4da7d45a7166a73e7844349ba59604630a6afaf99ff14c585c",
+      "scripts/mcp_client.py": "b881f4efd7992b69843365c3b2b756ef377ae0607fb5f66054aa527e4c428ca8",
+      "scripts/render_report.py": "6042cca2e90702b447e0a4bdc412798bcf776fd89757803bd7aeb404502f859b",
+      "scripts/validate_config.py": "4bb4001d452a004faeaf4b00bddbf94197b2c8cbc4338bb04d273a93c9a6c0c3"
+    },
+    "upstream_source_hashes": {
+      "enterprise-operation-mcp-server": "46af6307784e60a051c16fb45a890979a4c994ff26c50af6cec85b3117619a49"
+    },
+    "upstream_dependency_hashes": {
+      "enterprise-operation-mcp-server/server/mcp_server.py": "46af6307784e60a051c16fb45a890979a4c994ff26c50af6cec85b3117619a49"
+    }
+  },
+  "source_changed_during_run": false,
+  "started_at": "2026-10-27T10:43:37+08:00",
+  "elapsed_seconds": 9.799,
+  "returncode": 0,
+  "exception_type": null,
+  "command": "python3 enterprise-operation-skill/scripts/compose_report.py --enterprise '贵州茅台酒股份有限公司' --page-size 8 --output enterprise-operation-skill/output/live-replaced-20261027/03-consumer-brand/report.json --report-output enterprise-operation-skill/output/live-replaced-20261027/03-consumer-brand/report.html",
+  "transport": "local MCP servers via loopback streamable-http",
+  "cache_used": false,
+  "call_count": 9,
+  "successful_data_calls": 8,
+  "empty_calls": 1,
+  "failed_calls": 0,
+  "checks": {
+    "issues": [],
+    "warnings": [],
+    "coverage_pct": 82,
+    "subject": {
+      "enterprise": "贵州茅台酒股份有限公司",
+      "matchKeyword": "贵州茅台酒股份有限公司",
+      "keywordType": "name",
+      "match_raw": "贵州茅台酒股份有限公司",
+      "resolved": true,
+      "resolve_reason": "用户提供企业全称"
+    },
+    "title": "贵州茅台酒股份有限公司 企业经营分析报告",
+    "data_mode": null,
+    "metrics": [
+      {
+        "label": "人员规模",
+        "value": "10000人以上",
+        "hint": "算法识别的企业人员规模"
+      },
+      {
+        "label": "年营业额",
+        "value": "10亿以上",
+        "hint": "算法识别的企业年营业额区间"
+      },
+      {
+        "label": "上榜次数",
+        "value": "25",
+        "hint": "企业上榜榜单总数"
+      },
+      {
+        "label": "融资次数",
+        "value": "4",
+        "hint": "历史融资次数"
+      },
+      {
+        "label": "相似项目总量",
+        "value": "55",
+        "hint": "上游响应返回的相似项目 total"
+      },
+      {
+        "label": "上榜级别数",
+        "value": "2",
+        "hint": "不同榜单级别的数量"
+      },
+      {
+        "label": "榜单类型数",
+        "value": "2",
+        "hint": "不同榜单类型的数量"
+      },
+      {
+        "label": "融资轮次",
+        "value": "上市后 → 战略投资 → 上市后 → 上市",
+        "hint": "历史融资轮次轨迹"
+      },
+      {
+        "label": "当前页展示项目数",
+        "value": "8",
+        "hint": "本次响应当前页实际展示的相似项目记录数"
+      },
+      {
+        "label": "正面舆情率",
+        "value": "18.1%",
+        "hint": "正面舆情占总舆情比例"
+      },
+      {
+        "label": "品牌发源地",
+        "value": "仁怀市茅台镇、遵义市",
+        "hint": "品牌创立地点"
+      },
+      {
+        "label": "税务资质数",
+        "value": "1",
+        "hint": "持有的税务资质数量"
+      }
+    ],
+    "quality_report": {
+      "total_sections": 11,
+      "populated_sections": 9,
+      "empty_sections": 2,
+      "coverage_pct": 82
+    },
+    "unregistered_tools": [],
+    "checks": {
+      "json_html_markdown": true,
+      "explicit_live": true,
+      "tool_calls_recorded": 9,
+      "offline_scripts": true,
+      "independent_rerender": true,
+      "offline_browser": true
+    }
+  },
+  "status": "passed",
+  "source_hashes": {
+    "scripts/common.py": "6abc0d9924e42c344bd3376f2753440723ba63b85e09a4fd5446627f6a522a43",
+    "scripts/compose_report.py": "ac0bf3cc77d4bb4da7d45a7166a73e7844349ba59604630a6afaf99ff14c585c",
+    "scripts/mcp_client.py": "b881f4efd7992b69843365c3b2b756ef377ae0607fb5f66054aa527e4c428ca8",
+    "scripts/render_report.py": "6042cca2e90702b447e0a4bdc412798bcf776fd89757803bd7aeb404502f859b",
+    "scripts/validate_config.py": "4bb4001d452a004faeaf4b00bddbf94197b2c8cbc4338bb04d273a93c9a6c0c3"
+  },
+  "technical_status": "passed",
+  "audited_at": "2026-10-27T11:12:58+08:00",
+  "evidence_binding": {
+    "report.json": "b955c8796c1b04abd5d7db9382e8e9d9d8ec68b9323480b0d5fa320f10b45961",
+    "report.html": "d4d879f6b98f48a4d03ac64fab68d3be7485a0d440b6f194f773b693d107a34e",
+    "report.md": "6ac5cb43a8eaeb47c74394cd455be882b3c862d0e2b4fddc9d43868bcedfd648",
+    "calls.json": "0ad69ab9acffc13763533c941119f41696fddeee83c67174c9aa2869aaf160af",
+    "result.json": "0320adf619a7bebd7c370d8a0b7cc194e3d1ba660ddc9ce3a8f7a2edf1c68199",
+    "source_manifest_sha256": "014e0c39ccd221d4b037bfafc75dc705b73521da54c003be18fa8ca62d4dab92"
+  },
+  "business_review": {
+    "id": "03-consumer-brand",
+    "verdict": "acceptable",
+    "summary": "本轮正式真实产物已逐项复核；结论限于上游公开数据、本次分页样本及报告声明口径。",
+    "checks": [
+      {
+        "expectation": "品牌和产品标签需去除空值",
+        "status": "pass",
+        "evidence": "product_tags为空并保持空；brand_profile仅保留实际品牌字段，无空值条目。 本轮实际产物：technical_status=passed，successful_data_calls=8，subject.enterprise=贵州茅台酒股份有限公司，match_raw=贵州茅台酒股份有限公司，resolved=True；calls=[operation_insight_product_tags:empty,rows=None,total=None; operation_insight_company_trends:data,rows=None,total=None; operation_insight_brand_profile:data,rows=None,total=None; operation_insight_business_scale:data,rows=None,total=None; operation_insight_enterprise_rankings:data,rows=8,total=25; operation_insight_financing_info:data,rows=None,total=None; operation_insight_tax_qualifications:data,rows=None,total=None; operation_insight_similar_projects:data,rows=8,total=55; operation_insight_news_sentiment_stats:data,rows=None,total=None]；metrics=[人员规模=10000人以上; 年营业额=10亿以上; 上榜次数=25; 融资次数=4; 相似项目总量=55; 上榜级别数=2; 榜单类型数=2; 融资轮次=上市后 → 战略投资 → 上市后 → 上市; 当前页展示项目数=8; 正面舆情率=18.1%; 品牌发源地=仁怀市茅台镇、遵义市; 税务资质数=1]；sections=[product_tags=0, company_trends=1, recent_qualifications=0, brand_profile=4, business_scale=2, enterprise_rankings=8, financing_info=4, tax_qualifications=1, similar_projects=8, news_sentiment=4, news_sentiment_trend=12]；quality_report={\"total_sections\":11,\"populated_sections\":9,\"empty_sections\":2,\"coverage_pct\":82}。"
+      },
+      {
+        "expectation": "排名应带可识别的榜单或口径信息",
+        "status": "pass",
+        "evidence": "enterprise_rankings当前页8条、total25，保留榜单名/类型/年份/级别/发布单位。 本轮实际产物：technical_status=passed，successful_data_calls=8，subject.enterprise=贵州茅台酒股份有限公司，match_raw=贵州茅台酒股份有限公司，resolved=True；calls=[operation_insight_product_tags:empty,rows=None,total=None; operation_insight_company_trends:data,rows=None,total=None; operation_insight_brand_profile:data,rows=None,total=None; operation_insight_business_scale:data,rows=None,total=None; operation_insight_enterprise_rankings:data,rows=8,total=25; operation_insight_financing_info:data,rows=None,total=None; operation_insight_tax_qualifications:data,rows=None,total=None; operation_insight_similar_projects:data,rows=8,total=55; operation_insight_news_sentiment_stats:data,rows=None,total=None]；metrics=[人员规模=10000人以上; 年营业额=10亿以上; 上榜次数=25; 融资次数=4; 相似项目总量=55; 上榜级别数=2; 榜单类型数=2; 融资轮次=上市后 → 战略投资 → 上市后 → 上市; 当前页展示项目数=8; 正面舆情率=18.1%; 品牌发源地=仁怀市茅台镇、遵义市; 税务资质数=1]；sections=[product_tags=0, company_trends=1, recent_qualifications=0, brand_profile=4, business_scale=2, enterprise_rankings=8, financing_info=4, tax_qualifications=1, similar_projects=8, news_sentiment=4, news_sentiment_trend=12]；quality_report={\"total_sections\":11,\"populated_sections\":9,\"empty_sections\":2,\"coverage_pct\":82}。"
+      },
+      {
+        "expectation": "摘要应反映真实返回维度而非固定套话",
+        "status": "pass",
+        "evidence": "摘要动态列出9个实际非空section，没有再列空的产品标签与近期新获资质，并注明未覆盖章节不推断。 本轮实际产物：technical_status=passed，successful_data_calls=8，subject.enterprise=贵州茅台酒股份有限公司，match_raw=贵州茅台酒股份有限公司，resolved=True；calls=[operation_insight_product_tags:empty,rows=None,total=None; operation_insight_company_trends:data,rows=None,total=None; operation_insight_brand_profile:data,rows=None,total=None; operation_insight_business_scale:data,rows=None,total=None; operation_insight_enterprise_rankings:data,rows=8,total=25; operation_insight_financing_info:data,rows=None,total=None; operation_insight_tax_qualifications:data,rows=None,total=None; operation_insight_similar_projects:data,rows=8,total=55; operation_insight_news_sentiment_stats:data,rows=None,total=None]；metrics=[人员规模=10000人以上; 年营业额=10亿以上; 上榜次数=25; 融资次数=4; 相似项目总量=55; 上榜级别数=2; 榜单类型数=2; 融资轮次=上市后 → 战略投资 → 上市后 → 上市; 当前页展示项目数=8; 正面舆情率=18.1%; 品牌发源地=仁怀市茅台镇、遵义市; 税务资质数=1]；sections=[product_tags=0, company_trends=1, recent_qualifications=0, brand_profile=4, business_scale=2, enterprise_rankings=8, financing_info=4, tax_qualifications=1, similar_projects=8, news_sentiment=4, news_sentiment_trend=12]；quality_report={\"total_sections\":11,\"populated_sections\":9,\"empty_sections\":2,\"coverage_pct\":82}。"
+      }
+    ],
+    "issues": [],
+    "evidence_binding": {
+      "report.json": "b955c8796c1b04abd5d7db9382e8e9d9d8ec68b9323480b0d5fa320f10b45961",
+      "report.html": "d4d879f6b98f48a4d03ac64fab68d3be7485a0d440b6f194f773b693d107a34e",
+      "report.md": "6ac5cb43a8eaeb47c74394cd455be882b3c862d0e2b4fddc9d43868bcedfd648",
+      "calls.json": "0ad69ab9acffc13763533c941119f41696fddeee83c67174c9aa2869aaf160af",
+      "result.json": "0320adf619a7bebd7c370d8a0b7cc194e3d1ba660ddc9ce3a8f7a2edf1c68199",
+      "source_manifest_sha256": "014e0c39ccd221d4b037bfafc75dc705b73521da54c003be18fa8ca62d4dab92"
+    }
+  }
+}

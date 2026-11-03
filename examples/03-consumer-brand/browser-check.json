@@ -1,0 +1,46 @@
+{
+  "metric_overflows": [],
+  "document_title": "贵州茅台酒股份有限公司 企业经营分析报告",
+  "title_matches": true,
+  "charts": 3,
+  "rendered_charts": 3,
+  "zero_size_charts": 0,
+  "chart_details": [
+    {
+      "width": 984,
+      "height": 300,
+      "instance": true,
+      "renderer": true,
+      "graphics": 47
+    },
+    {
+      "width": 984,
+      "height": 300,
+      "instance": true,
+      "renderer": true,
+      "graphics": 25
+    },
+    {
+      "width": 984,
+      "height": 300,
+      "instance": true,
+      "renderer": true,
+      "graphics": 95
+    }
+  ],
+  "page_width": 1905,
+  "viewport_width": 1920,
+  "empty_headers": 0,
+  "script_errors": [],
+  "external_resources": 0,
+  "external_asset_references": 0,
+  "ok": true,
+  "report_html_sha256": "d4d879f6b98f48a4d03ac64fab68d3be7485a0d440b6f194f773b693d107a34e",
+  "report_json_sha256": "b955c8796c1b04abd5d7db9382e8e9d9d8ec68b9323480b0d5fa320f10b45961",
+  "skill": "enterprise-operation-skill",
+  "id": "03-consumer-brand",
+  "browser": "Ego Lite",
+  "space_id": 4,
+  "offline": true,
+  "checked_at": "2026-10-27T03:02:41.446Z"
+}

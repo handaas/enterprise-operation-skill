@@ -1,0 +1,273 @@
+[
+  {
+    "tool": "operation_insight_product_tags",
+    "domain": null,
+    "arguments": {
+      "matchKeyword": "腾讯科技（深圳）有限公司",
+      "keywordType": "name"
+    },
+    "invocation_id": "1793069024831675000",
+    "elapsed_seconds": 1.991,
+    "status": "empty",
+    "error_category": null,
+    "result_type": "dict",
+    "top_level_fields": [
+      "text"
+    ],
+    "row_count": null,
+    "reported_total": null,
+    "numeric_evidence": [],
+    "response_sha256": "b2da0c4c26e517e5a1eae0af2a20ca47c52ef51906cf1c3dfa2fe10a67cc714c"
+  },
+  {
+    "tool": "operation_insight_company_trends",
+    "domain": null,
+    "arguments": {
+      "matchKeyword": "腾讯科技（深圳）有限公司",
+      "keywordType": "name"
+    },
+    "invocation_id": "1793069024831675000",
+    "elapsed_seconds": 0.625,
+    "status": "data",
+    "error_category": null,
+    "result_type": "dict",
+    "top_level_fields": [
+      "isStaffExpandIn3Month",
+      "isStaffExpandIn12Month",
+      "isDiffAreaWinBidIn12Month"
+    ],
+    "row_count": null,
+    "reported_total": null,
+    "numeric_evidence": [
+      {
+        "path": "isStaffExpandIn3Month",
+        "value": 1
+      },
+      {
+        "path": "isStaffExpandIn12Month",
+        "value": 1
+      },
+      {
+        "path": "isDiffAreaWinBidIn12Month",
+        "value": 1
+      }
+    ],
+    "response_sha256": "9262f61c180b3c8fb73cc7e3b610ebe59b5261f075a1146f7431b697124433f3"
+  },
+  {
+    "tool": "operation_insight_brand_profile",
+    "domain": null,
+    "arguments": {
+      "matchKeyword": "腾讯科技（深圳）有限公司",
+      "keywordType": "name"
+    },
+    "invocation_id": "1793069024831675000",
+    "elapsed_seconds": 0.573,
+    "status": "empty",
+    "error_category": null,
+    "result_type": "dict",
+    "top_level_fields": [
+      "text"
+    ],
+    "row_count": null,
+    "reported_total": null,
+    "numeric_evidence": [],
+    "response_sha256": "b2da0c4c26e517e5a1eae0af2a20ca47c52ef51906cf1c3dfa2fe10a67cc714c"
+  },
+  {
+    "tool": "operation_insight_business_scale",
+    "domain": null,
+    "arguments": {
+      "matchKeyword": "腾讯科技（深圳）有限公司",
+      "keywordType": "name"
+    },
+    "invocation_id": "1793069024831675000",
+    "elapsed_seconds": 0.385,
+    "status": "data",
+    "error_category": null,
+    "result_type": "dict",
+    "top_level_fields": [
+      "annualTurnover",
+      "enterpriseScale"
+    ],
+    "row_count": null,
+    "reported_total": null,
+    "numeric_evidence": [],
+    "response_sha256": "7c05a4d3bcd474b7963faa2bcced12f8a2be0b1d908d323dfe3d894da56b4354"
+  },
+  {
+    "tool": "operation_insight_enterprise_rankings",
+    "domain": null,
+    "arguments": {
+      "matchKeyword": "腾讯科技（深圳）有限公司",
+      "keywordType": "name",
+      "pageIndex": 1,
+      "pageSize": 5
+    },
+    "invocation_id": "1793069024831675000",
+    "elapsed_seconds": 0.179,
+    "status": "empty",
+    "error_category": null,
+    "result_type": "dict",
+    "top_level_fields": [
+      "text"
+    ],
+    "row_count": null,
+    "reported_total": null,
+    "numeric_evidence": [],
+    "response_sha256": "b2da0c4c26e517e5a1eae0af2a20ca47c52ef51906cf1c3dfa2fe10a67cc714c"
+  },
+  {
+    "tool": "operation_insight_financing_info",
+    "domain": null,
+    "arguments": {
+      "matchKeyword": "腾讯科技（深圳）有限公司",
+      "keywordType": "name"
+    },
+    "invocation_id": "1793069024831675000",
+    "elapsed_seconds": 1.006,
+    "status": "data",
+    "error_category": null,
+    "result_type": "dict",
+    "top_level_fields": [
+      "fpFinancingCount",
+      "fpFinancingList"
+    ],
+    "row_count": null,
+    "reported_total": null,
+    "numeric_evidence": [
+      {
+        "path": "fpFinancingCount",
+        "value": 5
+      }
+    ],
+    "response_sha256": "478c3a693575c0d6a2e906e40e21e9369fea98c81ec06e22f8463657be4b41aa"
+  },
+  {
+    "tool": "operation_insight_tax_qualifications",
+    "domain": null,
+    "arguments": {
+      "matchKeyword": "腾讯科技（深圳）有限公司",
+      "keywordType": "name"
+    },
+    "invocation_id": "1793069024831675000",
+    "elapsed_seconds": 0.53,
+    "status": "data",
+    "error_category": null,
+    "result_type": "dict",
+    "top_level_fields": [
+      "tpQualificationList"
+    ],
+    "row_count": null,
+    "reported_total": null,
+    "numeric_evidence": [],
+    "response_sha256": "1177fa107ccd2041fc78d6f9e318c1a302404d2b418fb027d4a29622f94b8c24"
+  },
+  {
+    "tool": "operation_insight_similar_projects",
+    "domain": null,
+    "arguments": {
+      "matchKeyword": "腾讯科技（深圳）有限公司",
+      "keywordType": "name",
+      "pageIndex": 1,
+      "pageSize": 5
+    },
+    "invocation_id": "1793069024831675000",
+    "elapsed_seconds": 0.308,
+    "status": "data",
+    "error_category": null,
+    "result_type": "dict",
+    "top_level_fields": [
+      "resultList",
+      "total"
+    ],
+    "row_count": 5,
+    "reported_total": 26,
+    "numeric_evidence": [
+      {
+        "path": "total",
+        "value": 26
+      }
+    ],
+    "response_sha256": "bbcea2bcc16df7f4cd70d9f1c3f4a6876d7c00e011d96a50f6bce4181141a6c1"
+  },
+  {
+    "tool": "operation_insight_news_sentiment_stats",
+    "domain": null,
+    "arguments": {
+      "matchKeyword": "腾讯科技（深圳）有限公司",
+      "keywordType": "name"
+    },
+    "invocation_id": "1793069024831675000",
+    "elapsed_seconds": 0.212,
+    "status": "data",
+    "error_category": null,
+    "result_type": "dict",
+    "top_level_fields": [
+      "newsSentimentStats",
+      "newsSentimentTrend",
+      "sentimentLabelList"
+    ],
+    "row_count": null,
+    "reported_total": null,
+    "numeric_evidence": [
+      {
+        "path": "newsSentimentStats.negative",
+        "value": 303
+      },
+      {
+        "path": "newsSentimentStats.neutral",
+        "value": 935
+      },
+      {
+        "path": "newsSentimentStats.positive",
+        "value": 603
+      },
+      {
+        "path": "newsSentimentStats.unknown",
+        "value": 18
+      },
+      {
+        "path": "newsSentimentTrend[0].stats.negative",
+        "value": 0
+      },
+      {
+        "path": "newsSentimentTrend[0].stats.positive",
+        "value": 1
+      },
+      {
+        "path": "newsSentimentTrend[1].stats.negative",
+        "value": 0
+      },
+      {
+        "path": "newsSentimentTrend[1].stats.positive",
+        "value": 4
+      },
+      {
+        "path": "newsSentimentTrend[2].stats.negative",
+        "value": 0
+      },
+      {
+        "path": "newsSentimentTrend[2].stats.positive",
+        "value": 1
+      },
+      {
+        "path": "newsSentimentTrend[3].stats.negative",
+        "value": 0
+      },
+      {
+        "path": "newsSentimentTrend[3].stats.positive",
+        "value": 3
+      },
+      {
+        "path": "newsSentimentTrend[4].stats.negative",
+        "value": 0
+      },
+      {
+        "path": "newsSentimentTrend[4].stats.positive",
+        "value": 1
+      }
+    ],
+    "response_sha256": "2a7fb0e6dbc48a933b2d603bf3b84524a3eef4cdb531833d542f9f8273174fac"
+  }
+]

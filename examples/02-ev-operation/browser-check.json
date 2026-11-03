@@ -1,0 +1,46 @@
+{
+  "metric_overflows": [],
+  "document_title": "比亚迪股份有限公司 企业经营分析报告",
+  "title_matches": true,
+  "charts": 3,
+  "rendered_charts": 3,
+  "zero_size_charts": 0,
+  "chart_details": [
+    {
+      "width": 984,
+      "height": 300,
+      "instance": true,
+      "renderer": true,
+      "graphics": 47
+    },
+    {
+      "width": 984,
+      "height": 300,
+      "instance": true,
+      "renderer": true,
+      "graphics": 25
+    },
+    {
+      "width": 984,
+      "height": 300,
+      "instance": true,
+      "renderer": true,
+      "graphics": 97
+    }
+  ],
+  "page_width": 1905,
+  "viewport_width": 1920,
+  "empty_headers": 0,
+  "script_errors": [],
+  "external_resources": 0,
+  "external_asset_references": 0,
+  "ok": true,
+  "report_html_sha256": "c9b702748636a53d9f6721ada147bde1f4e45f776433a025bc09ca92a18bac6c",
+  "report_json_sha256": "a52e62a21ff74ea38b2909173e02c618796b70eb353fec3164781870c2a87191",
+  "skill": "enterprise-operation-skill",
+  "id": "02-ev-operation",
+  "browser": "Ego Lite",
+  "space_id": 4,
+  "offline": true,
+  "checked_at": "2026-10-27T03:02:40.005Z"
+}

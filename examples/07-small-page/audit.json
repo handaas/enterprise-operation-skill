@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "skill": "enterprise-operation-skill",
+  "case_id": "07-small-page",
+  "title": "小分页交付验证",
+  "invocation_id": "1793069024831675000",
+  "provenance": {
+    "integrator_id": "683e574805537ace146cc05e",
+    "runner_sha256": "05777c2f2b0791cb5157aef691206606dade8df7af3b17212285b7ae74632a66",
+    "credential_policy_sha256": "bcabf08a1ca92f28357c0e57a8bae9bfa910eb1d4b204d8195ee3b7a77106eed",
+    "scenario_sha256": "c92c1d992f59663f95c532c7572328c22261474bb3e5cf31acb41c36992387d1",
+    "skill_source_hashes": {
+      "scripts/common.py": "6abc0d9924e42c344bd3376f2753440723ba63b85e09a4fd5446627f6a522a43",
+      "scripts/compose_report.py": "ac0bf3cc77d4bb4da7d45a7166a73e7844349ba59604630a6afaf99ff14c585c",
+      "scripts/mcp_client.py": "b881f4efd7992b69843365c3b2b756ef377ae0607fb5f66054aa527e4c428ca8",
+      "scripts/render_report.py": "6042cca2e90702b447e0a4bdc412798bcf776fd89757803bd7aeb404502f859b",
+      "scripts/validate_config.py": "4bb4001d452a004faeaf4b00bddbf94197b2c8cbc4338bb04d273a93c9a6c0c3"
+    },
+    "upstream_source_hashes": {
+      "enterprise-operation-mcp-server": "46af6307784e60a051c16fb45a890979a4c994ff26c50af6cec85b3117619a49"
+    },
+    "upstream_dependency_hashes": {
+      "enterprise-operation-mcp-server/server/mcp_server.py": "46af6307784e60a051c16fb45a890979a4c994ff26c50af6cec85b3117619a49"
+    }
+  },
+  "source_changed_during_run": false,
+  "started_at": "2026-10-27T10:43:44+08:00",
+  "elapsed_seconds": 5.926,
+  "returncode": 0,
+  "exception_type": null,
+  "command": "python3 enterprise-operation-skill/scripts/compose_report.py --enterprise '腾讯科技（深圳）有限公司' --page-size 5 --output enterprise-operation-skill/output/live-replaced-20261027/07-small-page/report.json --report-output enterprise-operation-skill/output/live-replaced-20261027/07-small-page/report.html",
+  "transport": "local MCP servers via loopback streamable-http",
+  "cache_used": false,
+  "call_count": 9,
+  "successful_data_calls": 6,
+  "empty_calls": 3,
+  "failed_calls": 0,
+  "checks": {
+    "issues": [],
+    "warnings": [],
+    "coverage_pct": 64,
+    "subject": {
+      "enterprise": "腾讯科技（深圳）有限公司",
+      "matchKeyword": "腾讯科技（深圳）有限公司",
+      "keywordType": "name",
+      "match_raw": "腾讯科技（深圳）有限公司",
+      "resolved": true,
+      "resolve_reason": "用户提供企业全称"
+    },
+    "title": "腾讯科技（深圳）有限公司 企业经营分析报告",
+    "data_mode": null,
+    "metrics": [
+      {
+        "label": "人员规模",
+        "value": "10000人以上",
+        "hint": "算法识别的企业人员规模"
+      },
+      {
+        "label": "年营业额",
+        "value": "10亿以上",
+        "hint": "算法识别的企业年营业额区间"
+      },
+      {
+        "label": "融资次数",
+        "value": "5",
+        "hint": "历史融资次数"
+      },
+      {
+        "label": "相似项目总量",
+        "value": "26",
+        "hint": "上游响应返回的相似项目 total"
+      },
+      {
+        "label": "融资轮次",
+        "value": "战略投资 → 上市后 → 上市 → B轮 → A轮",
+        "hint": "历史融资轮次轨迹"
+      },
+      {
+        "label": "当前页展示项目数",
+        "value": "5",
+        "hint": "本次响应当前页实际展示的相似项目记录数"
+      },
+      {
+        "label": "正面舆情率",
+        "value": "32.4%",
+        "hint": "正面舆情占总舆情比例"
+      },
+      {
+        "label": "税务资质数",
+        "value": "2",
+        "hint": "持有的税务资质数量"
+      }
+    ],
+    "quality_report": {
+      "total_sections": 11,
+      "populated_sections": 7,
+      "empty_sections": 4,
+      "coverage_pct": 64
+    },
+    "unregistered_tools": [],
+    "checks": {
+      "json_html_markdown": true,
+      "explicit_live": true,
+      "tool_calls_recorded": 9,
+      "offline_scripts": true,
+      "independent_rerender": true,
+      "offline_browser": true
+    }
+  },
+  "status": "passed",
+  "source_hashes": {
+    "scripts/common.py": "6abc0d9924e42c344bd3376f2753440723ba63b85e09a4fd5446627f6a522a43",
+    "scripts/compose_report.py": "ac0bf3cc77d4bb4da7d45a7166a73e7844349ba59604630a6afaf99ff14c585c",
+    "scripts/mcp_client.py": "b881f4efd7992b69843365c3b2b756ef377ae0607fb5f66054aa527e4c428ca8",
+    "scripts/render_report.py": "6042cca2e90702b447e0a4bdc412798bcf776fd89757803bd7aeb404502f859b",
+    "scripts/validate_config.py": "4bb4001d452a004faeaf4b00bddbf94197b2c8cbc4338bb04d273a93c9a6c0c3"
+  },
+  "technical_status": "passed",
+  "audited_at": "2026-10-27T11:12:58+08:00",
+  "evidence_binding": {
+    "report.json": "12c7fc3d325ec6c92a360d2938cfc644783b73725ffd0a05d5a47396a21230b0",
+    "report.html": "c438aa2953f3c80153db3f91d74ae555b0c9c2590b6f18a6d5ee06060fe50d52",
+    "report.md": "c75a11ef6b8fe4f55caecf7c791d963b3f88318fcff31d1f09f8ac5a4195a5b3",
+    "calls.json": "c05d183bf9fb284126e4009198ce94865f115babe652b7b0069f4a6f5f6695de",
+    "result.json": "5c447fe02d8542fd1b762ec02b0e0dfa6cb497942a584efcebb869e770281429",
+    "source_manifest_sha256": "014e0c39ccd221d4b037bfafc75dc705b73521da54c003be18fa8ca62d4dab92"
+  }
+}

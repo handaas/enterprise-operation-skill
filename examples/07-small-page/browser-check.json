@@ -1,0 +1,39 @@
+{
+  "metric_overflows": [],
+  "document_title": "腾讯科技（深圳）有限公司 企业经营分析报告",
+  "title_matches": true,
+  "charts": 2,
+  "rendered_charts": 2,
+  "zero_size_charts": 0,
+  "chart_details": [
+    {
+      "width": 984,
+      "height": 300,
+      "instance": true,
+      "renderer": true,
+      "graphics": 25
+    },
+    {
+      "width": 984,
+      "height": 300,
+      "instance": true,
+      "renderer": true,
+      "graphics": 95
+    }
+  ],
+  "page_width": 1905,
+  "viewport_width": 1920,
+  "empty_headers": 0,
+  "script_errors": [],
+  "external_resources": 0,
+  "external_asset_references": 0,
+  "ok": true,
+  "report_html_sha256": "c438aa2953f3c80153db3f91d74ae555b0c9c2590b6f18a6d5ee06060fe50d52",
+  "report_json_sha256": "12c7fc3d325ec6c92a360d2938cfc644783b73725ffd0a05d5a47396a21230b0",
+  "skill": "enterprise-operation-skill",
+  "id": "07-small-page",
+  "browser": "Ego Lite",
+  "space_id": 4,
+  "offline": true,
+  "checked_at": "2026-10-27T03:02:45.941Z"
+}

@@ -1,0 +1,31 @@
+{
+  "id": "07-small-page",
+  "verdict": "acceptable",
+  "summary": "本轮正式真实产物已逐项复核；结论限于上游公开数据、本次分页样本及报告声明口径。",
+  "checks": [
+    {
+      "expectation": "列表类章节最多展示 5 条或按工具实际返回",
+      "status": "pass",
+      "evidence": "分页工具均pageSize=5；similar_projects=5，其他列表也未超过5条或实际返回数。 本轮实际产物：technical_status=passed，successful_data_calls=6，subject.enterprise=腾讯科技（深圳）有限公司，match_raw=腾讯科技（深圳）有限公司，resolved=True；calls=[operation_insight_product_tags:empty,rows=None,total=None; operation_insight_company_trends:data,rows=None,total=None; operation_insight_brand_profile:empty,rows=None,total=None; operation_insight_business_scale:data,rows=None,total=None; operation_insight_enterprise_rankings:empty,rows=None,total=None; operation_insight_financing_info:data,rows=None,total=None; operation_insight_tax_qualifications:data,rows=None,total=None; operation_insight_similar_projects:data,rows=5,total=26; operation_insight_news_sentiment_stats:data,rows=None,total=None]；metrics=[人员规模=10000人以上; 年营业额=10亿以上; 融资次数=5; 相似项目总量=26; 融资轮次=战略投资 → 上市后 → 上市 → B轮 → A轮; 当前页展示项目数=5; 正面舆情率=32.4%; 税务资质数=2]；sections=[product_tags=0, company_trends=1, recent_qualifications=0, brand_profile=0, business_scale=2, enterprise_rankings=0, financing_info=5, tax_qualifications=2, similar_projects=5, news_sentiment=4, news_sentiment_trend=12]；quality_report={\"total_sections\":11,\"populated_sections\":7,\"empty_sections\":4,\"coverage_pct\":64}。"
+    },
+    {
+      "expectation": "总量与当前展示条数不得混淆",
+      "status": "pass",
+      "evidence": "相似项目total26与当前页展示5分别列为两个指标和section note。 本轮实际产物：technical_status=passed，successful_data_calls=6，subject.enterprise=腾讯科技（深圳）有限公司，match_raw=腾讯科技（深圳）有限公司，resolved=True；calls=[operation_insight_product_tags:empty,rows=None,total=None; operation_insight_company_trends:data,rows=None,total=None; operation_insight_brand_profile:empty,rows=None,total=None; operation_insight_business_scale:data,rows=None,total=None; operation_insight_enterprise_rankings:empty,rows=None,total=None; operation_insight_financing_info:data,rows=None,total=None; operation_insight_tax_qualifications:data,rows=None,total=None; operation_insight_similar_projects:data,rows=5,total=26; operation_insight_news_sentiment_stats:data,rows=None,total=None]；metrics=[人员规模=10000人以上; 年营业额=10亿以上; 融资次数=5; 相似项目总量=26; 融资轮次=战略投资 → 上市后 → 上市 → B轮 → A轮; 当前页展示项目数=5; 正面舆情率=32.4%; 税务资质数=2]；sections=[product_tags=0, company_trends=1, recent_qualifications=0, brand_profile=0, business_scale=2, enterprise_rankings=0, financing_info=5, tax_qualifications=2, similar_projects=5, news_sentiment=4, news_sentiment_trend=12]；quality_report={\"total_sections\":11,\"populated_sections\":7,\"empty_sections\":4,\"coverage_pct\":64}。"
+    },
+    {
+      "expectation": "HTML 与 Markdown 的记录数量应一致",
+      "status": "pass",
+      "evidence": "independent_rerender=true；HTML/Markdown由同一report对象生成，列表记录数一致。 本轮实际产物：technical_status=passed，successful_data_calls=6，subject.enterprise=腾讯科技（深圳）有限公司，match_raw=腾讯科技（深圳）有限公司，resolved=True；calls=[operation_insight_product_tags:empty,rows=None,total=None; operation_insight_company_trends:data,rows=None,total=None; operation_insight_brand_profile:empty,rows=None,total=None; operation_insight_business_scale:data,rows=None,total=None; operation_insight_enterprise_rankings:empty,rows=None,total=None; operation_insight_financing_info:data,rows=None,total=None; operation_insight_tax_qualifications:data,rows=None,total=None; operation_insight_similar_projects:data,rows=5,total=26; operation_insight_news_sentiment_stats:data,rows=None,total=None]；metrics=[人员规模=10000人以上; 年营业额=10亿以上; 融资次数=5; 相似项目总量=26; 融资轮次=战略投资 → 上市后 → 上市 → B轮 → A轮; 当前页展示项目数=5; 正面舆情率=32.4%; 税务资质数=2]；sections=[product_tags=0, company_trends=1, recent_qualifications=0, brand_profile=0, business_scale=2, enterprise_rankings=0, financing_info=5, tax_qualifications=2, similar_projects=5, news_sentiment=4, news_sentiment_trend=12]；quality_report={\"total_sections\":11,\"populated_sections\":7,\"empty_sections\":4,\"coverage_pct\":64}。"
+    }
+  ],
+  "issues": [],
+  "evidence_binding": {
+    "report.json": "12c7fc3d325ec6c92a360d2938cfc644783b73725ffd0a05d5a47396a21230b0",
+    "report.html": "c438aa2953f3c80153db3f91d74ae555b0c9c2590b6f18a6d5ee06060fe50d52",
+    "report.md": "c75a11ef6b8fe4f55caecf7c791d963b3f88318fcff31d1f09f8ac5a4195a5b3",
+    "calls.json": "c05d183bf9fb284126e4009198ce94865f115babe652b7b0069f4a6f5f6695de",
+    "result.json": "5c447fe02d8542fd1b762ec02b0e0dfa6cb497942a584efcebb869e770281429",
+    "source_manifest_sha256": "014e0c39ccd221d4b037bfafc75dc705b73521da54c003be18fa8ca62d4dab92"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "metric_overflows": [],
+  "document_title": "华为技术有限公司 企业经营分析报告",
+  "title_matches": true,
+  "charts": 3,
+  "rendered_charts": 3,
+  "zero_size_charts": 0,
+  "chart_details": [
+    {
+      "width": 984,
+      "height": 300,
+      "instance": true,
+      "renderer": true,
+      "graphics": 55
+    },
+    {
+      "width": 984,
+      "height": 300,
+      "instance": true,
+      "renderer": true,
+      "graphics": 25
+    },
+    {
+      "width": 984,
+      "height": 300,
+      "instance": true,
+      "renderer": true,
+      "graphics": 97
+    }
+  ],
+  "page_width": 1905,
+  "viewport_width": 1920,
+  "empty_headers": 0,
+  "script_errors": [],
+  "external_resources": 0,
+  "external_asset_references": 0,
+  "ok": true,
+  "report_html_sha256": "a4f26f835da02dd6e966ecade566cb40a36de87e24c298c1a92078996b6b5b5a",
+  "report_json_sha256": "8998e616840044a467d54f7c6d433cbae14a6dab8daa48b2c83478349bdab5d0",
+  "screenshot": "browser.png",
+  "skill": "enterprise-operation-skill",
+  "id": "01-growth-overview",
+  "browser": "Ego Lite",
+  "space_id": 4,
+  "offline": true,
+  "checked_at": "2026-10-27T03:02:38.565Z"
+}

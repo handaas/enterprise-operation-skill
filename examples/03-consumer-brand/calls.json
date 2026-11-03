@@ -1,0 +1,327 @@
+[
+  {
+    "tool": "operation_insight_product_tags",
+    "domain": null,
+    "arguments": {
+      "matchKeyword": "贵州茅台酒股份有限公司",
+      "keywordType": "name"
+    },
+    "invocation_id": "1793069017757343000",
+    "elapsed_seconds": 1.126,
+    "status": "empty",
+    "error_category": null,
+    "result_type": "dict",
+    "top_level_fields": [
+      "text"
+    ],
+    "row_count": null,
+    "reported_total": null,
+    "numeric_evidence": [],
+    "response_sha256": "b2da0c4c26e517e5a1eae0af2a20ca47c52ef51906cf1c3dfa2fe10a67cc714c"
+  },
+  {
+    "tool": "operation_insight_company_trends",
+    "domain": null,
+    "arguments": {
+      "matchKeyword": "贵州茅台酒股份有限公司",
+      "keywordType": "name"
+    },
+    "invocation_id": "1793069017757343000",
+    "elapsed_seconds": 1.072,
+    "status": "data",
+    "error_category": null,
+    "result_type": "dict",
+    "top_level_fields": [
+      "isDiffAreaWinBidIn3Month",
+      "isDiffAreaWinBidIn6Month",
+      "isDiffAreaWinBidIn12Month",
+      "isLegalRpAlterIn12Month"
+    ],
+    "row_count": null,
+    "reported_total": null,
+    "numeric_evidence": [
+      {
+        "path": "isDiffAreaWinBidIn3Month",
+        "value": 1
+      },
+      {
+        "path": "isDiffAreaWinBidIn6Month",
+        "value": 1
+      },
+      {
+        "path": "isDiffAreaWinBidIn12Month",
+        "value": 1
+      },
+      {
+        "path": "isLegalRpAlterIn12Month",
+        "value": 1
+      }
+    ],
+    "response_sha256": "961fd66ed5a0ec81d8fb7680917754392609537faca44672b9515d1ad8073c64"
+  },
+  {
+    "tool": "operation_insight_brand_profile",
+    "domain": null,
+    "arguments": {
+      "matchKeyword": "贵州茅台酒股份有限公司",
+      "keywordType": "name"
+    },
+    "invocation_id": "1793069017757343000",
+    "elapsed_seconds": 1.557,
+    "status": "data",
+    "error_category": null,
+    "result_type": "dict",
+    "top_level_fields": [
+      "brandCradleList",
+      "brandCreateTime",
+      "brandIndustryList",
+      "brandProductList"
+    ],
+    "row_count": null,
+    "reported_total": null,
+    "numeric_evidence": [],
+    "response_sha256": "5db439c1ddf15923623ace961b625d7356f4a1b05acf6faa2f60cbb457f5784b"
+  },
+  {
+    "tool": "operation_insight_business_scale",
+    "domain": null,
+    "arguments": {
+      "matchKeyword": "贵州茅台酒股份有限公司",
+      "keywordType": "name"
+    },
+    "invocation_id": "1793069017757343000",
+    "elapsed_seconds": 0.926,
+    "status": "data",
+    "error_category": null,
+    "result_type": "dict",
+    "top_level_fields": [
+      "annualTurnover",
+      "enterpriseScale"
+    ],
+    "row_count": null,
+    "reported_total": null,
+    "numeric_evidence": [],
+    "response_sha256": "7c05a4d3bcd474b7963faa2bcced12f8a2be0b1d908d323dfe3d894da56b4354"
+  },
+  {
+    "tool": "operation_insight_enterprise_rankings",
+    "domain": null,
+    "arguments": {
+      "matchKeyword": "贵州茅台酒股份有限公司",
+      "keywordType": "name",
+      "pageIndex": 1,
+      "pageSize": 8
+    },
+    "invocation_id": "1793069017757343000",
+    "elapsed_seconds": 0.747,
+    "status": "data",
+    "error_category": null,
+    "result_type": "dict",
+    "top_level_fields": [
+      "resultList",
+      "total"
+    ],
+    "row_count": 8,
+    "reported_total": 25,
+    "numeric_evidence": [
+      {
+        "path": "resultList[0].rankingListYear",
+        "value": 2024
+      },
+      {
+        "path": "resultList[0].rank",
+        "value": 164
+      },
+      {
+        "path": "resultList[1].rankingListYear",
+        "value": 2023
+      },
+      {
+        "path": "resultList[1].rank",
+        "value": 181
+      },
+      {
+        "path": "resultList[2].rankingListYear",
+        "value": 2022
+      },
+      {
+        "path": "resultList[2].rank",
+        "value": 228
+      },
+      {
+        "path": "resultList[3].rankingListYear",
+        "value": 2022
+      },
+      {
+        "path": "resultList[3].rank",
+        "value": 125
+      },
+      {
+        "path": "resultList[4].rankingListYear",
+        "value": 2022
+      },
+      {
+        "path": "resultList[4].rank",
+        "value": 105
+      },
+      {
+        "path": "total",
+        "value": 25
+      }
+    ],
+    "response_sha256": "daf4008beca77325c46e45bc0dd4d79bf62360d5aefa697d2933c5ce40794db2"
+  },
+  {
+    "tool": "operation_insight_financing_info",
+    "domain": null,
+    "arguments": {
+      "matchKeyword": "贵州茅台酒股份有限公司",
+      "keywordType": "name"
+    },
+    "invocation_id": "1793069017757343000",
+    "elapsed_seconds": 0.81,
+    "status": "data",
+    "error_category": null,
+    "result_type": "dict",
+    "top_level_fields": [
+      "fpFinancingCount",
+      "fpFinancingList"
+    ],
+    "row_count": null,
+    "reported_total": null,
+    "numeric_evidence": [
+      {
+        "path": "fpFinancingCount",
+        "value": 4
+      }
+    ],
+    "response_sha256": "e8b00d91da8e1c1fd12212706442bedc087957f9c283893cdd091e4418ede69f"
+  },
+  {
+    "tool": "operation_insight_tax_qualifications",
+    "domain": null,
+    "arguments": {
+      "matchKeyword": "贵州茅台酒股份有限公司",
+      "keywordType": "name"
+    },
+    "invocation_id": "1793069017757343000",
+    "elapsed_seconds": 1.154,
+    "status": "data",
+    "error_category": null,
+    "result_type": "dict",
+    "top_level_fields": [
+      "tpQualificationList"
+    ],
+    "row_count": null,
+    "reported_total": null,
+    "numeric_evidence": [],
+    "response_sha256": "5f7223ab83eec81d7b4f76a6eb422934ce083ffb55427e7a1d6b97b2bc58d872"
+  },
+  {
+    "tool": "operation_insight_similar_projects",
+    "domain": null,
+    "arguments": {
+      "matchKeyword": "贵州茅台酒股份有限公司",
+      "keywordType": "name",
+      "pageIndex": 1,
+      "pageSize": 8
+    },
+    "invocation_id": "1793069017757343000",
+    "elapsed_seconds": 1.669,
+    "status": "data",
+    "error_category": null,
+    "result_type": "dict",
+    "top_level_fields": [
+      "resultList",
+      "total"
+    ],
+    "row_count": 8,
+    "reported_total": 55,
+    "numeric_evidence": [
+      {
+        "path": "total",
+        "value": 55
+      }
+    ],
+    "response_sha256": "9101d340a7aba5499d9c3bd046f6aaf6a7e07301e89118512edb8f187dc647be"
+  },
+  {
+    "tool": "operation_insight_news_sentiment_stats",
+    "domain": null,
+    "arguments": {
+      "matchKeyword": "贵州茅台酒股份有限公司",
+      "keywordType": "name"
+    },
+    "invocation_id": "1793069017757343000",
+    "elapsed_seconds": 0.618,
+    "status": "data",
+    "error_category": null,
+    "result_type": "dict",
+    "top_level_fields": [
+      "newsSentimentStats",
+      "newsSentimentTrend",
+      "sentimentLabelList"
+    ],
+    "row_count": null,
+    "reported_total": null,
+    "numeric_evidence": [
+      {
+        "path": "newsSentimentStats.negative",
+        "value": 632
+      },
+      {
+        "path": "newsSentimentStats.neutral",
+        "value": 2851
+      },
+      {
+        "path": "newsSentimentStats.positive",
+        "value": 776
+      },
+      {
+        "path": "newsSentimentStats.unknown",
+        "value": 28
+      },
+      {
+        "path": "newsSentimentTrend[0].stats.negative",
+        "value": 0
+      },
+      {
+        "path": "newsSentimentTrend[0].stats.positive",
+        "value": 1
+      },
+      {
+        "path": "newsSentimentTrend[1].stats.negative",
+        "value": 1
+      },
+      {
+        "path": "newsSentimentTrend[1].stats.positive",
+        "value": 0
+      },
+      {
+        "path": "newsSentimentTrend[2].stats.negative",
+        "value": 0
+      },
+      {
+        "path": "newsSentimentTrend[2].stats.positive",
+        "value": 4
+      },
+      {
+        "path": "newsSentimentTrend[3].stats.negative",
+        "value": 3
+      },
+      {
+        "path": "newsSentimentTrend[3].stats.positive",
+        "value": 2
+      },
+      {
+        "path": "newsSentimentTrend[4].stats.negative",
+        "value": 1
+      },
+      {
+        "path": "newsSentimentTrend[4].stats.positive",
+        "value": 0
+      }
+    ],
+    "response_sha256": "7d6ca2b69ee1b38bce9a9e6aa2c8e3cdf0380ab8ff6623e5047d49da3e9a2ec8"
+  }
+]
