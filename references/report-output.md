@@ -80,3 +80,17 @@ python scripts/render_report.py --input output/enterprise_operation.json --outpu
 ```
 
 返回：JSON 路径、HTML 路径、Markdown 路径，以及企业全称映射与数据口径摘要。
+
+## AI 内容审校清单（经营分析）
+
+| 检查项 | 原值示例 | 允许的规范动作 | 证据位置 |
+| --- | --- | --- | --- |
+| 品牌发源地 | `深圳市、广东省深圳市、广东` | 合并为 `广东省深圳市`；不同城市保留 | `brand_profile.brandCradleList` |
+| 融资轮次 | `定向增发 → 定向增发 → 战略投资 → …` | 改为“最新融资轮次：定向增发（2021-02-18）” | `financing_info[].融资时间/融资轮次` |
+| 税务资质 | `有效期止 9999-12-31` / `-` | 分别标“长期有效（上游）”/“日期不明”；过期保留 | `tax_qualifications[]` |
+| 榜单缺失排名 | `排名 -` | 保留明细，不进排名图；不得补 0 | `enterprise_rankings[]` |
+| 重复榜单 | 同年同榜单同公司重复 | 仅删除完全一致记录 | `enterprise_rankings[]` |
+| 舆情趋势 | 月份乱序 | 按 `月份` 升序；缺月不插值 | `news_sentiment_trend[]` |
+| 样本口径 | `当前页展示项目数` | 与上游 total 分开写，不称全量 | `data_source.pagination` |
+
+离线修订入口：`compose_report.py::apply_content_review(report)`。正常生成（`build_payload` / CLI 非 `--dry-run`）已在组装阶段自动执行同一审校，证书有效性按报告生成时间判定；离线入口只读报告已有字段，不查 MCP；修正项写入 `data_source.content_review.corrections`，重复处理保留既有修正记录，冻结样例与调用记录不变。

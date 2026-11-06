@@ -74,6 +74,33 @@ description: Use for generating a professional enterprise operation analysis rep
 4. **渲染三件套**：`compose_report.py --enterprise ... --output ... --report-output ...` 直接产出 JSON + HTML + Markdown；或 `render_report.py --input ... --output ...` 重渲染。
 5. **返回路径**：返回 JSON、HTML、Markdown 文件路径，以及企业全称映射与数据口径。
 
+- **渲染前置检查**：执行会产出含图表 HTML / PDF 的报告命令前，先验证 `node --version` 与本 skill 自带 `assets/vendor/echarts.min.js` 存在；内嵌静态 SVG 的生成需要 Node.js（推荐当前 LTS，无需 npm 包），缺失时报告生成明确报错。查看已生成的 HTML 与 Markdown 输出不需要 Node。
+
+## AI 内容审校（正常生成已内置，离线复核可重放）
+
+脚本只负责去重、单位与有效性分类；以下语义核对必须由当前 AI 逐项完成，并在 `content_review.corrections` 保留原值、规范值与证据位置。正常生成（`build_payload` / CLI 非 `--dry-run`）在组装阶段已自动执行同一 `apply_content_review`，证书有效性按报告 `data_source.generated_at` 判定；`--dry-run` 与正常生成共用同一条路径且只执行一次。离线入口仅用于复核已有报告，重复调用保留此前修正记录。
+
+1. **品牌发源地**：`深圳市、广东省深圳市、广东` 是同一地点的层级重复，保留最具体名称；不同城市（如深圳与泸州）不合并。不得把“品牌发源地”扩写成总部或注册地。
+2. **融资轮次**：按融资时间排序取最新一轮，不把上游返回顺序拼成“定向增发 → 定向增发 → …”的轮次轨迹；单轮记录也要标明“最新”而非“历史全部”。
+3. **税务资质时效**：按“有效期止”与报告生成日期分类为有效、已过期、日期不明/上游长期有效；`9999-12-31` 不等于已核验永久有效，缺失日期不能当当前有效。过期记录保留在明细中。
+4. **榜单**：缺排名的记录保留在明细表，但不进入排名图（图表会把 `-` 当 0，误读为第一名）；同榜单同年重复记录只保留完全一致的一条。
+5. **舆情与样本**：情感占比是算法标签分布，分母是返回样本；不把“正面率”写成公众评价。趋势按月份排序，缺月不插值。
+6. **主体确认**：输入未唯一确认时不调用主体数据、不生成经营评价；候选记录只作候选展示，不能拼成目标企业画像。
+
+离线修订已有报告（不调用 MCP，不覆盖 `examples/`）：
+
+```python
+import json
+from compose_report import apply_content_review, render_html, render_markdown
+
+report = json.load(open("examples/01-growth-overview/report.json", encoding="utf-8"))
+revised = apply_content_review(report)
+json.dump(revised, open("output/content-quality-review/01-growth-overview/report.json", "w", encoding="utf-8"), ensure_ascii=False, indent=2)
+open("output/content-quality-review/01-growth-overview/report.md", "w", encoding="utf-8").write(render_markdown(revised))
+```
+
+`apply_content_review` 修正品牌发源地层级重复、重复指标卡、融资轮次口径、税务资质有效期列、排名图缺失值与榜单重复，并刷新摘要/洞察；不新增融资、榜单或资质事实。
+
 ## 脚本速查
 
 ```bash

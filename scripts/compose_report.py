@@ -18,9 +18,11 @@ This file never prints secrets; MCP credentials live in the server's own .env.
 from __future__ import annotations
 
 import argparse
+import copy
 import datetime as dt
 import json
 import pathlib
+import re
 from typing import Any, Dict, List, Mapping, Optional, Sequence
 
 from common import REPORT_BANNER, REPORT_TYPE, attach_pagination, call_tool_once, collect_detail_pages, paid_call_scope, json_dumps, load_json_file, print_json
@@ -262,6 +264,29 @@ def resolve_enterprise_name(raw: str) -> Dict[str, Any]:
 
 
 
+def _dedupe_metrics(metrics: Sequence[Mapping[str, Any]]) -> List[Dict[str, Any]]:
+    """Keep one card per label; merge a useful hint/delta instead of duplicating."""
+    out: List[Dict[str, Any]] = []
+    by_label: Dict[str, Dict[str, Any]] = {}
+    for item in metrics:
+        if not isinstance(item, Mapping):
+            continue
+        row = dict(item)
+        label = str(row.get("label") or "")
+        if not label:
+            continue
+        if label in by_label:
+            existing = by_label[label]
+            if row.get("hint") and row.get("hint") not in str(existing.get("hint") or ""):
+                existing["hint"] = f"{existing.get('hint')}；{row.get('hint')}".strip("；")
+            if row.get("delta") and not existing.get("delta"):
+                existing["delta"] = row.get("delta")
+            continue
+        by_label[label] = row
+        out.append(row)
+    return out
+
+
 def _derive_core_metrics(metrics: List[Dict[str, Any]], core: Mapping[str, Any]) -> List[Dict[str, Any]]:
     """Derive additional metrics from core analysis sections."""
     rankings = core.get("enterprise_rankings", []) if isinstance(core, dict) else []
@@ -282,10 +307,18 @@ def _derive_core_metrics(metrics: List[Dict[str, Any]], core: Mapping[str, Any])
             pass
     if isinstance(financing, list) and financing:
         try:
-            rounds = [str(r.get("融资轮次", "")) for r in financing if r.get("融资轮次") and str(r.get("融资轮次")) not in ("-", "", "None")]
-            if rounds:
-                metrics.append({"label": "融资轮次", "value": " → ".join(rounds), "hint": "历史融资轮次轨迹"})
-        except Exception:
+            latest = max(
+                (r for r in financing if isinstance(r, dict)),
+                key=lambda r: str(r.get("融资时间") or ""),
+                default=None,
+            )
+            if latest and latest.get("融资轮次") not in (None, "", "-"):
+                metrics.append({
+                    "label": "最新融资轮次",
+                    "value": str(latest.get("融资轮次")),
+                    "hint": f"按融资时间排序的最新记录（{latest.get('融资时间') or '日期不明'}）；不等同于全部轮次轨迹",
+                })
+        except (TypeError, ValueError):
             pass
     if isinstance(similar, list) and similar:
         metrics.append({"label": "本次采集项目数", "value": str(len(similar)), "hint": "本次响应实际采集的相似项目记录数（受分页预算限制，不等于上游总量）"})
@@ -300,9 +333,9 @@ def _derive_core_metrics(metrics: List[Dict[str, Any]], core: Mapping[str, Any])
     if isinstance(brand, dict) and brand:
         origin = brand.get("品牌发源地")
         if origin and str(origin) not in ("-", "", "None"):
-            metrics.append({"label": "品牌发源地", "value": str(origin), "hint": "品牌创立地点"})
+            metrics.append({"label": "品牌发源地", "value": "、".join(_normalize_origins(str(origin).split("、"))) or str(origin), "hint": "品牌创立地点"})
     if isinstance(tax, list) and tax:
-        metrics.append({"label": "税务资质数", "value": str(len(tax)), "hint": "持有的税务资质数量"})
+        metrics.append({"label": "税务资质数", "value": str(len(tax)), "hint": "本次返回的税务资质记录数；有效性见明细表，过期/日期不明不视为当前有效"})
     return metrics
 
 
@@ -358,11 +391,32 @@ def _tags_str(payload: Any, key: str) -> str:
     return _text(val)
 
 
+def _normalize_origins(values: Sequence[Any]) -> List[str]:
+    """Drop hierarchical duplicate region labels without merging distinct places.
+
+    ``["深圳市", "广东省深圳市", "广东"]`` -> ``["广东省深圳市"]`` because both
+    shorter labels are contained in the most specific one. ``["广东省深圳市",
+    "泸州市"]`` stays as two distinct origins.
+    """
+    labels = [re.sub(r"\s+", "", _text(v)) for v in values if _text(v)]
+    unique: List[str] = []
+    for label in labels:
+        if label not in unique:
+            unique.append(label)
+    keep: List[str] = []
+    for label in sorted(unique, key=len, reverse=True):
+        if any(label != other and label in other for other in keep):
+            continue
+        keep.append(label)
+    # preserve the upstream order for readability
+    return [label for label in unique if label in keep]
+
+
 def _brand_kv(brand: Any) -> Dict[str, Any]:
     b = brand if isinstance(brand, dict) else {}
     kv: Dict[str, Any] = {}
     if isinstance(b.get("brandCradleList"), list) and b["brandCradleList"]:
-        kv["品牌发源地"] = "、".join(_text(t) for t in b["brandCradleList"] if t)
+        kv["品牌发源地"] = "、".join(_normalize_origins(b["brandCradleList"]))
     # brandCreateTime may be a list of strings OR a dict {min:"2003年", max:"..."}
     bct = b.get("brandCreateTime")
     bct_str = ""
@@ -399,10 +453,11 @@ def _scale_kv(scale: Any) -> Dict[str, Any]:
 
 def _ranking_rows(rankings: Any) -> List[Dict[str, Any]]:
     out: List[Dict[str, Any]] = []
+    seen = set()
     for item in _first_list(rankings):
         if not isinstance(item, dict):
             continue
-        out.append({
+        row = {
             "榜单名称": _text(item.get("rankingListName")) or "-",
             "榜单类型": _text(item.get("rankingListType")) or "-",
             "上榜公司名": _text(item.get("rankingListCompanyName")) or "-",
@@ -410,7 +465,12 @@ def _ranking_rows(rankings: Any) -> List[Dict[str, Any]]:
             "发布年份": _text(item.get("rankingListYear") or "-"),
             "榜单级别": _text(item.get("rankingListLevel")) or "-",
             "发布单位": _text(item.get("rankingListInstitution")) or "-",
-        })
+        }
+        key = tuple(row.values())
+        if key in seen:
+            continue
+        seen.add(key)
+        out.append(row)
     return out
 
 
@@ -431,18 +491,34 @@ def _financing_rows(financing: Any) -> List[Dict[str, Any]]:
     return out
 
 
+def _date_validity(end: Any, as_of: Optional[dt.date] = None) -> str:
+    text = _text(end)
+    if not text or text == "-":
+        return "日期不明"
+    if text.startswith("9999"):
+        return "长期有效（上游）"
+    try:
+        end_date = dt.date.fromisoformat(text[:10])
+    except ValueError:
+        return "日期格式不明"
+    today = as_of or dt.date.today()
+    return "有效" if end_date >= today else f"已过期（{text[:10]}）"
+
+
 def _tax_rows(tax: Any) -> List[Dict[str, Any]]:
     out = []
     t = tax if isinstance(tax, dict) else {}
     for item in _first_list(t.get("tpQualificationList") if isinstance(t.get("tpQualificationList"), list) else t):
         if not isinstance(item, dict):
             continue
+        end = _text(item.get("end"))
         out.append({
             "纳税人识别号": _text(item.get("tpId")) or "-",
             "纳税人名称": _text(item.get("tpName")) or "-",
             "资质全称": _text(item.get("qualification")) or "-",
             "有效期起": _text(item.get("begin")) or "-",
-            "有效期止": _text(item.get("end")) or "-",
+            "有效期止": end or "-",
+            "有效性": _date_validity(end),
         })
     return out
 
@@ -494,7 +570,7 @@ def _sentiment_trend_rows(sentiment: Any) -> List[Dict[str, Any]]:
             "积极": _int(stats.get("positive")) or 0,
             "消极": _int(stats.get("negative")) or 0,
         })
-    return out
+    return sorted(out, key=lambda row: str(row.get("月份") or ""))
 
 
 def _recent_qualifications_tags(company_trends: Any) -> str:
@@ -529,6 +605,10 @@ def build_core_analysis(
     brand_kv = _brand_kv(brand)
     scale_kv = _scale_kv(scale)
     ranking_rows = _ranking_rows(rankings)
+    ranking_chart_rows = [
+        row for row in ranking_rows
+        if str(row.get("排名", "")).replace(",", "").strip().isdigit()
+    ]
     financing_rows = _financing_rows(financing)
     tax_rows = _tax_rows(tax)
     similar_rows = _similar_rows(similar)
@@ -545,14 +625,18 @@ def build_core_analysis(
          "note": "近 6/12 个月新获得的资质（来源：公司趋势标签）"},
         {"key": "brand_profile", "title": "品牌概况", "kind": "kv"},
         {"key": "business_scale", "title": "经营规模", "kind": "kv"},
-        {"key": "enterprise_rankings", "title": "企业排名", "kind": "bar",
-         "note": f"共 {rankings_total if rankings_total is not None else '未返回总数'} 次上榜，本次采集 {len(ranking_rows)} 条（数值越小排名越靠前）",
+        {"key": "enterprise_rankings_chart", "title": "企业排名（有明确排名）", "kind": "bar",
+         "note": f"仅展示有明确排名的记录；共 {rankings_total if rankings_total is not None else '未返回总数'} 次上榜，本次采集 {len(ranking_rows)} 条（排名数值越小越靠前）",
          "chart": {"name": "榜单名称", "value": "排名", "orient": "h"},
+         "columns": [("榜单名称", "榜单名称"), ("排名", "排名"), ("发布年份", "发布年份")]},
+        {"key": "enterprise_rankings", "title": "企业排名明细", "kind": "table",
+         "note": f"共 {rankings_total if rankings_total is not None else '未返回总数'} 次上榜，本次采集 {len(ranking_rows)} 条；未返回排名的记录保留在表中，不进入排名图",
          "columns": [("榜单名称", "榜单名称"), ("榜单类型", "榜单类型"), ("上榜公司名", "上榜公司名"), ("排名", "排名"), ("发布年份", "发布年份"), ("榜单级别", "榜单级别"), ("发布单位", "发布单位")]},
-        {"key": "financing_info", "title": "融资信息", "kind": "table", "note": "历史融资记录",
+        {"key": "financing_info", "title": "融资信息", "kind": "table", "note": "按上游返回顺序展示历史融资记录；未按时间重排",
          "columns": [("融资时间", "融资时间"), ("融资轮次", "融资轮次"), ("融资金额", "融资金额"), ("投资方", "投资方")]},
-        {"key": "tax_qualifications", "title": "税务资质", "kind": "table", "note": "企业税务资质明细",
-         "columns": [("纳税人识别号", "纳税人识别号"), ("纳税人名称", "纳税人名称"), ("资质全称", "资质全称"), ("有效期起", "有效期起"), ("有效期止", "有效期止")]},
+        {"key": "tax_qualifications", "title": "税务资质", "kind": "table",
+         "note": "有效性按“有效期止”与报告生成日期比较；9999-12-31 记为上游长期有效，缺失日期记为日期不明",
+         "columns": [("纳税人识别号", "纳税人识别号"), ("纳税人名称", "纳税人名称"), ("资质全称", "资质全称"), ("有效期起", "有效期起"), ("有效期止", "有效期止"), ("有效性", "有效性")]},
         {"key": "similar_projects", "title": "相似项目", "kind": "table",
          "note": f"共 {similar_total if similar_total is not None else '未返回总数'} 个相似项目，本次采集 {len(similar_rows)} 条",
          "columns": [("项目名称", "项目名称"), ("所属企业", "所属企业"), ("最新轮次", "最新轮次"), ("项目概述", "项目概述")]},
@@ -572,6 +656,7 @@ def build_core_analysis(
         "brand_profile": brand_kv,
         "business_scale": scale_kv,
         "enterprise_rankings": ranking_rows,
+        "enterprise_rankings_chart": ranking_chart_rows,
         "financing_info": financing_rows,
         "tax_qualifications": tax_rows,
         "similar_projects": similar_rows,
@@ -716,6 +801,20 @@ def build_insights(subject: Mapping[str, Any], core: Mapping[str, Any], metrics:
             "evidence": f"近期动向标签：{tags_preview} 等。",
             "interpretation": "动向标签仅描述数据源记录的近期变化，不能单独作为经营节奏的领先信号。",
         })
+    # tax qualification validity: expired and unknown dates are not current
+    tax_rows = core.get("tax_qualifications") or []
+    if tax_rows:
+        statuses: Dict[str, int] = {}
+        for row in tax_rows:
+            label = str(row.get("有效性") or "日期不明")
+            bucket = "有效" if label.startswith("有效") else ("已过期" if label.startswith("已过期") else ("长期有效" if label.startswith("长期") else "日期不明"))
+            statuses[bucket] = statuses.get(bucket, 0) + 1
+        detail = "、".join(f"{k} {v} 条" for k, v in statuses.items())
+        insights.append({
+            "feature": "税务资质时效",
+            "evidence": f"本次返回税务资质记录 {len(tax_rows)} 条：{detail}。",
+            "interpretation": "有效期止缺失或格式不明时不能视为当前有效；已过期记录仍可作为历史资质保留，但不代表当前适用。",
+        })
     # recent new qualifications
     recent_qual_str = core.get("recent_qualifications") or ""
     if recent_qual_str:
@@ -779,11 +878,222 @@ def build_dry_run_payload(raw: str, keyword_type: str) -> Dict[str, Any]:
     return _assemble(subject, core, metrics, dry_run=True)
 
 
-# --------------------------------------------------------------------------- #
-# Assembly
-# --------------------------------------------------------------------------- #
+def _tax_validity_from_row(row: Mapping[str, Any], as_of: Optional[dt.date] = None) -> str:
+    return _date_validity(row.get("有效期止"), as_of)
+
+
+def _refresh_quality_report(report: Dict[str, Any]) -> Dict[str, Any]:
+    """Refresh section-fill metrics after offline review changed sections.
+
+    ``0`` is a populated value; None/""/[]/{} and documented empty sentinels are
+    empty. coverage_pct is section fill only, never an accuracy claim.
+    """
+    core = report.get("core_analysis") or {}
+    sections = core.get("sections")
+    if isinstance(sections, list) and sections:
+        total = len(sections)
+        populated = sum(1 for s in sections if isinstance(s, dict) and _has_evidence(core.get(s.get("key"))))
+    else:
+        keys = [k for k in core if k != "sections"]
+        total = max(1, len(keys))
+        populated = sum(1 for k in keys if _has_evidence(core.get(k)))
+    source = report.setdefault("data_source", {})
+    source["quality_report"] = {
+        "total_sections": total,
+        "populated_sections": populated,
+        "empty_sections": total - populated,
+        "coverage_pct": round(populated / max(1, total) * 100),
+        "metric": "section_fill_rate",
+        "note": "章节填充率，仅表示有返回内容的 section 占比，不是内容准确率",
+    }
+    return report
+
+
+def _merge_review_records(previous: Any, current: Sequence[Mapping[str, Any]]) -> List[Dict[str, Any]]:
+    """Keep earlier review records when the same report is processed again."""
+    merged: List[Dict[str, Any]] = []
+    seen = set()
+    for item in list(previous or []) + list(current or []):
+        if not isinstance(item, Mapping):
+            continue
+        row = dict(item)
+        key = json.dumps(row, ensure_ascii=False, sort_keys=True, default=str)
+        if key in seen:
+            continue
+        seen.add(key)
+        merged.append(row)
+    return merged
+
+
+def apply_content_review(report: Mapping[str, Any], source_evidence: Optional[Any] = None) -> Dict[str, Any]:
+    """Rebuild operation narrative from fields already present in a report.
+
+    Pure/offline: no MCP call and no new facts. Repairs deterministic issues that
+    are visible in the payload and records each change under
+    ``content_review.corrections``:
+
+    * hierarchical duplicate brand origins ("深圳市/广东省深圳市/广东");
+    * duplicated "近一年获证" cards and a misleading round-by-round financing trail;
+    * tax qualification validity (expired / date-unknown are not current);
+    * ranking chart rows that contain "-" (rendered as 0 = best) and duplicate rows.
+    """
+    out = copy.deepcopy(dict(report))
+    corrections: List[Dict[str, Any]] = []
+    subject = out.get("subject") or {}
+    core = out.get("core_analysis") or {}
+    source = out.get("data_source") or {}
+    previous_review = source.get("content_review") or {}
+    generated_at = source.get("generated_at")
+    try:
+        as_of = dt.datetime.fromisoformat(str(generated_at)).date() if generated_at else dt.date.today()
+    except (ValueError, TypeError):
+        as_of = dt.date.today()
+
+    # Brand origins: dedupe hierarchy but keep distinct cities.
+    brand = core.get("brand_profile") or {}
+    if isinstance(brand, dict) and brand.get("品牌发源地"):
+        before = str(brand.get("品牌发源地"))
+        after = "、".join(_normalize_origins(before.split("、"))) or before
+        if after != before:
+            brand["品牌发源地"] = after
+            corrections.append({
+                "field": "core_analysis.brand_profile.品牌发源地",
+                "before": before,
+                "after": after,
+                "reason": "同一地点的“市/省/省+市”层级重复，仅保留最具体名称；不同城市不合并",
+            })
+
+    # Tax rows: add validity without dropping expired/unknown rows.
+    tax_rows = core.get("tax_qualifications") or []
+    for row in tax_rows:
+        if not isinstance(row, dict):
+            continue
+        before = row.get("有效性")
+        after = _tax_validity_from_row(row, as_of)
+        if before != after:
+            row["有效性"] = after
+            corrections.append({
+                "field": "core_analysis.tax_qualifications[].有效性",
+                "before": before,
+                "after": after,
+                "reason": "按有效期止与报告生成日期比较；缺失日期或 9999 不按普通有效处理",
+            })
+
+    # Section specs: add validity column; split ranking chart from full table.
+    sections = [s for s in (core.get("sections") or []) if isinstance(s, dict)]
+    for section in sections:
+        if section.get("key") == "tax_qualifications":
+            cols = [c for c in (section.get("columns") or []) if isinstance(c, (list, tuple))]
+            if not any(c[0] == "有效性" for c in cols):
+                cols.append(("有效性", "有效性"))
+                section["columns"] = cols
+                corrections.append({
+                    "field": "core_analysis.sections[tax_qualifications].columns",
+                    "before": "无有效性列",
+                    "after": "增加“有效性”列",
+                    "reason": "避免把过期或日期不明的税务资质当作当前有效",
+                })
+        if section.get("key") == "enterprise_rankings" and section.get("kind") == "bar":
+            old_note = section.get("note", "")
+            section["kind"] = "table"
+            section["title"] = "企业排名明细"
+            section["note"] = f"{old_note}；未返回排名的记录保留在表中，不进入排名图"
+            section["columns"] = [("榜单名称", "榜单名称"), ("榜单类型", "榜单类型"), ("上榜公司名", "上榜公司名"), ("排名", "排名"), ("发布年份", "发布年份"), ("榜单级别", "榜单级别"), ("发布单位", "发布单位")]
+            chart_section = {
+                "key": "enterprise_rankings_chart",
+                "title": "企业排名（有明确排名）",
+                "kind": "bar",
+                "note": "仅展示有明确排名的记录；排名数值越小越靠前。缺失排名不进入图表，避免被当作第 0 名。",
+                "chart": {"name": "榜单名称", "value": "排名", "orient": "h"},
+                "columns": [("榜单名称", "榜单名称"), ("排名", "排名"), ("发布年份", "发布年份")],
+            }
+            if not any(s.get("key") == "enterprise_rankings_chart" for s in sections):
+                sections.insert(sections.index(section), chart_section)
+            corrections.append({
+                "field": "core_analysis.sections[enterprise_rankings]",
+                "before": "单一 bar 图，缺排名记录按 0 进入图表",
+                "after": "bar 图仅保留有明确排名记录，另设明细表保留全部记录",
+                "reason": "图表值 0 会被误读为最高排名；缺失值不能补 0",
+            })
+    core["sections"] = sections
+
+    # Remove exact duplicate ranking rows and rebuild chart data.
+    ranking_rows = [r for r in (core.get("enterprise_rankings") or []) if isinstance(r, dict)]
+    unique_rankings: List[Dict[str, Any]] = []
+    seen_rank = set()
+    for row in ranking_rows:
+        key = tuple(str(row.get(k) or "") for k in ("榜单名称", "榜单类型", "上榜公司名", "排名", "发布年份", "榜单级别", "发布单位"))
+        if key in seen_rank:
+            continue
+        seen_rank.add(key)
+        unique_rankings.append(row)
+    if len(unique_rankings) != len(ranking_rows):
+        corrections.append({
+            "field": "core_analysis.enterprise_rankings",
+            "before": f"{len(ranking_rows)} 条",
+            "after": f"{len(unique_rankings)} 条",
+            "reason": "完全重复的榜单记录只保留一条",
+        })
+    core["enterprise_rankings"] = unique_rankings
+    core["enterprise_rankings_chart"] = [
+        row for row in unique_rankings
+        if str(row.get("排名", "")).replace(",", "").strip().isdigit()
+    ]
+    if not core["enterprise_rankings_chart"]:
+        core["sections"] = [s for s in core.get("sections", []) if s.get("key") != "enterprise_rankings_chart"]
+
+    # Sort sentiment trend chronologically (chart expects time order).
+    trend = core.get("news_sentiment_trend") or []
+    if isinstance(trend, list) and trend:
+        core["news_sentiment_trend"] = sorted(trend, key=lambda r: str((r or {}).get("月份") or ""))
+
+    # Metrics: dedupe, replace financing trail, normalize brand origin.
+    metrics = _dedupe_metrics([dict(m) for m in (out.get("metrics") or []) if isinstance(m, dict)])
+    for metric in metrics:
+        if metric.get("label") == "品牌发源地" and brand.get("品牌发源地"):
+            metric["value"] = brand.get("品牌发源地")
+        if metric.get("label") == "融资轮次":
+            financing_rows = [r for r in (core.get("financing_info") or []) if isinstance(r, dict)]
+            latest = max(financing_rows, key=lambda r: str(r.get("融资时间") or ""), default=None)
+            before = metric.get("value")
+            if latest and latest.get("融资轮次") not in (None, "", "-"):
+                metric["label"] = "最新融资轮次"
+                metric["value"] = str(latest.get("融资轮次"))
+                metric["hint"] = f"按融资时间排序的最新记录（{latest.get('融资时间') or '日期不明'}）；不等同于全部轮次轨迹"
+                corrections.append({
+                    "field": "metrics[融资轮次]",
+                    "before": before,
+                    "after": metric["value"],
+                    "reason": "原指标把上游返回顺序拼成轮次轨迹或仅给单轮；改为按日期的最新一轮并说明口径",
+                })
+        if metric.get("label") == "税务资质数":
+            metric["hint"] = "本次返回的税务资质记录数；有效性见明细表，过期/日期不明不视为当前有效"
+    out["metrics"] = metrics
+
+    # Rebuild narrative from corrected core/metrics.
+    insights = build_insights(subject, core, metrics)
+    out["insights"] = insights
+    out["executive_summary"] = [item["interpretation"] for item in insights][:5] or [build_abstract(subject, core, metrics)[:120]]
+    abstract = build_abstract(subject, core, metrics)
+    out["abstract"] = abstract
+    out["summary"] = abstract
+    source["content_review"] = {
+        "mode": "offline_report_fields_only",
+        "source_evidence_supplied": bool(source_evidence),
+        "reviewed_at": dt.datetime.now().astimezone().isoformat(timespec="seconds"),
+        "corrections": _merge_review_records(previous_review.get("corrections"), corrections),
+        "not_changed": [
+            "未重新查询 MCP；未新增融资、榜单、税务资质或品牌事实",
+            "过期税务资质与缺日期记录保留，只增加有效性标签",
+            "缺失排名不从图表删除业务记录，仍保留在明细表",
+        ],
+    }
+    out["data_source"] = source
+    return _refresh_quality_report(out)
+
 
 def _assemble(subject: Mapping[str, Any], core: Mapping[str, Any], metrics: Sequence[Mapping[str, Any]], *, dry_run: bool) -> Dict[str, Any]:
+    metrics = _dedupe_metrics(metrics)
     abstract = build_abstract(subject, core, metrics)
     records = build_records(core)
     insights = build_insights(subject, core, metrics)
@@ -806,7 +1116,7 @@ def _assemble(subject: Mapping[str, Any], core: Mapping[str, Any], metrics: Sequ
         import sys
         print("⚠️ 质量门禁警告: 所有核心分析维度均无数据", file=sys.stderr)
     title = f"{subject.get('enterprise') or '目标企业'} 企业经营分析报告"
-    return {
+    report = {
         "report_type": REPORT_TYPE,
         "title": title,
         "banner": REPORT_BANNER,
@@ -837,6 +1147,7 @@ def _assemble(subject: Mapping[str, Any], core: Mapping[str, Any], metrics: Sequ
             "quality_report": quality_report,
         },
     }
+    return apply_content_review(report)
 
 
 @paid_call_scope
